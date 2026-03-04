@@ -1,3 +1,6 @@
+# User-specific stuff
+.idea/
+
 # Angular specific
 /dist/
 /out-tsc/
