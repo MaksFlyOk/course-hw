@@ -61,6 +61,15 @@
             content: " |";
             font: 400 12px 'Inter', Arial, sans-serif;
         }
+
+        .visually-hidden {
+            clip-path: inset(50%);
+            height: 1px;
+            overflow: hidden;
+            position: absolute;
+            white-space: nowrap;
+            width: 1px;
+        }
     </style>
 </head>
 <body>
@@ -135,7 +144,9 @@
     <section>
         <h2>Создать статью</h2>
         <form action="#" method="post">
+            <label for="title" class="visually-hidden">Заголовок статьи</label>
             <input type="text" id="title" required name="title" placeholder="Заголовок">
+            <label for="content" class="visually-hidden">Текст статьи</label>
             <textarea id="content" name="content" required rows="10" cols="50" placeholder="Текст статьи" ></textarea>
             <button type="submit">Добавить</button>
         </form>
