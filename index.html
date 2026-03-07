@@ -1,11 +1,163 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Homework</title>
+        <title>Главная</title>
+        <style>
+            body {
+                margin: 0;
+                padding: 16px 20px;
+            }
+
+            h1, h2 {
+                font: 500 24px 'Inter', Arial, sans-serif;
+            }
+
+            h3 {
+                font: 500 16px 'Inter', Arial, sans-serif;
+            }
+
+            h4 {
+                font: 500 14px 'Inter', Arial, sans-serif;
+            }
+
+            p, a, li {
+                font: 400 12px 'Inter', Arial, sans-serif;
+            }
+
+            nav > ul {
+                padding-left: 20px;
+            }
+
+            .social-media {
+                padding-left: 0;
+                list-style: none;
+                display: flex;
+                gap: 4px;
+            }
+
+            .social-media > li:not(:last-child):after {
+                content: " |";
+                font: 400 12px 'Inter', Arial, sans-serif;
+            }
+        </style>
     </head>
     <body>
-        <h1>Homework</h1>
+        <header>
+            <nav aria-label="Основная навигация">
+                <ul>
+                    <li><a href="./index.html">Главная</a></li>
+                    <li><a href="./blog.html">Блог</a></li>
+                </ul>
+            </nav>
+        </header>
+        <main>
+            <section>
+                <h1>Обо мне</h1>
+                <p>Добро пожаловать! Я веб-разработчик с 5-летним опытом в создании интерактивных интерфейсов. На этом
+                    блоге я делюсь своими знаниями, проектами и идеями о том, как технология меняет способ общения людей. Здесь вы найдёте туториалы, кейсы из реальной практики и вдохновляющие истории.</p>
+                <img src="./public/image.png" alt="Горный пейзаж">
+            </section>
+            <section>
+                <h2>Моя карьера</h2>
+                <article>
+                    <h3>Текущая должность</h3>
+                    <h4>Старший веб-разработчик, ООО "DigitalStudio" (2022 — по настоящее время)</h4>
+                    <p>Руководство командой из 4 разработчиков, разработка архитектуры фронтенда, менторство младших специалистов, внедрение новых технологий в рабочий процесс.</p>
+                </article>
+                <section>
+                    <h3>Опыт работы:</h3>
+                    <article>
+                        <h4>Веб-разработчик, ООО "CreativeAgency" (2019 — 2022)</h4>
+                        <p>Создание корпоративных сайтов и веб-приложений на React и Vue.js, оптимизация производительности, работа с клиентами и сбор требований.</p>
+                    </article>
+                    <article>
+                        <h4>Фронтенд-разработчик, Стартап "TechVenture" (2018 — 2019)</h4>
+                        <p>Разработка пользовательского интерфейса для платформы e-learning, работа с REST API и веб-стандартами.</p>
+                    </article>
+                    <article>
+                        <h4>Интернет-стажёр, Веб-студия "WebMasters" (2017 — 2018)</h4>
+                        <p>Первый опыт в профессиональной разработке, участие в создании и поддержке различных проектов.</p>
+                    </article>
+                </section>
+                <section>
+                    <h3>Образование:</h3>
+                    <article>
+                        <h4>Государственный Технический Университет, 2013 — 2017</h4>
+                        <p>Бакалавриат по специальности "Информатика и вычислительная техника"</p>
+                        <p>Выпускная работа: "Оптимизация загрузки веб-страниц на мобильных устройствах"</p>
+                    </article>
+                </section>
+                <section>
+                    <h3>Курсы и сертификации:</h3>
+                    <ul>
+                        <li>Advanced React Development — Coursera (2023)</li>
+                        <li>UX/UI Design Fundamentals — Skillbox (2021)</li>
+                        <li>Web Performance Optimization — Frontend Masters (2022)</li>
+                        <li>Google Analytics Certification (2020)</li>
+                    </ul>
+                </section>
+                <section>
+                    <h3>Навыки:</h3>
+                    <ul>
+                        <li>Программирование: JavaScript, TypeScript, React, Vue.js, HTML5, CSS3, Node.js</li>
+                        <li>Инструменты: Git, Webpack, Docker, Figma, VS Code</li>
+                        <li>Методологии: Agile, Scrum, Test-Driven Development</li>
+                    </ul>
+                </section>
+                <section>
+                    <h3>Достижения:</h3>
+                    <ul>
+                        <li>Разработал платформу для управления проектами, которой пользуются более 500 компаний</li>
+                        <li>Снизил время загрузки сайта на 60% благодаря оптимизации и внедрению современных стандартов</li>
+                        <li>Провёл более 20 воркшопов и мастер-классов для начинающих разработчиков</li>
+                        <li>Организовал две конференции "Web Technologies Conference" в своем городе</li>
+                    </ul>
+                </section>
+            </section>
+            <section>
+                <h2>Последние статьи</h2>
+                <article>
+                    <header>
+                        <h3>Как создать адаптивный дизайн за 30 минут</h3>
+                        <p>Опубликовано: <time datetime="2024-12-15">15 декабря 2024</time></p>
+                    </header>
+                    <p>В этой статье я расскажу о ключевых принципах создания мобильных интерфейсов, которые
+                        одинаково хорошо выглядят на всех устройствах. Вы узнаете о медиа-запросах, гибких сетках и практических примерах кода, которые можно использовать прямо сейчас.</p>
+                </article>
+                <article>
+                    <header>
+                        <h3>Как создать адаптивный дизайн за 30 минут</h3>
+                        <p>Опубликовано: <time datetime="2024-12-15">15 декабря 2024</time></p>
+                    </header>
+                    <p>В этой статье я расскажу о ключевых принципах создания мобильных интерфейсов, которые одинаково хорошо выглядят на всех устройствах. Вы узнаете о медиа-запросах, гибких сетках и практических примерах кода, которые можно использовать прямо сейчас.</p>
+                </article>
+                <article>
+                    <header>
+                        <h3>Как создать адаптивный дизайн за 30 минут</h3>
+                        <p>Опубликовано: <time datetime="2024-12-15">15 декабря 2024</time></p>
+                    </header>
+                    <p>В этой статье я расскажу о ключевых принципах создания мобильных интерфейсов, которые одинаково хорошо выглядят на всех устройствах. Вы узнаете о медиа-запросах, гибких сетках и практических примерах кода, которые можно использовать прямо сейчас.</p>
+                </article>
+                <a href="./blog.html">Посмотреть все статьи</a>
+            </section>
+        </main>
+        <footer>
+            <section>
+                <h2>Контакты</h2>
+                <p>Email: <a href="mailto:alex@creativeblog.ru">alex@creativeblog.ru</a></p>
+                <p>Телефон: <a href="tel:79991234567">+7 (999) 123-45-67</a></p>
+            </section>
+            <section>
+                <h2>Социальные сети:</h2>
+                <ul class="social-media">
+                    <li><a href="#">Instagram</a></li>
+                    <li><a href="#">Twitter</a></li>
+                    <li><a href="#">LinkedIn</a></li>
+                    <li><a href="#">GitHub</a></li>
+                </ul>
+            </section>
+        </footer>
     </body>
 </html>
