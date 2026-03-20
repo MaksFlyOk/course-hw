@@ -1,0 +1,13 @@
+.contacts {
+    flex-direction: column;
+    gap: 16px;
+}
+
+.contacts-content__social {
+    margin-bottom: 16px;
+}
+
+.feedback {
+    max-width: 100%;
+    margin-bottom: 24px;
+}

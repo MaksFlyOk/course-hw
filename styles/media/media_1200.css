@@ -1,0 +1,17 @@
+.featured-article {
+    flex-direction: column;
+    gap: 16px;
+}
+
+.featured-article > img {
+    --img-article-width: 100%;
+}
+
+.featured-article__header {
+    padding: 0 28px 23px 28px;
+}
+
+.articles-list {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+}

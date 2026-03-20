@@ -1,0 +1,28 @@
+:root {
+    --header-height: 100px;
+}
+
+body {
+    padding-top: calc(var(--header-height) + 24px);
+}
+
+.header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+}
+
+.table-section__content__item {
+    min-width: 100%;
+}
+
+.add-article-form__buttons {
+    flex-direction: column;
+    gap: 8px;
+}
+
+.add-article-form__buttons > button {
+    display: flex;
+    width: inherit;
+    justify-content: center;
+}

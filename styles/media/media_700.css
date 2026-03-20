@@ -1,0 +1,19 @@
+:root {
+    /* Font vars */
+    --font-h1: normal 700 36px/1.1 "Inter", sans-serif;
+    --font-h2: normal 700 28px/1.25 "Inter", sans-serif;
+    --font-h3: normal 700 24px/1.1 "Inter", sans-serif;
+    --font-h4-bold: normal 700 20px/1.2 "Inter", sans-serif;
+    --font-h4-regular: normal 400 20px/1.2 "Inter", sans-serif;
+    --font-subtitle: normal 400 18px/1.2 "Inter", sans-serif;
+    --font-form: normal 400 16px/1.2 "Inter", sans-serif;
+    --font-text: normal 400 14px/1.4 "Inter", sans-serif;
+
+    /* Other vars */
+    --sections-gap: 60px;
+    --padding-horizontal: 66px;
+}
+
+.blog-item {
+    min-height: 0px;
+}
