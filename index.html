@@ -15,35 +15,37 @@
     </head>
     <body>
         <header class="header">
-            <span class="header-logo" aria-label="Логотип">Name-folio</span>
+            <span class="header-logo" aria-label="Логотип">MaksFlyOk</span>
             <nav aria-label="Основная навигация">
                 <ul class="nav-list">
-                    <li class="nav-list__item"><a href="/index.html" data-text="Главная">Главная</a></li>
-                    <li class="nav-list__item"><a href="/src/blog.html" data-text="Блог">Блог</a></li>
-                    <li class="nav-list__item"><a href="#contacts" target="_self" data-text="Контакты">Контакты</a></li>
+                    <li class="nav-list__item"><a href="/index.html" aria-label="Перейти на страницу 'Главная'" data-text="Главная">Главная</a></li>
+                    <li class="nav-list__item"><a href="/src/blog.html" aria-label="Перейти на страницу 'Блог'" data-text="Блог">Блог</a></li>
+                    <li class="nav-list__item"><a href="#contacts" target="_self" aria-label="Перейти к разделу 'Контакты'" data-text="Контакты">Контакты</a></li>
                 </ul>
             </nav>
         </header>
         <main>
             <section class="about-me">
                 <div class="about-me__title">
-                    <h1>Hello! I’m Nelsom, a photographer</h1>
-                    <p>Occaecat elit pariatur non Lorem laborum proident Lorem non sint nostrud. Et dolore incididunt mollit nostrud Lorem dolore. Qui aliquip aute amet eu adipisicing velit ullamco nulla sint enim do quis aute</p>
-                    <a href="#more-about-me">Больше обо мне</a>
+                    <h1>Привет! Меня зовут Максим, я разработчик</h1>
+                    <p>Активно развиваюсь в веб-разработке, изучаю современные технологии и лучшие практики. Стремлюсь создавать удобные и красивые интерфейсы, постоянно улучшая свои навыки</p>
+                    <a href="#more-about-me" aria-label="Перейти к разделу 'Больше обо мне'">Больше обо мне</a>
                 </div>
                 <div class="about-me__hero">
-                    <img src="/assets/images/image.png" alt="Горный пейзаж">
-                    <a href="#blog"><img class="blog-link" src="/assets/images/my-blogs.svg" alt="Ссылка на блог"></a>
+                    <img src="/assets/images/hero-img.webp" alt="Горный пейзаж">
+                    <a href="#blog" aria-label="Перейти к разделу 'Блог'">
+                        <img class="blog-link" src="/assets/images/my-blogs.svg" alt="Ссылка на блог">
+                    </a>
                 </div>
             </section>
             <section class="list-section" id="more-about-me">
                 <div class="list-section__title">
                     <h2>Моя карьера</h2>
-                    <p>Duis nisi do exercitation in irure aliqua commodo nisi eu id reprehenderit dolore fugiat consectetur irure</p>
+                    <p>Постоянно развиваюсь в области веб-разработки, изучаю новые технологии и применяю их на практике в личных и учебных проектах</p>
                 </div>
                 <div>
                     <article class="list-section__item">
-                        <img src="/assets/images/work-img1.png" alt="Логотип компании DigitalStudio">
+                        <img src="/assets/images/work/work-img1.webp" alt="Логотип компании DigitalStudio">
                         <div class="list-section__item__content">
                             <h3>
                                 <span>ООО "DigitalStudio" (2022 — по настоящее время)</span>
@@ -54,7 +56,7 @@
                         </div>
                     </article>
                     <article class="list-section__item">
-                        <img src="/assets/images/work-img2.png" alt="Логотип компании CreativeAgency">
+                        <img src="/assets/images/work/work-img2.webp" alt="Логотип компании CreativeAgency">
                         <div class="list-section__item__content">
                             <h3>
                                 <span>ООО "CreativeAgency" (2019 — 2022)</span>
@@ -64,7 +66,7 @@
                         </div>
                     </article>
                     <article class="list-section__item">
-                        <img src="/assets/images/work-img3.png" alt="Логотип компании TechVenture">
+                        <img src="/assets/images/work/work-img3.webp" alt="Логотип компании TechVenture">
                         <div class="list-section__item__content">
                             <h3>
                                 <span>Стартап "TechVenture" (2018 — 2019)</span>
@@ -81,7 +83,7 @@
                 </div>
                 <div>
                     <article class="list-section__item">
-                        <img src="/assets/images/work-img1.png" alt="Логотип университета">
+                        <img src="/assets/images/university/uni-img1.webp" alt="Логотип Государственного Технического Университета">
                         <div class="list-section__item__content">
                             <h3>
                                 <span>Государственный Технический Университет (2013 — 2017)</span>
@@ -91,13 +93,13 @@
                         </div>
                     </article>
                     <article class="list-section__item">
-                        <img src="/assets/images/work-img2.png" alt="Логотип университета">
+                        <img src="/assets/images/university/uni-img2.webp" alt="Логотип Государственного Технического Колледжа">
                         <div class="list-section__item__content">
                             <h3>
-                                <span>Государственный Технический Университет (2013 — 2017)</span>
-                                <span>Бакалавриат по специальности "Информатика и вычислительная техника"</span>
+                                <span>Государственный Технический Колледж (2013 — 2017)</span>
+                                <span>Специальности "Программное обеспечение компьютерных систем"</span>
                             </h3>
-                            <p>Выпускная работа: "Оптимизация загрузки веб-страниц на мобильных устройствах"</p>
+                            <p>Выпускная работа: "Разработка веб-приложения для управления учебными проектами"</p>
                         </div>
                     </article>
                 </div>
@@ -108,25 +110,37 @@
                     <li class="table-section__content__item">
                         <h3>
                             <span>Coursera (2023)</span>
-                            <span>Advanced React Development</span>
+                            <span>Продвинутая разработка на React</span>
                         </h3>
                     </li>
                     <li class="table-section__content__item">
                         <h3>
                             <span>Skillbox (2021)</span>
-                            <span>UX/UI Design Fundamentals</span>
+                            <span>Основы UX/UI дизайна для веб-разработчиков</span>
                         </h3>
                     </li>
                     <li class="table-section__content__item">
                         <h3>
                             <span>Frontend Masters (2022)</span>
-                            <span>Web Performance Optimization</span>
+                            <span>Оптимизация производительности веб-приложений</span>
                         </h3>
                     </li>
                     <li class="table-section__content__item">
                         <h3>
-                            <span>Google (2020)</span>
-                            <span>Google Analytics Certification </span>
+                            <span>Practicum (2021)</span>
+                            <span>JavaScript для фронтенд-разработчиков</span>
+                        </h3>
+                    </li>
+                    <li class="table-section__content__item">
+                        <h3>
+                            <span>Academy (2021)</span>
+                            <span>Адаптивная вёрстка и современные CSS-технологии</span>
+                        </h3>
+                    </li>
+                    <li class="table-section__content__item">
+                        <h3>
+                            <span>Udemy (2020)</span>
+                            <span>Основы Git и работа с системами контроля версий</span>
                         </h3>
                     </li>
                 </ul>
@@ -156,36 +170,36 @@
             </section>
             <section class="achievements">
                 <div class="achievements__title">
-                    <h2>Достижения</h2>
-                    <p>Duis nisi do exercitation in irure aliqua commodo nisi eu id reprehenderit dolore fugiat consectetur irure labore est ea.</p>
+                    <h2>Мои достижения</h2>
+                    <p>Постоянно развиваюсь в области веб-разработки, реализую учебные проекты и улучшаю свои навыки через практику.</p>
                 </div>
                 <ul class="achievements__content">
                     <li>
-                        <img src="/assets/images/skeleton-img.png" alt="">
+                        <img src="/assets/images/achivments/achivment-img1.webp" alt="Обложка достижения 'Учебный проект 'TaskMaster''">
                         <article class="achievements__item__description">
-                            <h3>Article</h3>
-                            <p>Разработал платформу для управления проектами, которой пользуются более 500 компаний</p>
+                            <h3>Учебный проект "TaskMaster"</h3>
+                            <p>Разработал приложение для управления задачами с использованием React и TypeScript, которое помогает пользователям организовывать личные дела</p>
                         </article>
                     </li>
                     <li>
-                        <img src="/assets/images/skeleton-img.png" alt="">
+                        <img src="/assets/images/achivments/achivment-img2.webp" alt="Обложка достижения 'Оптимизация учебного сайта'">
                         <article class="achievements__item__description">
-                            <h3>Article</h3>
-                            <p>Снизил время загрузки сайта на 60% благодаря оптимизации и внедрению современных стандартов</p>
+                            <h3>Оптимизация учебного сайта</h3>
+                            <p>Улучшил производительность учебного сайта на 50% за счёт оптимизации изображений, минификации CSS и JavaScript</p>
                         </article>
                     </li>
                     <li>
-                        <img src="/assets/images/skeleton-img.png" alt="">
+                        <img src="/assets/images/achivments/achivment-img3.webp" alt="Обложка достижения 'Адаптивный дизайн для проекта'">
                         <article class="achievements__item__description">
-                            <h3>Article</h3>
-                            <p>Провёл более 20 воркшопов и мастер-классов для начинающих разработчиков</p>
+                            <h3>Адаптивный дизайн для проекта</h3>
+                            <p>Реализовал полностью адаптивный дизайн для учебного веб-приложения, который корректно отображается на всех устройствах</p>
                         </article>
                     </li>
                     <li>
-                        <img src="/assets/images/skeleton-img.png" alt="">
+                        <img src="/assets/images/achivments/achivment-img4.webp" alt="Обложка достижения 'Создание личного портфолио'">
                         <article class="achievements__item__description">
-                            <h3>Article</h3>
-                            <p>Организовал две конференции "Web Technologies Conference" в своем городе</p>
+                            <h3>Создание личного портфолио</h3>
+                            <p>Разработал и опубликовал личное портфолио с использованием современных технологий: HTML5, CSS3 и JavaScript</p>
                         </article>
                     </li>
                 </ul>
@@ -195,47 +209,46 @@
                 <div>
                     <article class="blog-item">
                         <header class="blog-item__header">
-                            <p>Опубликовано: <time datetime="2024-12-15">15 декабря 2024</time></p>
-                            <h3>Как создать адаптивный дизайн за 30 минут</h3>
-                            <p>В этой статье я расскажу о ключевых принципах создания мобильных интерфейсов, которые одинаково хорошо выглядят на всех устройствах. Вы узнаете о медиа-запросах, гибких сетках и практических примерах кода, которые можно использовать прямо сейчас.</p>
+                            <time datetime="2024-12-15">15 декабря 2024</time>
+                            <h3>Основы работы с Git для начинающих разработчиков</h3>
+                            <p>В этой статье рассмотрим основные команды Git, которые необходимы каждому разработчику. Вы узнаете, как инициализировать репозиторий, делать коммиты, работать с ветками и решать конфликты при слиянии.</p>
                         </header>
-                        <img src="/assets/images/skeleton-img.png" alt="">
+                        <img src="/assets/images/blog/blog-img1.webp" alt="Обложка статьи 'Основы работы с Git для начинающих разработчиков'">
                     </article>
                     <article class="blog-item">
                         <header class="blog-item__header">
-                            <p>Опубликовано: <time datetime="2024-12-15">15 декабря 2024</time></p>
-                            <h3>Как создать адаптивный дизайн за 30 минут</h3>
-                            <p>В этой статье я расскажу о ключевых принципах создания мобильных интерфейсов, которые одинаково хорошо выглядят на всех устройствах. Вы узнаете о медиа-запросах, гибких сетках и практических примерах кода, которые можно использовать прямо сейчас.</p>
+                            <time datetime="2024-09-03">3 сентября 2024</time>
+                            <h3>Создание первого веб-приложения на React</h3>
+                            <p>Пошаговое руководство по созданию простого веб-приложения с использованием React. Мы разберём установку необходимых инструментов, создание компонентов и управление состоянием приложения.</p>
                         </header>
-                        <img src="/assets/images/skeleton-img.png" alt="">
+                        <img src="/assets/images/blog/blog-img2.webp" alt="Обложка статьи 'Как создать адаптивный дизайн за 30 минут'">
                     </article>
                 </div>
-                <a href="/src/blog.html">Посмотреть все статьи</a>
+                <a class="border-button" href="/src/blog.html">Посмотреть все статьи</a>
             </section>
         </main>
         <footer class="footer">
             <section class="contacts" id="contacts">
                 <div class="contacts-content">
-                    <h2>Say hello and let's work together !</h2>
+                    <h2>Давайте познакомимся и начнём работать вместе!</h2>
                     <address class="contacts-content__address">
-                        <p>Email: <a href="mailto:alex@creativeblog.ru">alex@creativeblog.ru</a></p>
-                        <p>Телефон: <a href="tel:79991234567">+7 (999) 123-45-67</a></p>
+                        <p>Email:<a href="mailto:alex@creativeblog.ru" aria-label="Написать на email alex@creativeblog.ru">alex@creativeblog.ru</a></p>
+                        <p>Телефон: <a href="tel:79991234567" aria-label="Позвонить по телефону +7 (999) 123-45-67">+7 (999) 123-45-67</a></p>
                     </address>
                     <ul class="contacts-content__social">
-                        <li><a href="#"><img src="/assets/images/vk-img.png" alt="VK Суховаров Максим"></a></li>
-                        <li><a href="#"><img src="/assets/images/tg-img.png" alt="Telegram Суховаров Максим"></a></li>
-                        <li><a href="#"><img src="/assets/images/github-img.png" alt="Github Суховаров Максим"></a></li>
+                        <li><a href="#" target="_blank" aria-label="Профиль VK Суховарова Максима (открывается в новой вкладке)"><img src="/assets/images/contacts/vk-img.webp" alt="VK Суховаров Максим"></a></li>
+                        <li><a href="#" target="_blank" aria-label="Профиль Telegram Суховарова Максима (открывается в новой вкладке)"><img src="/assets/images/contacts/tg-img.webp" alt="Telegram Суховаров Максим"></a></li>
+                        <li><a href="#" target="_blank" aria-label="Профиль GitHub Суховарова Максима (открывается в новой вкладке)"><img src="/assets/images/contacts/github-img.webp" alt="Github Суховаров Максим"></a></li>
                     </ul>
                     <span>&#169; 2026, Sukhovarov Maksim</span>
                 </div>
                 <div class="feedback">
                     <form class="feedback-form" action="#" method="post">
-                        <label for="email">Email</label>
-                        <input type="email" id="email" required name="email" placeholder="Your email adress">
-                        <label for="message">Input your message</label>
-                        <textarea id="message" name="message" required rows="4" cols="50"
-                                  placeholder="Describe your project"></textarea>
-                        <button type="submit">Submit</button>
+                        <label for="email">Ваш Email</label>
+                        <input type="email" id="email" required name="email" placeholder="Ваш Email">
+                        <label for="message">Ваше сообщение</label>
+                        <textarea id="message" name="message" required rows="4" cols="50" placeholder="Опишите ваш проект или задачу"></textarea>
+                        <button class="fill-button" type="submit">Отправить</button>
                     </form>
                 </div>
             </section>
