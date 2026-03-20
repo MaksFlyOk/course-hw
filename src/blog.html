@@ -1,174 +1,161 @@
 <!DOCTYPE html>
 <html lang="ru">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Блог</title>
-    <style>
-        body {
-            margin: 0;
-            padding: 16px 20px;
-        }
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Блог</title>
+        <link rel="icon" href="/assets/images/favicon.ico" type="image/x-icon">
+        <link rel="preload" href="/assets/fonts/inter-italic-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
+        <link rel="preload" href="/assets/fonts/inter-italic-latin.woff2" as="font" type="font/woff2" crossorigin>
+        <link rel="preload" href="/assets/fonts/inter-italic.woff2" as="font" type="font/woff2" crossorigin>
+        <link rel="preload" href="/assets/fonts/inter-norma-cirillic.woff2" as="font" type="font/woff2" crossorigin>
+        <link rel="preload" href="/assets/fonts/inter-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
+        <link rel="stylesheet" href="../styles/fonts.css">
+        <link rel="stylesheet" href="../styles/main.css">
+    </head>
+    <body>
+        <header class="header">
+            <span class="header-logo" aria-label="Логотип">MaksFlyOk</span>
+            <nav aria-label="Основная навигация">
+                <ul class="nav-list">
+                    <li class="nav-list__item"><a href="/index.html" aria-label="Перейти на страницу 'Главная'" data-text="Главная">Главная</a></li>
+                    <li class="nav-list__item"><a href="/src/blog.html" aria-label="Перейти на страницу 'Блог'" data-text="Блог">Блог</a></li>
+                    <li class="nav-list__item"><a href="#contacts" target="_self" aria-label="Перейти к разделу 'Контакты'" data-text="Контакты">Контакты</a></li>
+                </ul>
+            </nav>
+        </header>
+        <main>
+            <aside class="side-menu">
+                <button>a</button>
+                <button>b</button>
+            </aside>
+            <section>
+                <div class="blog-header">
+                    <div class="blog-header__title">
+                        <h1>Мой блог</h1>
+                        <p>Здесь я делюсь полезными материалами и своими мыслями о веб-разработке. Пишу о новых технологиях, инструментах и подходах, которые помогают создавать современные веб-приложения.</p>
+                    </div>
+                    <div class="blog-header__hero">
+                        <img src="/assets/images/my-blogs.svg" alt="Ссылка на блог">
+                    </div>
+                </div>
+                <section class="articles">
+                    <article class="featured-article">
+                        <img src="/assets/images/blog/blog-img1.webp" alt="Обложка статьи 'Основы работы с Git для начинающих разработчиков'">
+                        <div class="featured-article__header">
+                            <h2>Основы работы с Git для начинающих разработчиков</h2>
+                            <p>В этой статье рассмотрим основные команды Git, которые необходимы каждому разработчику. Вы узнаете, как инициализировать репозиторий, делать коммиты, работать с ветками и решать конфликты при слиянии.</p>
+                            <time datetime="2024-12-15">15 декабря 2024</time>
+                        </div>
+                    </article>
+                    <ul class="articles-list">
+                        <li>
+                            <article class="article">
+                                <img src="/assets/images/blog/blog-img2.webp" alt="Обложка статьи 'Создание простого веб-приложения с React'">
+                                <div class="article__content">
+                                    <p>Пошаговое руководство по созданию простого веб-приложения с использованием React. Мы разберём установку необходимых инструментов, создание компонентов и управление состоянием приложения.</p>
+                                    <time datetime="2024-09-03">3 сентября 2024</time>
+                                </div>
+                            </article>
+                        </li>
+                        <li>
+                            <article class="article">
+                                <img src="/assets/images/blog/blog-img3.webp" alt="Иллюстрация к статье о верстке">
+                                <div class="article__content">
+                                    <p>Погружаемся в мир современной верстки: от базовых тегов HTML5 до продвинутых техник CSS. Рассмотрим, как создавать семантически правильные и доступные веб-страницы, которые корректно отображаются на всех устройствах.</p>
+                                    <time datetime="2024-11-05">5 ноября 2024</time>
+                                </div>
+                            </article>
+                        </li>
+                        <li>
+                            <article class="article">
+                                <img src="/assets/images/blog/blog-img4.webp" alt="Иллюстрация к статье о TypeScript">
+                                <div class="article__content">
+                                    <p>Почему TypeScript становится стандартом в современной фронтенд-разработке? Разберём основные преимущества типизации, научимся настраивать проект с нуля и рассмотрим практические примеры использования типов для повышения надёжности кода.</p>
+                                    <time datetime="2024-10-22">22 октября 2024</time>
+                                </div>
+                            </article>
+                        </li>
+                        <li>
+                            <article class="article">
+                                <img src="/assets/images/blog/blog-img5.webp" alt="Иллюстрация к статье о CSS Grid">
+                                <div class="article__content">
+                                    <p>Изучим возможности CSS Grid для создания сложных макетов. Вы научитесь определять области сетки, управлять выравниванием элементов и создавать адаптивные дизайны без медиа-запросов.</p>
+                                    <time datetime="2024-08-12">12 августа 2024</time>
+                                </div>
+                            </article>
+                        </li>
+                        <li>
+                            <article class="article">
+                                <img src="/assets/images/blog/blog-img6.webp" alt="Иллюстрация к статье о JavaScript">
+                                <div class="article__content">
+                                    <p>Разберём ключевые концепции современного JavaScript. Вы узнаете о замыканиях, прототипном наследовании, асинхронном программировании и новых возможностях ES6+, которые делают код чище и эффективнее.</p>
+                                    <time datetime="2024-07-30">30 июля 2024</time>
+                                </div>
+                            </article>
+                        </li>
+                        <li>
+                            <article class="article">
+                                <img src="/assets/images/blog/blog-img7.webp" alt="Иллюстрация к статье о доступности">
+                                <div class="article__content">
+                                    <p>Поговорим о важности веб-доступности и основных принципах её реализации. Вы узнаете, как делать сайты удобными для всех пользователей, включая людей с ограниченными возможностями.</p>
+                                    <time datetime="2024-06-15">15 июня 2024</time>
+                                </div>
+                            </article>
+                        </li>
 
-        h1 {
-            font: 500 24px 'Inter', Arial, sans-serif;
-        }
-
-        h2 {
-            font: 500 16px 'Inter', Arial, sans-serif;
-        }
-
-        input, textarea {
-            font: 400 16px 'Inter', Arial, sans-serif;
-        }
-
-        p, a, li {
-            font: 400 12px 'Inter', Arial, sans-serif;
-        }
-
-        nav > ul {
-            padding-left: 20px;
-        }
-
-        .articles-list {
-            padding-left: 0;
-            list-style: none;
-        }
-
-        form {
-            max-width: 460px;
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-        }
-
-        form > button {
-            max-width: max-content;
-        }
-
-        form > textarea {
-            resize: vertical;
-        }
-
-        .social-media {
-            padding-left: 0;
-            list-style: none;
-            display: flex;
-            gap: 4px;
-        }
-
-        .social-media > li:not(:last-child):after {
-            content: " |";
-            font: 400 12px 'Inter', Arial, sans-serif;
-        }
-
-        .visually-hidden {
-            clip-path: inset(50%);
-            height: 1px;
-            overflow: hidden;
-            position: absolute;
-            white-space: nowrap;
-            width: 1px;
-        }
-    </style>
-</head>
-<body>
-<header>
-    <nav aria-label="Основная навигация">
-        <ul>
-            <li><a href="../index.html">Главная</a></li>
-            <li><a href="./blog.html">Блог</a></li>
-        </ul>
-    </nav>
-</header>
-<main>
-    <section>
-        <h1>Статьи</h1>
-        <ul class="articles-list">
-            <li>
-                <article>
-                    <header>
-                        <h2>Как создать адаптивный дизайн за 30 минут</h2>
-                        <p>Опубликовано: <time datetime="2024-12-15">15 декабря 2024</time></p>
-                    </header>
-                    <p>В этой статье я расскажу о ключевых принципах создания мобильных интерфейсов, которые одинаково хорошо выглядят на всех устройствах. Вы узнаете о медиа-запросах, гибких сетках и практических примерах кода, которые можно использовать прямо сейчас.</p>
-                </article>
-            </li>
-            <li>
-                <article>
-                    <header>
-                        <h2>Как создать адаптивный дизайн за 30 минут</h2>
-                        <p>Опубликовано: <time datetime="2024-12-15">15 декабря 2024</time></p>
-                    </header>
-                    <p>В этой статье я расскажу о ключевых принципах создания мобильных интерфейсов, которые одинаково хорошо выглядят на всех устройствах. Вы узнаете о медиа-запросах, гибких сетках и практических примерах кода, которые можно использовать прямо сейчас.</p>
-                </article>
-            </li>
-            <li>
-                <article>
-                    <header>
-                        <h2>Как создать адаптивный дизайн за 30 минут</h2>
-                        <p>Опубликовано: <time datetime="2024-12-15">15 декабря 2024</time></p>
-                    </header>
-                    <p>В этой статье я расскажу о ключевых принципах создания мобильных интерфейсов, которые одинаково хорошо выглядят на всех устройствах. Вы узнаете о медиа-запросах, гибких сетках и практических примерах кода, которые можно использовать прямо сейчас.</p>
-                </article>
-            </li>
-            <li>
-                <article>
-                    <header>
-                        <h2>Как создать адаптивный дизайн за 30 минут</h2>
-                        <p>Опубликовано: <time datetime="2024-12-15">15 декабря 2024</time></p>
-                    </header>
-                    <p>В этой статье я расскажу о ключевых принципах создания мобильных интерфейсов, которые одинаково хорошо выглядят на всех устройствах. Вы узнаете о медиа-запросах, гибких сетках и практических примерах кода, которые можно использовать прямо сейчас.</p>
-                </article>
-            </li>
-            <li>
-                <article>
-                    <header>
-                        <h2>Как создать адаптивный дизайн за 30 минут</h2>
-                        <p>Опубликовано: <time datetime="2024-12-15">15 декабря 2024</time></p>
-                    </header>
-                    <p>В этой статье я расскажу о ключевых принципах создания мобильных интерфейсов, которые одинаково хорошо выглядят на всех устройствах. Вы узнаете о медиа-запросах, гибких сетках и практических примерах кода, которые можно использовать прямо сейчас.</p>
-                </article>
-            </li>
-            <li>
-                <article>
-                    <header>
-                        <h2>Как создать адаптивный дизайн за 30 минут</h2>
-                        <p>Опубликовано: <time datetime="2024-12-15">15 декабря 2024</time></p>
-                    </header>
-                    <p>В этой статье я расскажу о ключевых принципах создания мобильных интерфейсов, которые одинаково хорошо выглядят на всех устройствах. Вы узнаете о медиа-запросах, гибких сетках и практических примерах кода, которые можно использовать прямо сейчас.</p>
-                </article>
-            </li>
-        </ul>
-    </section>
-    <section>
-        <h2>Создать статью</h2>
-        <form action="#" method="post">
-            <label for="title" class="visually-hidden">Заголовок статьи</label>
-            <input type="text" id="title" required name="title" placeholder="Заголовок">
-            <label for="content" class="visually-hidden">Текст статьи</label>
-            <textarea id="content" name="content" required rows="10" cols="50" placeholder="Текст статьи" ></textarea>
-            <button type="submit">Добавить</button>
-        </form>
-    </section>
-</main>
-<footer>
-    <section>
-        <h2>Контакты</h2>
-        <address>
-            Email: <a href="mailto:alex@creativeblog.ru">alex@creativeblog.ru</a><
-            Телефон: <a href="tel:79991234567">+7 (999) 123-45-67</a>
-        </address>
-    </section>
-    <section>
-        <h2>Социальные сети:</h2>
-        <ul class="social-media">
-            <li><a href="#">Instagram</a></li>
-            <li><a href="#">Twitter</a></li>
-            <li><a href="#">LinkedIn</a></li>
-            <li><a href="#">GitHub</a></li>
-        </ul>
-    </section>
-</footer>
-</body>
+                    </ul>
+                    <button class="border-button">
+                        Следующие
+                        <svg width="19" height="13" viewBox="0 0 19 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M18.7071 8.07112C19.0976 7.6806 19.0976 7.04743 18.7071 6.65691L12.3431 0.292947C11.9526 -0.0975775 11.3195 -0.0975775 10.9289 0.292947C10.5384 0.683471 10.5384 1.31664 10.9289 1.70716L16.5858 7.36402L10.9289 13.0209C10.5384 13.4114 10.5384 14.0446 10.9289 14.4351C11.3195 14.8256 11.9526 14.8256 12.3431 14.4351L18.7071 8.07112ZM0 7.36401L-8.74228e-08 8.36401L18 8.36402L18 7.36402L18 6.36402L8.74228e-08 6.36401L0 7.36401Z" fill="#75BB7C"/>
+                        </svg>
+                    </button>
+                </section>
+            </section>
+            <section class="add-article">
+                <h2>Добавить статью</h2>
+                <form action="#" method="post">
+                    <label for="title">Заголовок</label>
+                    <input type="text" id="title" required name="title" placeholder="Заголовок">
+                    <label for="content">Текст статьи</label>
+                    <textarea id="content" name="content" required rows="5" cols="50" placeholder="Текст статьи"></textarea>
+                    <div class="add-article-form__buttons">
+                        <button class="fill-button" type="submit">
+                            Добавить
+                        </button>
+                        <button class="add-article__reset border-button" type="reset">
+                            Отмена
+                        </button>
+                    </div>
+                </form>
+            </section>
+        </main>
+        <footer class="footer">
+            <section class="contacts" id="contacts">
+                <div class="contacts-content">
+                    <h2>Давайте познакомимся и начнём работать вместе!</h2>
+                    <address class="contacts-content__address">
+                        <p>Email:<a href="mailto:alex@creativeblog.ru" aria-label="Написать на email alex@creativeblog.ru">alex@creativeblog.ru</a></p>
+                        <p>Телефон: <a href="tel:79991234567" aria-label="Позвонить по телефону +7 (999) 123-45-67">+7 (999) 123-45-67</a></p>
+                    </address>
+                    <ul class="contacts-content__social">
+                        <li><a href="#" target="_blank" aria-label="Профиль VK Суховарова Максима (открывается в новой вкладке)"><img src="/assets/images/contacts/vk-img.webp" alt="VK Суховаров Максим"></a></li>
+                        <li><a href="#" target="_blank" aria-label="Профиль Telegram Суховарова Максима (открывается в новой вкладке)"><img src="/assets/images/contacts/tg-img.webp" alt="Telegram Суховаров Максим"></a></li>
+                        <li><a href="#" target="_blank" aria-label="Профиль GitHub Суховарова Максима (открывается в новой вкладке)"><img src="/assets/images/contacts/github-img.webp" alt="Github Суховаров Максим"></a></li>
+                    </ul>
+                    <span>&#169; 2026, Sukhovarov Maksim</span>
+                </div>
+                <div class="feedback">
+                    <form class="feedback-form" action="#" method="post">
+                        <label for="email">Ваш Email</label>
+                        <input type="email" id="email" required name="email" placeholder="Ваш Email">
+                        <label for="message">Ваше сообщение</label>
+                        <textarea id="message" name="message" required rows="4" cols="50" placeholder="Опишите ваш проект или задачу"></textarea>
+                        <button class="fill-button" type="submit">Отправить</button>
+                    </form>
+                </div>
+            </section>
+        </footer>
+    </body>
 </html>
