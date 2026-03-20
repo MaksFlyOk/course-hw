@@ -1,0 +1,10 @@
+.blog-header {
+    flex-direction: column;
+    gap: 24px;
+    align-items: center;
+}
+
+.articles-list {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(6, 1fr);
+}

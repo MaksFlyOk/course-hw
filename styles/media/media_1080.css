@@ -1,0 +1,57 @@
+.about-me {
+    grid-template-columns: 1fr;
+}
+
+.about-me__hero {
+    width: 80%;
+    height: 50vh;
+}
+
+.about-me__hero > img {
+    border-radius: 0 0 var(--large-radius) 1000px;
+}
+
+.list-section {
+    grid-template-columns: 1fr;
+}
+
+.list-section__title {
+    margin-bottom: 24px;
+}
+
+.achievements__title {
+    grid-template-columns: 1fr;
+}
+
+.achievements__title > h2 {
+    margin-bottom: 13px;
+}
+
+.achievements__content {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(4, 1fr);
+    grid-template-areas:
+        "item1"
+        "item2"
+        "item3"
+        "item4";
+}
+
+.achievements__content > li > img {
+    width: 100%;
+    height: 20vh;
+    object-fit: cover;
+}
+
+.blog-item {
+    flex-direction: column;
+}
+
+.blog-item > img {
+    --img-article-width: 100%;
+}
+
+.blog-item__header {
+    padding: 24px 49px 16px 29px;
+    flex-shrink: 1;
+}

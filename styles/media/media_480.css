@@ -1,0 +1,13 @@
+:root {
+    --sections-gap: 24px;
+    --padding-horizontal: 30px;
+}
+
+.fill-button,
+.border-button {
+    padding: 12px 30px;
+}
+
+.achievements__content > li > img {
+    height: 70vw;
+}
