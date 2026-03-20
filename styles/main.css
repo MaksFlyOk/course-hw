@@ -1,7 +1,7 @@
-@import url("/styles/_reset.css");
-@import url("/styles/_variables.css");
-@import url("/styles/_base.css");
-@import url("/styles/_components.css");
+@import url("styles/_reset.css");
+@import url("styles/_variables.css");
+@import url("styles/_base.css");
+@import url("styles/_components.css");
 
 /* Main */
 main {
