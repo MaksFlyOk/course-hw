@@ -1,7 +1,7 @@
-@import url("_reset.css");
-@import url("_variables.css");
-@import url("_base.css");
-@import url("_components.css");
+@import url("./_reset.css");
+@import url("./_variables.css");
+@import url("./_base.css");
+@import url("./_components.css");
 
 /* Main */
 main {
@@ -132,7 +132,7 @@ main {
 
     &::after {
         content: "";
-        background: url("/assets/images/link-arrow.webp") no-repeat center;
+        background: url("../assets/images/link-arrow.webp") no-repeat center;
         width: 13px;
         height: 19px;
         margin-left: 23px;
