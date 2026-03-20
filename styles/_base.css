@@ -1,0 +1,82 @@
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+    max-width: var(--max-width);
+    background-color: var(--color-background);
+    color: var(--color-primary);
+    text-rendering: optimizeSpeed;
+    line-height: 1;
+    padding-top: calc(var(--header-height) + 50px);
+}
+
+section {
+    max-width: var(--max-width);
+    margin: 0 auto;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+h1 {
+    font: var(--font-h1);
+}
+h2 {
+    font: var(--font-h2);
+}
+h3 {
+    font: var(--font-h3);
+}
+h4 {
+    font: var(--font-h4-bold);
+}
+
+p {
+    font: var(--font-text);
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    font: var(--font-form);
+    margin: 0 0 4px 4px;
+}
+
+input, textarea {
+    padding: 17px 20px;
+    border-radius: var(--small-radius);
+    background-color: var(--color-background);
+    border: 1px solid var(--color-primary);
+    margin-bottom: 16px;
+    font: var(--font-form);
+    color: var(--color-primary);
+    transition: border-color var(--transition-speed);
+
+    & > input::placeholder {
+        color: var(--color-placeholder);
+    }
+
+    &:focus {
+        border-color: var(--color-accent-green);
+    }
+}
+
+textarea {
+    resize: vertical;
+}
+
+.visually-hidden {
+    clip-path: inset(50%);
+    height: 1px;
+    overflow: hidden;
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
+}

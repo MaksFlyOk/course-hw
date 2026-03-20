@@ -1,0 +1,34 @@
+:root {
+    /* Color vars */
+    --color-primary: #323747;
+    --color-secondary: #68686A;
+    --color-tertiary: #BDC1CA;
+    --color-accent-red: #F23131;
+    --color-light-red: #FEF3EF;
+    --color-accent-green: #61C15C;
+    --color-light-green: #F4FBF4;
+    --color-background: #FFFFFF;
+    --color-placeholder: #A3A6AD;
+    --color-description-overlay: rgba(50, 55, 67, 0.75);
+    --color-featured: #FAFAFA;
+
+    /* Font vars */
+    --font-h1: normal 700 52px/1 "Inter", sans-serif;
+    --font-h2: normal 700 40px/1.375 "Inter", sans-serif;
+    --font-h3: normal 700 32px/0.8125 "Inter", sans-serif;
+    --font-h4-bold: normal 700 24px/1 "Inter", sans-serif;
+    --font-h4-regular: normal 400 24px/1 "Inter", sans-serif;
+    --font-subtitle: normal 400 21px/1 "Inter", sans-serif;
+    --font-form: normal 400 18px/1 "Inter", sans-serif;
+    --font-text: normal 400 15px/1.73 "Inter", sans-serif;
+
+    /* Other vars */
+    --header-height: 66px;
+    --max-width: 1440px;
+    --sections-gap: 100px;
+    --padding-horizontal: 132px;
+    --large-radius: 8px;
+    --small-radius: 5px;
+    --transition-speed: 0.5s;
+    --blog-image-aspect-ratio: 5/3;
+}
