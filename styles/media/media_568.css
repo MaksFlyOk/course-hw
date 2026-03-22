@@ -26,3 +26,8 @@ body {
     width: inherit;
     justify-content: center;
 }
+
+.model__stats-list {
+    display: flex;
+    flex-direction: column;
+}

@@ -9,7 +9,7 @@
     --color-light-green: #F4FBF4;
     --color-background: #FFFFFF;
     --color-placeholder: #A3A6AD;
-    --color-description-overlay: rgba(50, 55, 67, 0.75);
+    --color-overlay: rgba(50, 55, 67, 0.75);
     --color-featured: #FAFAFA;
 
     /* Font vars */
@@ -31,4 +31,28 @@
     --small-radius: 5px;
     --transition-speed: 0.5s;
     --blog-image-aspect-ratio: 5/3;
+}
+
+@keyframes showAddArticleForm {
+    from {
+        height: 0;
+        margin-bottom: 0;
+    }
+
+    to {
+        height: 376px;
+        margin-bottom: var(--sections-gap);
+    }
+}
+
+@keyframes hideAddArticleForm {
+    from {
+        height: 376px;
+        margin-bottom: var(--sections-gap);
+    }
+
+    to {
+        height: 0;
+        margin-bottom: 0;
+    }
 }
