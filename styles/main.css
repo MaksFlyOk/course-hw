@@ -558,7 +558,6 @@ main {
 .articles-list {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(2, 1fr);
     grid-column-gap: 16px;
     column-gap: 34px;
     row-gap: 64px;

@@ -1,6 +1,7 @@
 # User-specific stuff
 .idea/
 .DS_Store
+assets/.DS_Store
 
 # Angular specific
 /dist/
