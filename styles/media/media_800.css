@@ -7,3 +7,7 @@
 .articles-list {
     grid-template-columns: 1fr;
 }
+
+.articles-list > li:first-child {
+    grid-column: span 1;
+}
