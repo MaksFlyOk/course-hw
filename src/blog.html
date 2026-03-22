@@ -20,6 +20,28 @@
         <link rel="stylesheet" href="../styles/media/media_480.css" media="screen and (max-width: 480px)"/>
     </head>
     <body>
+        <dialog id="articlesStatDialog" aria-labelledby="dialogTitle">
+            <section class="modal">
+                <header class="modal__header">
+                    <h2>Статистика страницы</h2>
+                    <button id="modal-close-btn" class="border-button" type="button" data-close aria-label="Закрыть">✕</button>
+                </header>
+                <ul class="model__stats-list">
+                    <li>
+                        <article class="stats-card">
+                            <h3>Всего статей</h3>
+                            <p id="stat-articles-quantity">0</p>
+                        </article>
+                    </li>
+                    <li>
+                        <article class="stats-card">
+                            <h3>Комментарии</h3>
+                            <p id="stat-articles-comments-quantity">0</p>
+                        </article>
+                    </li>
+                </ul>
+            </section>
+        </dialog>
         <header class="header">
             <span class="header-logo" aria-label="Логотип">MaksFlyOk</span>
             <nav aria-label="Основная навигация">
@@ -32,11 +54,11 @@
         </header>
         <main>
             <aside class="side-menu">
-                <div class="side-menu__container">
-                    <button title="Добавить статью">
+                <div class="side-menu__container" id="side-menu">
+                    <button title="Создать статью">
                         <img src="../assets/images/post-add.webp" alt="Добавить статью">
                     </button>
-                    <button title="Открыть статистику статей">
+                    <button title="Показать статистику статей">
                         <img src="../assets/images/stats.webp" alt="Открыть статистику статей">
                     </button>
                 </div>
@@ -52,21 +74,24 @@
                     </div>
                 </div>
                 <section class="articles">
-                    <article class="featured-article">
-                        <img src="../assets/images/blog/blog-img1.webp"
-                             alt="Обложка статьи 'Основы работы с Git для начинающих разработчиков'">
-                        <div class="featured-article__header">
-                            <h2>Основы работы с Git для начинающих разработчиков</h2>
-                            <p>В этой статье рассмотрим основные команды Git, которые необходимы каждому разработчику.</p>
-                            <time datetime="2024-12-15">15 декабря 2024</time>
-                        </div>
-                    </article>
-                    <ul class="articles-list">
+                    <ul class="articles-list" id="articles-list">
+                        <li>
+                            <article class="article">
+                                <img src="../assets/images/blog/blog-img1.webp"
+                                     alt="Обложка статьи 'Основы работы с Git для начинающих разработчиков'">
+                                <div class="article__content">
+                                    <h2>Основы работы с Git для начинающих разработчиков</h2>
+                                    <p>В этой статье рассмотрим основные команды Git, которые необходимы каждому разработчику.</p>
+                                    <time datetime="2024-12-15">15 декабря 2024</time>
+                                </div>
+                            </article>
+                        </li>
                         <li>
                             <article class="article">
                                 <img src="../assets/images/blog/blog-img2.webp"
                                      alt="Обложка статьи 'Создание простого веб-приложения с React'">
                                 <div class="article__content">
+                                    <h2>Создание простого веб-приложения с React</h2>
                                     <p>Пошаговое руководство по созданию простого веб-приложения с использованием React.</p>
                                     <time datetime="2024-09-03">3 сентября 2024</time>
                                 </div>
@@ -76,6 +101,7 @@
                             <article class="article">
                                 <img src="../assets/images/blog/blog-img3.webp" alt="Иллюстрация к статье о верстке">
                                 <div class="article__content">
+                                    <h2>Современная верстка: от HTML5 до продвинутых техник CSS</h2>
                                     <p>Погружаемся в мир современной верстки: от базовых тегов HTML5 до продвинутых техник CSS.</p>
                                     <time datetime="2024-11-05">5 ноября 2024</time>
                                 </div>
@@ -85,6 +111,7 @@
                             <article class="article">
                                 <img src="../assets/images/blog/blog-img4.webp" alt="Иллюстрация к статье о TypeScript">
                                 <div class="article__content">
+                                    <h2>TypeScript: новый стандарт фронтенд-разработки</h2>
                                     <p>Почему TypeScript становится стандартом в современной фронтенд-разработке?</p>
                                     <time datetime="2024-10-22">22 октября 2024</time>
                                 </div>
@@ -94,6 +121,7 @@
                             <article class="article">
                                 <img src="../assets/images/blog/blog-img5.webp" alt="Иллюстрация к статье о CSS Grid">
                                 <div class="article__content">
+                                    <h2>CSS Grid: создание сложных макетов</h2>
                                     <p>Изучим возможности CSS Grid для создания сложных макетов.</p>
                                     <time datetime="2024-08-12">12 августа 2024</time>
                                 </div>
@@ -103,6 +131,7 @@
                             <article class="article">
                                 <img src="../assets/images/blog/blog-img6.webp" alt="Иллюстрация к статье о JavaScript">
                                 <div class="article__content">
+                                    <h2>Ключевые концепции современного JavaScript</h2>
                                     <p>Разберём ключевые концепции современного JavaScript.</p>
                                     <time datetime="2024-07-30">30 июля 2024</time>
                                 </div>
@@ -113,12 +142,12 @@
                                 <img src="../assets/images/blog/blog-img7.webp"
                                      alt="Иллюстрация к статье о доступности">
                                 <div class="article__content">
+                                    <h2>Веб-доступность: основные принципы</h2>
                                     <p>Поговорим о важности веб-доступности и основных принципах её реализации.</p>
                                     <time datetime="2024-06-15">15 июня 2024</time>
                                 </div>
                             </article>
                         </li>
-
                     </ul>
                     <button class="border-button">
                         Следующие
@@ -126,24 +155,39 @@
                             <path d="M18.7071 8.07112C19.0976 7.6806 19.0976 7.04743 18.7071 6.65691L12.3431 0.292947C11.9526 -0.0975775 11.3195 -0.0975775 10.9289 0.292947C10.5384 0.683471 10.5384 1.31664 10.9289 1.70716L16.5858 7.36402L10.9289 13.0209C10.5384 13.4114 10.5384 14.0446 10.9289 14.4351C11.3195 14.8256 11.9526 14.8256 12.3431 14.4351L18.7071 8.07112ZM0 7.36401L-8.74228e-08 8.36401L18 8.36402L18 7.36402L18 6.36402L8.74228e-08 6.36401L0 7.36401Z" fill="#75BB7C"/>
                         </svg>
                     </button>
+                    <template id="article-template">
+                        <li>
+                            <article class="article">
+                                <img src="../assets/images/blog/blog-img-mock.webp"
+                                     alt="Mock иллюстрация к статье">
+                                <div class="article__content">
+                                    <h2 id="article-title">Title</h2>
+                                    <p id="article-description">Description</p>
+                                    <time id="article-date" datetime="date">date</time>
+                                </div>
+                            </article>
+                        </li>
+                    </template>
                 </section>
             </section>
             <section class="add-article">
-                <h2>Добавить статью</h2>
-                <form action="#" method="post">
-                    <label for="title">Заголовок</label>
-                    <input type="text" id="title" required name="title" placeholder="Заголовок">
-                    <label for="content">Текст статьи</label>
-                    <textarea id="content" name="content" required rows="5" cols="50" placeholder="Текст статьи"></textarea>
-                    <div class="add-article-form__buttons">
-                        <button class="fill-button" type="submit">
-                            Добавить
-                        </button>
-                        <button class="add-article__reset border-button" type="reset">
-                            Отмена
-                        </button>
-                    </div>
-                </form>
+                <div id="add-article" data-hidden>
+                    <h2>Добавить статью</h2>
+                    <form action="#" method="post">
+                        <label for="title">Заголовок</label>
+                        <input type="text" id="title" required name="title" placeholder="Заголовок">
+                        <label for="content">Текст статьи</label>
+                        <textarea id="content" name="content" required rows="5" cols="50" placeholder="Текст статьи"></textarea>
+                        <div class="add-article-form__buttons">
+                            <button class="fill-button" type="submit" id="add-article-submit">
+                                Добавить
+                            </button>
+                            <button class="add-article__reset border-button" type="reset" id="add-article-reset">
+                                Отмена
+                            </button>
+                        </div>
+                    </form>
+                </div>
             </section>
         </main>
         <footer class="footer">
@@ -172,5 +216,6 @@
             </section>
             <span>&#169; 2026, Sukhovarov Maksim</span>
         </footer>
+        <script src="../main.js"></script>
     </body>
 </html>
