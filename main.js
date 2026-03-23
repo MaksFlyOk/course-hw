@@ -12,8 +12,6 @@ const StatArticlesCommentsQuantity = document.getElementById('stat-articles-comm
 const ArticleTemplate = document.getElementById('article-template');
 const [AddArticleFormOpenButton, ArticlesStatOpenButton] = document.getElementById('side-menu').children;
 
-console.log({ArticlesList});
-
 // Vars
 const ArticlesStat = {
     articlesQuantity: ArticlesList.children.length,
