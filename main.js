@@ -19,8 +19,7 @@ const ArticlesStat = {
 };
 const MockArticle = {
     title: "Article title",
-    description: "Article description",
-    date: "2026-03-23",
+    description: "Article description"
 };
 let isOpenAddArticleForm = true;
 
@@ -61,7 +60,11 @@ AddArticleFormSubmitButton.addEventListener('click', (event) => {
 
     ClonedArticleNode.getElementById('article-title').textContent = MockArticle.title;
     ClonedArticleNode.getElementById('article-description').textContent = MockArticle.description;
-    ClonedArticleNode.getElementById('article-date').textContent = MockArticle.date;
+    ClonedArticleNode.getElementById('article-date').textContent = new Date().toLocaleString("ru-RU", {
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric',
+    }).replace(' г.', '');
 
     ArticlesList.append(ClonedArticleNode);
     setAddArticleFormState(false);
