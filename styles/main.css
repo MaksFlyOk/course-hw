@@ -599,10 +599,29 @@ dialog::backdrop {
 }
 
 .article {
+    position: relative;
     display: flex;
     flex-direction: column;
     gap: 8px;
     height: 100%;
+}
+
+.article > button {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 4px;
+    margin: 4px;
+    background-color: var(--color-background);
+    border: 1px solid transparent;
+    border-radius: var(--small-radius);
+    transition: border var(--transition-speed), background-color var(--transition-speed);
+
+    &:hover,
+    &:focus {
+        background-color: transparent;
+        border: 1px solid var(--color-accent-green);
+    }
 }
 
 .article > img {
