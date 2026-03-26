@@ -1,9 +1,8 @@
 'use strict'
 
 // HTML elements
-const AddArticleForm = document.getElementById('add-article');
-const AddArticleFormResetButton = document.getElementById('add-article-reset');
-const AddArticleFormSubmitButton = document.getElementById('add-article-submit');
+const AddArticleFormContainer = document.getElementById('add-article');
+const AddArticleForm = document.forms["add-article-form"]
 const ArticlesStatDialog = document.getElementById('articlesStatDialog');
 const ArticlesList = document.getElementById('articles-list');
 const StatArticlesQuantity = document.getElementById('stat-articles-quantity');
@@ -12,10 +11,12 @@ const StatArticlesCommentsQuantity = document.getElementById('stat-articles-comm
 const ArticleTemplate = document.getElementById('article-template');
 const [AddArticleFormOpenButton, ArticlesStatOpenButton] = document.getElementById('side-menu').children;
 
+console.log(AddArticleForm)
+
 // Vars
 const ArticlesStat = {
     articlesQuantity: ArticlesList.children.length,
-    articlesCommentsQuantity: 0 // Пока не откуда получать комменатрии, так что просто 0
+    articlesCommentsQuantity: 0 // Пока неоткуда получать комментарии, так что просто 0
 };
 const MockArticle = {
     title: "Article title",
@@ -29,12 +30,12 @@ const updateArticlesStat = () => {
     StatArticlesCommentsQuantity.textContent = ArticlesStat.articlesCommentsQuantity.toString()
 }
 
-const setAddArticleFormState = (state) => {
+const setAddArticleFormContainerState = (state) => {
     if (state) {
-        AddArticleForm.removeAttribute('data-hidden');
-        AddArticleForm.scrollIntoView();
+        AddArticleFormContainer.removeAttribute('data-hidden');
+        AddArticleFormContainer.scrollIntoView();
     } else {
-        AddArticleForm.setAttribute('data-hidden', '');
+        AddArticleFormContainer.setAttribute('data-hidden', '');
     }
 
     isOpenAddArticleForm = !isOpenAddArticleForm
@@ -44,16 +45,16 @@ const setAddArticleFormState = (state) => {
 AddArticleFormOpenButton.addEventListener('click', (event) => {
     event.preventDefault();
 
-    setAddArticleFormState(isOpenAddArticleForm);
+    setAddArticleFormContainerState(isOpenAddArticleForm);
 })
 
-AddArticleFormResetButton.addEventListener('click', (event) => {
+AddArticleForm.addEventListener("reset", (event) => {
     event.preventDefault();
 
-    setAddArticleFormState(false);
+    setAddArticleFormContainerState(false);
 })
 
-AddArticleFormSubmitButton.addEventListener('click', (event) => {
+AddArticleForm.addEventListener('submit', (event) => {
     event.preventDefault();
 
     const ClonedArticleNode = ArticleTemplate.content.cloneNode(true);
@@ -67,7 +68,7 @@ AddArticleFormSubmitButton.addEventListener('click', (event) => {
     }).replace(' г.', '');
 
     ArticlesList.append(ClonedArticleNode);
-    setAddArticleFormState(false);
+    setAddArticleFormContainerState(false);
 
     ArticlesStat.articlesQuantity++;
     updateArticlesStat()
