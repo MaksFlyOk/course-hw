@@ -11,3 +11,7 @@
 .articles-list > li:first-child {
     grid-column: span 1;
 }
+
+.side-menu__container {
+    transform: translateY(50%);
+}

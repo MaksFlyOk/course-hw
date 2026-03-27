@@ -31,3 +31,31 @@ body {
     display: flex;
     flex-direction: column;
 }
+
+#add-article:not([data-hidden]) {
+    height: 410px;
+}
+
+@keyframes showAddArticleForm {
+    from {
+        height: 0;
+        margin-bottom: 0;
+    }
+
+    to {
+        height: 410px;
+        margin-bottom: var(--sections-gap);
+    }
+}
+
+@keyframes hideAddArticleForm {
+    from {
+        height: 410px;
+        margin-bottom: var(--sections-gap);
+    }
+
+    to {
+        height: 0;
+        margin-bottom: 0;
+    }
+}
