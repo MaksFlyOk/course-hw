@@ -598,6 +598,21 @@ dialog::backdrop {
     margin-bottom: 64px;
 }
 
+.articles-list:empty {
+    display: block;
+    text-align: center;
+    padding-bottom: calc(var(--sections-gap) * 2);
+
+    &::after {
+        content: "Нет статей";
+        color: var(--color-secondary);
+    }
+}
+
+.articles-list:empty + button {
+    display: none;
+}
+
 .article {
     position: relative;
     display: flex;
@@ -607,15 +622,25 @@ dialog::backdrop {
 }
 
 .article > button {
+    --button-delete-article-size: 24px;
     position: absolute;
     top: 0;
     right: 0;
-    padding: 4px;
-    margin: 4px;
+    margin: 8px;
+    width: var(--button-delete-article-size);
+    height: var(--button-delete-article-size);
     background-color: var(--color-background);
     border: 1px solid transparent;
     border-radius: var(--small-radius);
     transition: border var(--transition-speed), background-color var(--transition-speed);
+
+    &::after {
+        content: "";
+        display: block;
+        background-image: url("../assets/images/delete-article.webp");
+        width: 100%;
+        height: 100%;
+    }
 
     &:hover,
     &:focus {
