@@ -69,7 +69,7 @@ input, textarea {
 }
 
 textarea {
-    resize: vertical;
+    resize: none;
 }
 
 .visually-hidden {
