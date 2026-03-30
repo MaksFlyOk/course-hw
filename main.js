@@ -57,7 +57,7 @@ const getFormData = (form) => {
     const { elements } = form;
     const result = {};
 
-    Array.from(elements).filter((element) => !!element.name).forEach(element => result[element.name] = element.value)
+    Array.from(elements).filter((element) => !!element.name).forEach(element => result[element.name] = element.value);
 
     return result;
 }
@@ -143,7 +143,9 @@ ModalCloseButton.addEventListener('click', (event) => {
 })
 
 ArticlesStatDialog.addEventListener('click', function(event) {
-    if (event.target === ArticlesStatDialog) ArticlesStatDialog.close('backdrop');
+    if (event.target === ArticlesStatDialog) {
+        ArticlesStatDialog.close('backdrop');
+    }
 });
 
 //Init
