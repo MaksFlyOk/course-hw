@@ -55,6 +55,15 @@ main {
     }
 }
 
+/* Используется атрибут id так как:
+ - Данный элемент может быть лишь один на страницы
+ - Для более высокой специфичности, нежели `.nav-list__item > a`
+ */
+#current-page-link {
+    color: var(--color-accent-green);
+    font-weight: 700;
+}
+
 /* Footer */
 .footer {
     width: 100vw;
