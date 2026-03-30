@@ -6,7 +6,6 @@
 /* Main */
 main {
     padding-inline: var(--padding-horizontal);
-    width: 100vw;
 }
 
 /* Header */
@@ -66,7 +65,6 @@ main {
 
 /* Footer */
 .footer {
-    width: 100vw;
     background-color: var(--color-primary);
     color: var(--color-background);
     padding: 53px var(--padding-horizontal) 16px var(--padding-horizontal);
