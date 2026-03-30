@@ -4,7 +4,6 @@ html {
 
 body {
     min-height: 100vh;
-    max-width: var(--max-width);
     background-color: var(--color-background);
     color: var(--color-primary);
     text-rendering: optimizeSpeed;
