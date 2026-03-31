@@ -74,88 +74,7 @@
                     </div>
                 </div>
                 <section class="articles">
-                    <ul class="articles-list" id="articles-list">
-                        <li>
-                            <article class="article">
-                                <button title="Удалить статью" data-delete></button>
-                                <img src="../assets/images/blog/blog-img1.webp"
-                                     alt="Обложка статьи 'Основы работы с Git для начинающих разработчиков'">
-                                <div class="article__content">
-                                    <h2>Основы работы с Git для начинающих разработчиков</h2>
-                                    <p>В этой статье рассмотрим основные команды Git, которые необходимы каждому разработчику.</p>
-                                    <time datetime="2024-12-15">15 декабря 2024</time>
-                                </div>
-                            </article>
-                        </li>
-                        <li>
-                            <article class="article">
-                                <button title="Удалить статью" data-delete></button>
-                                <img src="../assets/images/blog/blog-img2.webp"
-                                     alt="Обложка статьи 'Создание простого веб-приложения с React'">
-                                <div class="article__content">
-                                    <h2>Создание простого веб-приложения с React</h2>
-                                    <p>Пошаговое руководство по созданию простого веб-приложения с использованием React.</p>
-                                    <time datetime="2024-09-03">3 сентября 2024</time>
-                                </div>
-                            </article>
-                        </li>
-                        <li>
-                            <article class="article">
-                                <button title="Удалить статью" data-delete></button>
-                                <img src="../assets/images/blog/blog-img3.webp" alt="Иллюстрация к статье о верстке">
-                                <div class="article__content">
-                                    <h2>Современная верстка: от HTML5 до продвинутых техник CSS</h2>
-                                    <p>Погружаемся в мир современной верстки: от базовых тегов HTML5 до продвинутых техник CSS.</p>
-                                    <time datetime="2024-11-05">5 ноября 2024</time>
-                                </div>
-                            </article>
-                        </li>
-                        <li>
-                            <article class="article">
-                                <button title="Удалить статью" data-delete></button>
-                                <img src="../assets/images/blog/blog-img4.webp" alt="Иллюстрация к статье о TypeScript">
-                                <div class="article__content">
-                                    <h2>TypeScript: новый стандарт фронтенд-разработки</h2>
-                                    <p>Почему TypeScript становится стандартом в современной фронтенд-разработке?</p>
-                                    <time datetime="2024-10-22">22 октября 2024</time>
-                                </div>
-                            </article>
-                        </li>
-                        <li>
-                            <article class="article">
-                                <button title="Удалить статью" data-delete></button>
-                                <img src="../assets/images/blog/blog-img5.webp" alt="Иллюстрация к статье о CSS Grid">
-                                <div class="article__content">
-                                    <h2>CSS Grid: создание сложных макетов</h2>
-                                    <p>Изучим возможности CSS Grid для создания сложных макетов.</p>
-                                    <time datetime="2024-08-12">12 августа 2024</time>
-                                </div>
-                            </article>
-                        </li>
-                        <li>
-                            <article class="article">
-                                <button title="Удалить статью" data-delete></button>
-                                <img src="../assets/images/blog/blog-img6.webp" alt="Иллюстрация к статье о JavaScript">
-                                <div class="article__content">
-                                    <h2>Ключевые концепции современного JavaScript</h2>
-                                    <p>Разберём ключевые концепции современного JavaScript.</p>
-                                    <time datetime="2024-07-30">30 июля 2024</time>
-                                </div>
-                            </article>
-                        </li>
-                        <li>
-                            <article class="article">
-                                <button title="Удалить статью" data-delete></button>
-                                <img src="../assets/images/blog/blog-img7.webp"
-                                     alt="Иллюстрация к статье о доступности">
-                                <div class="article__content">
-                                    <h2>Веб-доступность: основные принципы</h2>
-                                    <p>Поговорим о важности веб-доступности и основных принципах её реализации.</p>
-                                    <time datetime="2024-06-15">15 июня 2024</time>
-                                </div>
-                            </article>
-                        </li>
-                    </ul>
+                    <ul class="articles-list" id="articles-list"></ul>
                     <button class="border-button">
                         Следующие
                         <svg width="19" height="13" viewBox="0 0 19 15" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -165,7 +84,7 @@
                     <template id="article-template">
                         <li>
                             <article class="article">
-                                <button title="Удалить статью" data-delete></button>
+                                <button title="Удалить статью" id="article-delete-button" data-delete></button>
                                 <img id="article-image" src="../assets/images/blog/blog-img-mock.webp" alt="Mock иллюстрация к статье">
                                 <div class="article__content">
                                     <h2 id="article-title">Title</h2>
@@ -223,6 +142,6 @@
             </section>
             <span>&#169; 2026, Sukhovarov Maksim</span>
         </footer>
-        <script src="../main.js"></script>
+        <script type="module" src="../main.js"></script>
     </body>
 </html>
