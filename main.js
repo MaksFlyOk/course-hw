@@ -1,6 +1,6 @@
 'use strict'
 
-import {InitArticlesList} from "./modules/constants.js"
+import {InitArticlesList, LocalStorageArticlesListKey} from "./modules/constants.js"
 
 // HTML elements
 const AddArticleFormContainer = document.getElementById('add-article');
@@ -144,21 +144,21 @@ const renderArticlesInOrder = async (articles) => {
 }
 
 const initArticlesList = async () => {
-    const StorageArticlesList = localStorage.getItem("articlesList");
+    const StorageArticlesList = localStorage.getItem(LocalStorageArticlesListKey);
 
     if (StorageArticlesList) {
         articlesList = JSON.parse(StorageArticlesList);
     } else {
         articlesList = InitArticlesList;
 
-        localStorage.setItem("articlesList", JSON.stringify(articlesList));
+        localStorage.setItem(LocalStorageArticlesListKey, JSON.stringify(articlesList));
     }
 
     await renderArticlesInOrder(articlesList);
 }
 
 const updateStorageArticlesList = (articlesList) => {
-    localStorage.setItem("articlesList", JSON.stringify(articlesList));
+    localStorage.setItem(LocalStorageArticlesListKey, JSON.stringify(articlesList));
 }
 
 // Events
