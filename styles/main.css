@@ -674,6 +674,15 @@ dialog::backdrop {
 
 .article__content > p {
     font: var(--font-h4-regular);
+    word-break: break-word;
+    /* Все свойства имеют поддержку >97% */
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    hyphens: auto;
+    word-wrap: anywhere;
     margin-bottom: 21px;
 }
 
@@ -709,6 +718,9 @@ dialog::backdrop {
         & > .article__content > h2 {
             display: initial;
             font: var(--font-h2);
+            hyphens: auto;
+            word-wrap: anywhere;
+            overflow-wrap: break-word;
             margin-bottom: 16px;
         }
 
