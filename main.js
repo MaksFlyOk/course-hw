@@ -211,7 +211,7 @@ ArticlesList.addEventListener('click', (event) => {
         removeArticleTextNodes(currentArticle);
         currentArticle.remove();
 
-        articlesList.splice(articlesList.findIndex(article => article.id === Number(deleteAttribute.value)), 1);
+        articlesList.splice(articlesList.findIndex(article => article.id === deleteAttribute.value), 1);
         updateStorageArticlesList(articlesList);
 
         ArticlesStat.articlesQuantity--;
