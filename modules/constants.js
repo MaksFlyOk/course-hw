@@ -50,3 +50,5 @@ export const InitArticlesList = [
         date: new Date('2024-12-15'),
     }
 ];
+
+export const LocalStorageArticlesListKey = "ARTICLES_LIST"
