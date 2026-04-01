@@ -18,6 +18,14 @@ const ArticlesStat = {
     articlesQuantity: ArticlesList.children.length,
     articlesCommentsQuantity: 0 // Пока неоткуда получать комментарии, так что просто 0
 };
+/**
+ * Для хранения списка статей по факту есть 2 варианта:
+ *  - Хранить их только в LocalStorage
+ *  - Хранить их еще и в переменной
+ * Взвесив плюсы и минусы было принято решение хранить их в коде, в таком варианте
+ * больше гибкости по управлению данными, меньше запросов к LocalStorage(получение при иннициализации,
+ * и обновление при удалении статьи)
+ */
 let articlesList = [];
 let isOpenAddArticleForm = true;
 
@@ -193,6 +201,7 @@ AddArticleForm.addEventListener('submit', (event) => {
         где уже скрывается форма
         setAddArticleFormContainerState(false);
          */
+        
         AddArticleForm.reset();
 
         ArticlesStat.articlesQuantity++;
