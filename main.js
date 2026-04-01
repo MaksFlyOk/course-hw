@@ -15,7 +15,7 @@ const [AddArticleFormOpenButton, ArticlesStatOpenButton] = document.getElementBy
 
 // Vars
 const ArticlesStat = {
-    articlesQuantity: ArticlesList.children.length,
+    articlesQuantity: 0,
     articlesCommentsQuantity: 0 // Пока неоткуда получать комментарии, так что просто 0
 };
 /**
@@ -160,6 +160,9 @@ const initArticlesList = async () => {
 
         localStorage.setItem(LocalStorageArticlesListKey, JSON.stringify(articlesList));
     }
+
+    ArticlesStat.articlesQuantity = articlesList.length;
+    updateArticlesStat();
 
     await renderArticlesInOrder(articlesList);
 }
