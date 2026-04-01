@@ -1,6 +1,6 @@
 'use strict'
 
-import {InitArticlesList, LocalStorageArticlesListKey} from "./modules/constants.js"
+import {InitArticlesList, LocalStorageArticlesListKey} from "./modules/constants.js";
 
 // HTML elements
 const AddArticleFormContainer = document.getElementById('add-article');
@@ -18,7 +18,7 @@ const ArticlesStat = {
     articlesQuantity: ArticlesList.children.length,
     articlesCommentsQuantity: 0 // Пока неоткуда получать комментарии, так что просто 0
 };
-let articlesList = []
+let articlesList = [];
 let isOpenAddArticleForm = true;
 
 // Functions
@@ -47,7 +47,7 @@ const getRandomImage = () => {
         "../assets/images/blog/blog-img5.webp",
         "../assets/images/blog/blog-img6.webp",
         "../assets/images/blog/blog-img7.webp"
-    ]
+    ];
 
     return images[Math.floor(Math.random() * images.length)];
 }
@@ -77,8 +77,8 @@ const removeArticleTextNodes = (articleElement) => {
 
 const renderArticle = (article) => {
     const ClonedArticleNode = ArticleTemplate.content.cloneNode(true);
-    const ImageNode = ClonedArticleNode.getElementById('article-image')
-    const DateNode = ClonedArticleNode.getElementById('article-date')
+    const ImageNode = ClonedArticleNode.getElementById('article-image');
+    const DateNode = ClonedArticleNode.getElementById('article-date');
 
     ClonedArticleNode.getElementById('article-title').textContent = article.title;
     ClonedArticleNode.getElementById('article-description').textContent = article.description;
@@ -133,8 +133,7 @@ const checkData = (article) => {
  * добавления статьей (по дате создания)
  */
 const renderArticlesInOrder = async (articles) => {
-    const promises = articles.map((article) => checkData(article));
-    const results = await Promise.all(promises);
+    const results = await Promise.all(articles.map((article) => checkData(article)));
 
     articles.forEach((article, index) => {
         if (results[index]) {
@@ -183,7 +182,7 @@ AddArticleForm.addEventListener('submit', (event) => {
             description: FormData.content,
             image: getRandomImage(),
             date: new Date().toISOString().slice(0, 10)
-        }
+        };
 
         articlesList.push(newArticleData);
         updateStorageArticlesList(articlesList);
