@@ -608,10 +608,10 @@ dialog::backdrop {
     min-height: 200px;
     width: 100%;
     background-color: var(--color-background);
-}
 
-.articles-loader[hidden] {
-    display: none;
+    &[hidden] {
+        display: none;
+    }
 }
 
 .spinner {
@@ -622,7 +622,7 @@ dialog::backdrop {
     border: var(--loader-border) solid var(--color-secondary);
     border-top: var(--loader-border) solid var(--color-accent-green);
     border-radius: 50%;
-    animation: loader-spin 1s linear infinite;
+    animation: loaderSpin 1s linear infinite;
 }
 
 .articles-list {
