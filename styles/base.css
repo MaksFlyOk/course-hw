@@ -67,6 +67,21 @@ input, textarea {
     }
 }
 
+button[disabled], input[disabled], textarea[disabled] {
+    cursor: pointer;
+    outline: none;
+    border-color: var(--color-placeholder);
+    color: var(--color-placeholder);
+    background: linear-gradient(
+            90deg,
+            var(--color-background) 25%,
+            #f0f0f0 50%,
+            var(--color-background) 75%
+    );
+    background-size: 200% 100%;
+    animation: loading-shimmer 3s infinite linear;
+}
+
 textarea {
     resize: none;
 }
