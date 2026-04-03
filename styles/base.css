@@ -68,7 +68,7 @@ input, textarea {
 }
 
 button[disabled], input[disabled], textarea[disabled] {
-    cursor: pointer;
+    cursor: default;
     outline: none;
     border-color: var(--color-placeholder);
     color: var(--color-placeholder);
