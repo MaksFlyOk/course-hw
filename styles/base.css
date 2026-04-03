@@ -79,7 +79,7 @@ button[disabled], input[disabled], textarea[disabled] {
             var(--color-background) 75%
     );
     background-size: 200% 100%;
-    animation: loading-shimmer 3s infinite linear;
+    animation: loadingShimmer 3s infinite linear;
 }
 
 textarea {
