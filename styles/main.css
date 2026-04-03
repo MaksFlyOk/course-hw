@@ -574,6 +574,7 @@ dialog::backdrop {
 
 /* Blog articles Section */
 .articles {
+    position: relative;
     margin-bottom: var(--sections-gap);
 }
 
@@ -594,6 +595,34 @@ dialog::backdrop {
         background-color: var(--color-accent-green);
         color: var(--color-background);
     }
+}
+
+/* Loader */
+.articles-loader {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 200px;
+    width: 100%;
+    background-color: var(--color-background);
+}
+
+.articles-loader[hidden] {
+    display: none;
+}
+
+.spinner {
+    --loader-size: 80px;
+    --loader-border: 6px;
+    width: var(--loader-size);
+    height: var(--loader-size);
+    border: var(--loader-border) solid var(--color-secondary);
+    border-top: var(--loader-border) solid var(--color-accent-green);
+    border-radius: 50%;
+    animation: loader-spin 1s linear infinite;
 }
 
 .articles-list {
