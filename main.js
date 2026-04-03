@@ -6,6 +6,7 @@ import {InitArticlesList, LocalStorageArticlesListKey} from "./modules/constants
 const AddArticleFormContainer = document.getElementById('add-article');
 const AddArticleForm = document.forms["add-article-form"];
 const ArticlesStatDialog = document.getElementById('articlesStatDialog');
+const ArticlesLoader = document.getElementById('articles-loader');
 const ArticlesList = document.getElementById('articles-list');
 const StatArticlesQuantity = document.getElementById('stat-articles-quantity');
 const ModalCloseButton = document.getElementById('modal-close-btn');
@@ -59,6 +60,16 @@ const getRandomImage = () => {
 
     return images[Math.floor(Math.random() * images.length)];
 }
+
+const toggleLoader = (show) => {
+    if (ArticlesLoader) {
+        ArticlesLoader.hidden = !show;
+    }
+};
+
+const simulateNetworkDelay = (ms = 1000) => {
+    return new Promise(resolve => setTimeout(resolve, ms));
+};
 
 const getFormData = (form) => {
     const { elements } = form;
@@ -151,6 +162,10 @@ const renderArticlesInOrder = async (articles) => {
 }
 
 const initArticlesList = async () => {
+    toggleLoader(true);
+
+    await simulateNetworkDelay();
+
     const StorageArticlesList = localStorage.getItem(LocalStorageArticlesListKey);
 
     if (StorageArticlesList) {
@@ -165,6 +180,14 @@ const initArticlesList = async () => {
     updateArticlesStat();
 
     await renderArticlesInOrder(articlesList);
+
+    toggleLoader(false);
+}
+
+const toggleEnabledFormElements = (form, enabled) => {
+    const { elements } = form;
+
+    Array.from(elements).forEach(element => element.disabled = !enabled);
 }
 
 const updateStorageArticlesList = (articlesList) => {
@@ -182,7 +205,7 @@ AddArticleForm.addEventListener("reset", () => {
     setAddArticleFormContainerState(false);
 })
 
-AddArticleForm.addEventListener('submit', (event) => {
+AddArticleForm.addEventListener('submit', async (event) => {
     event.preventDefault();
 
     if(AddArticleForm.checkValidity()) {
@@ -195,6 +218,9 @@ AddArticleForm.addEventListener('submit', (event) => {
             date: new Date().toISOString().slice(0, 10)
         };
 
+        toggleEnabledFormElements(AddArticleForm, false);
+        await simulateNetworkDelay();
+
         articlesList.push(newArticleData);
         updateStorageArticlesList(articlesList);
         renderArticle(newArticleData);
@@ -204,7 +230,7 @@ AddArticleForm.addEventListener('submit', (event) => {
         где уже скрывается форма
         setAddArticleFormContainerState(false);
          */
-        
+        toggleEnabledFormElements(AddArticleForm, true);
         AddArticleForm.reset();
 
         ArticlesStat.articlesQuantity++;
