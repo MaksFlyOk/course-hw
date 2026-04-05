@@ -1,18 +1,18 @@
 'use strict'
 
-import {InitArticlesList, LocalStorageArticlesListKey} from "./modules/constants.js";
+import {InitArticlesList, localStorageArticlesListKey} from "./modules/constants.js";
 
 // HTML elements
-const AddArticleFormContainer = document.getElementById('add-article');
-const AddArticleForm = document.forms["add-article-form"];
-const ArticlesStatDialog = document.getElementById('articlesStatDialog');
-const ArticlesLoader = document.getElementById('articles-loader');
-const ArticlesList = document.getElementById('articles-list');
-const StatArticlesQuantity = document.getElementById('stat-articles-quantity');
-const ModalCloseButton = document.getElementById('modal-close-btn');
-const StatArticlesCommentsQuantity = document.getElementById('stat-articles-comments-quantity');
-const ArticleTemplate = document.getElementById('article-template');
-const [AddArticleFormOpenButton, ArticlesStatOpenButton] = document.getElementById('side-menu').children;
+const addArticleFormContainer = document.getElementById('add-article');
+const addArticleForm = document.forms["add-article-form"];
+const articlesStatDialog = document.getElementById('articlesStatDialog');
+const articlesLoader = document.getElementById('articles-loader');
+const articlesList = document.getElementById('articles-list');
+const statArticlesQuantity = document.getElementById('stat-articles-quantity');
+const modalCloseButton = document.getElementById('modal-close-btn');
+const statArticlesCommentsQuantity = document.getElementById('stat-articles-comments-quantity');
+const articleTemplate = document.getElementById('article-template');
+const [addArticleFormOpenButton, articlesStatOpenButton] = document.getElementById('side-menu').children;
 
 // Vars
 const ArticlesStat = {
@@ -24,24 +24,24 @@ const ArticlesStat = {
  *  - Хранить их только в LocalStorage
  *  - Хранить их еще и в переменной
  * Взвесив плюсы и минусы было принято решение хранить их в коде, в таком варианте
- * больше гибкости по управлению данными, меньше запросов к LocalStorage(получение при иннициализации,
+ * больше гибкости по управлению данными, меньше запросов к LocalStorage(получение при инициализации,
  * и обновление при удалении статьи)
  */
-let articlesList = [];
+let articlesListStorage = [];
 let isOpenAddArticleForm = true;
 
 // Functions
 const updateArticlesStat = () => {
-    StatArticlesQuantity.textContent = ArticlesStat.articlesQuantity.toString();
-    StatArticlesCommentsQuantity.textContent = ArticlesStat.articlesCommentsQuantity.toString();
+    statArticlesQuantity.textContent = ArticlesStat.articlesQuantity.toString();
+    statArticlesCommentsQuantity.textContent = ArticlesStat.articlesCommentsQuantity.toString();
 }
 
 const setAddArticleFormContainerState = (state) => {
     if (state) {
-        AddArticleFormContainer.removeAttribute('data-hidden');
-        AddArticleFormContainer.scrollIntoView();
+        addArticleFormContainer.removeAttribute('data-hidden');
+        addArticleFormContainer.scrollIntoView();
     } else {
-        AddArticleFormContainer.setAttribute('data-hidden', '');
+        addArticleFormContainer.setAttribute('data-hidden', '');
     }
 
     isOpenAddArticleForm = !isOpenAddArticleForm;
@@ -62,8 +62,8 @@ const getRandomImage = () => {
 }
 
 const toggleLoader = (show) => {
-    if (ArticlesLoader) {
-        ArticlesLoader.hidden = !show;
+    if (articlesLoader) {
+        articlesLoader.hidden = !show;
     }
 };
 
@@ -95,7 +95,7 @@ const removeArticleTextNodes = (articleElement) => {
 }
 
 const renderArticle = (article) => {
-    const ClonedArticleNode = ArticleTemplate.content.cloneNode(true);
+    const ClonedArticleNode = articleTemplate.content.cloneNode(true);
     const ImageNode = ClonedArticleNode.getElementById('article-image');
     const DateNode = ClonedArticleNode.getElementById('article-date');
 
@@ -114,7 +114,7 @@ const renderArticle = (article) => {
 
     ClonedArticleNode.getElementById('article-delete-button').setAttribute("data-delete", article.id);
 
-    ArticlesList.prepend(ClonedArticleNode);
+    articlesList.prepend(ClonedArticleNode);
 }
 
 /**
@@ -166,20 +166,20 @@ const initArticlesList = async () => {
 
     await simulateNetworkDelay();
 
-    const StorageArticlesList = localStorage.getItem(LocalStorageArticlesListKey);
+    const StorageArticlesList = localStorage.getItem(localStorageArticlesListKey);
 
     if (StorageArticlesList) {
-        articlesList = JSON.parse(StorageArticlesList);
+        articlesListStorage = JSON.parse(StorageArticlesList);
     } else {
-        articlesList = InitArticlesList;
+        articlesListStorage = InitArticlesList;
 
-        localStorage.setItem(LocalStorageArticlesListKey, JSON.stringify(articlesList));
+        localStorage.setItem(localStorageArticlesListKey, JSON.stringify(articlesListStorage));
     }
 
-    ArticlesStat.articlesQuantity = articlesList.length;
+    ArticlesStat.articlesQuantity = articlesListStorage.length;
     updateArticlesStat();
 
-    await renderArticlesInOrder(articlesList);
+    await renderArticlesInOrder(articlesListStorage);
 
     toggleLoader(false);
 }
@@ -190,26 +190,26 @@ const toggleEnabledFormElements = (form, enabled) => {
     Array.from(elements).forEach(element => element.disabled = !enabled);
 }
 
-const updateStorageArticlesList = (articlesList) => {
-    localStorage.setItem(LocalStorageArticlesListKey, JSON.stringify(articlesList));
+const updateStorageArticlesList = (articlesListStorage) => {
+    localStorage.setItem(localStorageArticlesListKey, JSON.stringify(articlesListStorage));
 }
 
 // Events
-AddArticleFormOpenButton.addEventListener('click', (event) => {
+addArticleFormOpenButton.addEventListener('click', (event) => {
     event.preventDefault();
 
     setAddArticleFormContainerState(isOpenAddArticleForm);
 })
 
-AddArticleForm.addEventListener("reset", () => {
+addArticleForm.addEventListener("reset", () => {
     setAddArticleFormContainerState(false);
 })
 
-AddArticleForm.addEventListener('submit', async (event) => {
+addArticleForm.addEventListener('submit', async (event) => {
     event.preventDefault();
 
-    if(AddArticleForm.checkValidity()) {
-        const FormData = getFormData(AddArticleForm);
+    if(addArticleForm.checkValidity()) {
+        const FormData = getFormData(addArticleForm);
         const newArticleData = {
             id: crypto.randomUUID(),
             title: FormData.title,
@@ -218,11 +218,11 @@ AddArticleForm.addEventListener('submit', async (event) => {
             date: new Date().toISOString().slice(0, 10)
         };
 
-        toggleEnabledFormElements(AddArticleForm, false);
+        toggleEnabledFormElements(addArticleForm, false);
         await simulateNetworkDelay();
 
-        articlesList.push(newArticleData);
-        updateStorageArticlesList(articlesList);
+        articlesListStorage.push(newArticleData);
+        updateStorageArticlesList(articlesListStorage);
         renderArticle(newArticleData);
 
         /*
@@ -230,15 +230,15 @@ AddArticleForm.addEventListener('submit', async (event) => {
         где уже скрывается форма
         setAddArticleFormContainerState(false);
          */
-        toggleEnabledFormElements(AddArticleForm, true);
-        AddArticleForm.reset();
+        toggleEnabledFormElements(addArticleForm, true);
+        addArticleForm.reset();
 
         ArticlesStat.articlesQuantity++;
         updateArticlesStat();
     }
 })
 
-ArticlesList.addEventListener('click', (event) => {
+articlesList.addEventListener('click', (event) => {
     event.preventDefault();
 
     const deleteAttribute = event?.target.attributes["data-delete"];
@@ -248,29 +248,29 @@ ArticlesList.addEventListener('click', (event) => {
         removeArticleTextNodes(currentArticle);
         currentArticle.remove();
 
-        articlesList.splice(articlesList.findIndex(article => article.id === deleteAttribute.value), 1);
-        updateStorageArticlesList(articlesList);
+        articlesListStorage.splice(articlesListStorage.findIndex(article => article.id === deleteAttribute.value), 1);
+        updateStorageArticlesList(articlesListStorage);
 
         ArticlesStat.articlesQuantity--;
         updateArticlesStat();
     }
 })
 
-ArticlesStatOpenButton.addEventListener('click', (event) => {
+articlesStatOpenButton.addEventListener('click', (event) => {
     event.preventDefault();
 
-    ArticlesStatDialog.showModal();
+    articlesStatDialog.showModal();
 })
 
-ModalCloseButton.addEventListener('click', (event) => {
+modalCloseButton.addEventListener('click', (event) => {
     event.preventDefault();
 
-    ArticlesStatDialog.close();
+    articlesStatDialog.close();
 })
 
-ArticlesStatDialog.addEventListener('click', function(event) {
-    if (event.target === ArticlesStatDialog) {
-        ArticlesStatDialog.close('backdrop');
+articlesStatDialog.addEventListener('click', function(event) {
+    if (event.target === articlesStatDialog) {
+        articlesStatDialog.close('backdrop');
     }
 });
 
