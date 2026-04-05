@@ -51,4 +51,4 @@ export const InitArticlesList = [
     }
 ];
 
-export const LocalStorageArticlesListKey = "ARTICLES_LIST"
+export const localStorageArticlesListKey = "ARTICLES_LIST"
