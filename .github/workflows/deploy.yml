@@ -3,6 +3,11 @@ on:
   push:
     branches: ["main"]
 
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -10,21 +15,33 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v6
 
-      - name: Setup
+      - name: Setup Node
         uses: actions/setup-node@v6
         with:
           node-version: "24.x"
+          cache: "npm"
+          cache-dependency-path: "module-2-blog-app/package-lock.json"
+
+      - name: Install dependencies
+        run: npm ci
+        working-directory: ./module-2-blog-app
 
       - name: Build
-        run: |
-          cd ./module-2-blog-app
-          npm install
-          npm run build
+        run: npm run build -- --base-href /${{ github.event.repository.name }}/
+        working-directory: ./module-2-blog-app
 
-      - name: Deploy
-        run: |
-          cd ./module-2-blog-app
-          npm run deploy
-        env:
-          CI: true
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v6
+        with:
+          path: ./module-2-blog-app/dist/module-2-blog-app/browser
+
+  deploy:
+    needs: build
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v6
