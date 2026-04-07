@@ -22,7 +22,9 @@ jobs:
           npm run build
 
       - name: Deploy
-        run: cd ./course && npm run deploy
+        run: |
+          cd ./module-2-blog-app
+          npm run deploy
         env:
           CI: true
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
