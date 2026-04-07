@@ -14,7 +14,6 @@ Thumbs.db
 
 # Node modules and dependency files
 /module-2-blog-app/node_modules/
-/module-2-blog-app/package-lock.json
 /module-2-blog-app/yarn.lock
 /module-2-blog-app/npm-debug.log
 /module-2-blog-app/yarn-error.log
