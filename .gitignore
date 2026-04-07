@@ -1,28 +1,49 @@
 # User-specific stuff
-../.idea/
+.idea/
 .DS_Store
-assets/.DS_Store
+Thumbs.db
 
 # Angular specific
-/dist/
-/out-tsc/
-/tmp/
-/coverage/
-/e2e/test-output/
-/.angular/
-.angular/
+/module-2-blog-app/dist/
+/module-2-blog-app/out-tsc/
+/module-2-blog-app/tmp/
+/module-2-blog-app/coverage/
+/module-2-blog-app/e2e/test-output/
+/module-2-blog-app/.angular/
+/module-2-blog-app/bazel-out
 
 # Node modules and dependency files
-/node_modules/
-/package-lock.json
-/yarn.lock
+/module-2-blog-app/node_modules/
+/module-2-blog-app/package-lock.json
+/module-2-blog-app/yarn.lock
+/module-2-blog-app/npm-debug.log
+/module-2-blog-app/yarn-error.log
 
 # Environment files
-/.env
+/module-2-blog-app/.env
 
 # Angular CLI and build artefacts
-/.angular-cli.json
-/.ng/
+/module-2-blog-app/.angular-cli.json
+/module-2-blog-app/.ng/
+
+# Visual Studio Code
+/module-2-blog-app/.vscode/*
+!/module-2-blog-app/.vscode/settings.json
+!/module-2-blog-app/.vscode/tasks.json
+!/module-2-blog-app/.vscode/launch.json
+!/module-2-blog-app/.vscode/extensions.json
+!/module-2-blog-app/.vscode/mcp.json
+/module-2-blog-app/.history/*
+
+# Miscellaneous
+/module-2-blog-app/.angular/cache
+/module-2-blog-app/.sass-cache/
+/module-2-blog-app/connect.lock
+/module-2-blog-app/coverage
+/module-2-blog-app/libpeerconnection.log
+/module-2-blog-app/testem.log
+/module-2-blog-app/typings
+/module-2-blog-app/__screenshots__/
 
 # TypeScript cache
 *.tsbuildinfo
