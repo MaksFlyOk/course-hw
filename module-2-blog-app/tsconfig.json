@@ -14,8 +14,6 @@
     "importHelpers": true,
     "target": "ES2022",
     "module": "preserve",
-    "noUsedLocals": true,
-    "noUsedParameters": true,
     "baseUrl": "./",
     "paths": {
       "@app/*": ["src/app/*"],
@@ -28,7 +26,9 @@
     "enableI18nLegacyMessageIdFormat": false,
     "strictInjectionParameters": true,
     "strictInputAccessModifiers": true,
-    "strictTemplates": true
+    "strictTemplates": true,
+    "noUsedLocals": true,
+    "noUsedParameters": true
   },
   "files": [],
   "references": [
