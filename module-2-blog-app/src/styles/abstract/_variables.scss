@@ -1,0 +1,49 @@
+// Colors
+$color-primary: #323747;
+$color-secondary: #68686A;
+$color-tertiary: #BDC1CA;
+$color-accent-red: #F23131;
+$color-light-red: #FEF3EF;
+$color-accent-green: #61C15C;
+$color-light-green: #F4FBF4;
+$color-background: #FFFFFF;
+$color-placeholder: #A3A6AD;
+$color-overlay: rgba(50, 55, 67, 0.75);
+$color-featured: #FAFAFA;
+
+// Sizes
+$header-height: 66px;
+/* Было принято решение сохранить ограничение по ширине, по следующим причинам:
+   - Можно растащить контент так чтобы он неплохо смотрелся на разрешении начиная с 2к,
+     но есть проблемы с нехваткой текстового наполнения в самой верстке, а также проблемы
+     с адаптивом контента под ультраширокие мониторы по тем же причинам
+   - Мое личное видение, касательно того, что чаще всего люди с большими мониторами используют
+     многооконный режим по умолчанию, вместо просмотра браузера во всю область монитора
+   - Также мне просто больше нравятся сайты которые ограничивают максимальную ширину контента,
+     так как не приходится бегать глазами из угла в угол монитора
+ */
+$max-width: 1440px;
+$sections-gap: 100px;
+$padding-horizontal: 132px;
+$large-radius: 8px;
+$small-radius: 5px;
+$transition-speed: 0.5s;
+$blog-image-aspect-ratio: 5/3;
+
+// Fonts
+$font-family-main: "Inter", sans-serif;
+
+// Fonts size
+$h1-size: 52px;
+$h2-size: 40px;
+$h3-size: 32px;
+$h4-size: 24px;
+$subtitle-size: 21px;
+$form-size: 18px;
+$text-size: 15px;
+
+// Fonts line-height
+$lh-tight: 1;
+$lh-h2: 1.375;
+$lh-h3: 0.8125;
+$lh-text: 1.73;
