@@ -1,0 +1,50 @@
+@use "abstract" as abs;
+
+.footer {
+  background-color: abs.$color-primary;
+  color: abs.$color-background;
+  padding: 53px abs.$padding-horizontal 16px abs.$padding-horizontal;
+}
+
+.contacts {
+  margin: 0 auto;
+  max-width: abs.$max-width;
+  display: flex;
+  gap: 120px;
+}
+
+.contacts-content__address {
+  margin-bottom: 28px;
+}
+
+.contacts-content__address > p > a {
+  color: abs.$color-background;
+  text-decoration: none;
+
+  @include abs.font-text;
+}
+
+.contacts-content__social {
+  display: flex;
+  gap: 38px;
+  margin-bottom: 86px;
+}
+
+.contacts-content > h2 {
+  margin-bottom: 16px;
+
+  @include abs.font-h1
+}
+
+.feedback {
+  $form-width: 50%;
+  max-width: $form-width;
+  flex: 0 0 $form-width;
+}
+
+.feedback-form > input,
+.feedback-form > textarea {
+  background-color: abs.$color-primary;
+  border-color: abs.$color-background;
+  color: abs.$color-background;
+}
