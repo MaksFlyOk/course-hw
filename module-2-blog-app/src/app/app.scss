@@ -1,0 +1,12 @@
+@use "abstract" as abs;
+
+.container {
+  min-height: 100vh;
+  background-color: abs.$color-background;
+  color: abs.$color-primary;
+  text-rendering: optimizeSpeed;
+  line-height: 1;
+  padding-top: abs.$header-height + 50px;
+
+  @include abs.font-text;
+}
