@@ -55,3 +55,24 @@
   color: abs.$color-accent-green;
   font-weight: 700;
 }
+
+@include abs.media("md") {
+  .header {
+    padding: 30px abs.$padding-horizontal-tablet 25px abs.$padding-horizontal-tablet;
+  }
+}
+
+@include abs.media("sm") {
+  .header {
+    height: abs.$header-height-mobile;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+}
+
+@include abs.media("xs") {
+  .header {
+    padding: 30px abs.$padding-horizontal-mobile 25px abs.$padding-horizontal-mobile;
+  }
+}

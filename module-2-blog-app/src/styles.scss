@@ -125,3 +125,10 @@ textarea[disabled] {
     color: abs.$color-background;
   }
 }
+
+@include abs.media("xs") {
+  .fill-button,
+  .border-button {
+    padding: 12px 30px;
+  }
+}

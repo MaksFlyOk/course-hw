@@ -1,43 +1,58 @@
 @use "variables" as vars;
 
+@mixin media($size) {
+  @if map-has-key(vars.$breakpoints, $size) {
+    $breakpoint-value: map-get(vars.$breakpoints, $size);
+
+    @media (max-width: #{$breakpoint-value}) {
+      @content;
+    }
+  } @else {
+    @error "Неизвестный брейкпоинт: #{$size}. Доступные значения: #{map-keys(vars.$breakpoints)}";
+  }
+}
+
+// Typography adaptive mixin
+@mixin font-base($weight, $size, $lh, $m-size, $m-lh) {
+  font: normal #{$weight} #{$size} / #{$lh} vars.$font-family-main;
+
+  @include media("md") {
+    font-size: $m-size;
+    line-height: $m-lh;
+  }
+}
+
 // Typography
 @mixin font-h1 {
-  font: normal 700 #{vars.$h1-size} / #{vars.$lh-tight} vars.$font-family-main;
+  @include font-base(700, vars.$h1-size, vars.$h1-lh, vars.$h1-size-mobile, vars.$h1-lh-mobile);
 }
 
 @mixin font-h2 {
-  font: normal 700 #{vars.$h2-size} / #{vars.$lh-h2} vars.$font-family-main;
+  @include font-base(700, vars.$h2-size, vars.$h2-lh, vars.$h2-size-mobile, vars.$h2-lh-mobile);
 }
 
 @mixin font-h3 {
-  font: normal 700 #{vars.$h3-size} / #{vars.$lh-h3} vars.$font-family-main;
+  @include font-base(700, vars.$h3-size, vars.$h3-lh, vars.$h3-size-mobile, vars.$h3-lh-mobile);
 }
 
 @mixin font-h4-bold {
-  font: normal 700 #{vars.$h4-size} / #{vars.$lh-tight} vars.$font-family-main;
+  @include font-base(700, vars.$h4-size, vars.$h4-lh, vars.$h4-size-mobile, vars.$h4-lh-mobile);
 }
 
 @mixin font-h4-regular {
-  font: normal 400 #{vars.$h4-size} / #{vars.$lh-tight} vars.$font-family-main;
+  @include font-base(400, vars.$h4-size, vars.$h4-lh, vars.$h4-size-mobile, vars.$h4-lh-mobile);
 }
 
 @mixin font-subtitle {
-  font: normal 400 #{vars.$subtitle-size} / #{vars.$lh-tight} vars.$font-family-main;
+  @include font-base(400, vars.$subtitle-size, vars.$subtitle-lh, vars.$subtitle-size-mobile, vars.$subtitle-lh-mobile);
 }
 
 @mixin font-form {
-  font: normal 400 #{vars.$form-size} / #{vars.$lh-tight} vars.$font-family-main;
+  @include font-base(400, vars.$form-size, vars.$form-lh, vars.$form-size-mobile, vars.$form-lh-mobile);
 }
 
 @mixin font-text {
-  font: normal 400 #{vars.$text-size} / #{vars.$lh-text} vars.$font-family-main;
-}
-
-// Grids
-@mixin container {
-  max-width: vars.$max-width;
-  margin: 0 auto;
-  padding: 0 vars.$padding-horizontal;
+  @include font-base(400, vars.$text-size, vars.$text-lh, vars.$text-size-mobile, vars.$text-lh-mobile);
 }
 
 // Transitions

@@ -48,3 +48,31 @@
   border-color: abs.$color-background;
   color: abs.$color-background;
 }
+
+@include abs.media("max") {
+  .contacts {
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .contacts-content__social {
+    margin-bottom: 16px;
+  }
+
+  .feedback {
+    max-width: 100%;
+    margin-bottom: 24px;
+  }
+}
+
+@include abs.media("md") {
+  .footer {
+    padding: 53px abs.$padding-horizontal-tablet 16px abs.$padding-horizontal-tablet;
+  }
+}
+
+@include abs.media("xs") {
+  .footer {
+    padding: 53px abs.$padding-horizontal-mobile 16px abs.$padding-horizontal-mobile;
+  }
+}

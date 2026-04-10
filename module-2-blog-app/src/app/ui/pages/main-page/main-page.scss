@@ -1,7 +1,8 @@
 @use "abstract" as abs;
 
 main {
-  @include abs.container;
+  margin: 0 auto;
+  padding: 0 abs.$padding-horizontal;
 }
 
 /* About me Section */
@@ -190,7 +191,7 @@ main {
 
 /* Achievements Section */
 .achievements {
-  padding-bottom: abs.$sections-gap;
+  margin-bottom: abs.$sections-gap;
 }
 
 .achievements__title {
@@ -345,4 +346,113 @@ main {
   margin-bottom: 16px;
 
   @include abs.font-h4-bold
+}
+
+@include abs.media("xl") {
+  .about-me {
+    grid-template-columns: 1fr;
+  }
+
+  .about-me__hero {
+    width: 80%;
+  }
+
+  .about-me__hero > img {
+    border-radius: 0 0 abs.$large-radius 1000px;
+  }
+
+  .list-section {
+    grid-template-columns: 1fr;
+  }
+
+  .list-section__title {
+    margin-bottom: 24px;
+  }
+
+  .achievements__title {
+    grid-template-columns: 1fr;
+  }
+
+  .achievements__title > h2 {
+    margin-bottom: 13px;
+  }
+
+  .achievements__content {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(4, 1fr);
+    grid-template-areas:
+        "item1"
+        "item2"
+        "item3"
+        "item4";
+  }
+
+  .achievements__content > li > img {
+    width: 100%;
+    height: 20vh;
+    object-fit: cover;
+  }
+
+  .blog-item {
+    flex-direction: column;
+  }
+
+  .blog-item > img {
+    $img-article-width: 100%;
+    max-width: $img-article-width;
+    flex: 0 0 $img-article-width;
+  }
+
+  .blog-item__header {
+    padding: 24px 49px 16px 29px;
+    flex-shrink: 1;
+  }
+}
+
+@include abs.media("md") {
+  main {
+    padding: 0 abs.$padding-horizontal-tablet;
+  }
+
+  .about-me {
+    margin: 0 auto abs.$sections-gap-tablet auto;
+  }
+
+  .list-section,
+  .table-section,
+  .achievements,
+  .blog {
+    margin-bottom: abs.$sections-gap-tablet;
+  }
+
+  .blog-item {
+    min-height: 0;
+  }
+}
+
+@include abs.media("sm") {
+  .table-section__content__item {
+    min-width: 100%;
+  }
+}
+
+@include abs.media("xs") {
+  main {
+    padding: 0 abs.$padding-horizontal-mobile;
+  }
+
+  .about-me {
+    margin: 0 auto abs.$sections-gap-mobile auto;
+  }
+
+  .list-section,
+  .table-section,
+  .achievements,
+  .blog {
+    margin-bottom: abs.$sections-gap-mobile;
+  }
+
+  .achievements__content > li > img {
+    height: 70vw;
+  }
 }

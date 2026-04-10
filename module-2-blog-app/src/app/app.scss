@@ -10,3 +10,9 @@
 
   @include abs.font-text;
 }
+
+@include abs.media("sm") {
+  .container {
+    padding-top: abs.$header-height-mobile + 24px;
+  }
+}

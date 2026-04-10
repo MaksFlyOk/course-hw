@@ -13,6 +13,7 @@ $color-featured: #FAFAFA;
 
 // Sizes
 $header-height: 66px;
+$header-height-mobile: 100px;
 /* Было принято решение сохранить ограничение по ширине, по следующим причинам:
    - Можно растащить контент так чтобы он неплохо смотрелся на разрешении начиная с 2к,
      но есть проблемы с нехваткой текстового наполнения в самой верстке, а также проблемы
@@ -24,8 +25,12 @@ $header-height: 66px;
  */
 $max-width: 1440px;
 $sections-gap: 100px;
+$sections-gap-tablet: 60px;
+$sections-gap-mobile: 24px;
 $list-gap: 36px;
 $padding-horizontal: 132px;
+$padding-horizontal-tablet: 66px;
+$padding-horizontal-mobile: 30px;
 $large-radius: 8px;
 $small-radius: 5px;
 $transition-speed: 0.5s;
@@ -36,15 +41,43 @@ $font-family-main: "Inter", sans-serif;
 
 // Fonts size
 $h1-size: 52px;
+$h1-size-mobile: 36px;
 $h2-size: 40px;
+$h2-size-mobile: 28px;
 $h3-size: 32px;
+$h3-size-mobile: 24px;
 $h4-size: 24px;
+$h4-size-mobile: 20px;
 $subtitle-size: 21px;
+$subtitle-size-mobile: 18px;
 $form-size: 18px;
+$form-size-mobile: 16px;
 $text-size: 15px;
+$text-size-mobile: 14px;
 
 // Fonts line-height
-$lh-tight: 1;
-$lh-h2: 1.375;
-$lh-h3: 0.8125;
-$lh-text: 1.73;
+$h1-lh: 1;
+$h1-lh-mobile: 1.1;
+$h2-lh: 1.375;
+$h2-lh-mobile: 1.25;
+$h3-lh: 0.8125;
+$h3-lh-mobile: 1.1;
+$h4-lh: 1;
+$h4-lh-mobile: 1.2;
+$subtitle-lh: 1;
+$subtitle-lh-mobile: 1.2;
+$form-lh: 1;
+$form-lh-mobile: 1.2;
+$text-lh: 1.73;
+$text-lh-mobile: 1.4;
+
+// Breakpoints
+$breakpoints: (
+  "xs": 480px,
+  "sm": 568px,
+  "md": 700px,
+  "lg": 800px,
+  "xl": 1080px,
+  "xxl": 1200px,
+  "max": 1250px
+);
