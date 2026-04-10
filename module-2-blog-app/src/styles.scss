@@ -3,19 +3,13 @@
 @use "base/animations";
 @use "abstract" as abs;
 
-body {
-  min-height: 100vh;
-  background-color: abs.$color-background;
-  color: abs.$color-primary;
-  text-rendering: optimizeSpeed;
-  line-height: 1;
-  padding-top: abs.$header-height + 50px;
-
-  @include abs.font-text;
+html {
+  scroll-behavior: smooth;
 }
 
 section {
-  @include abs.container;
+  max-width: abs.$max-width;
+  margin: 0 auto;
 }
 
 h1 {
@@ -91,4 +85,43 @@ textarea[disabled] {
   );
   background-size: 200% 100%;
   animation: loadingShimmer 3s infinite linear; // Анимация из _animations.scss
+}
+
+/* Button */
+.fill-button {
+  width: fit-content;
+  padding: 12px 60px;
+  border-radius: abs.$small-radius;
+  color: abs.$color-background;
+  border: 1px solid abs.$color-accent-green;
+  background-color: abs.$color-accent-green;
+  cursor: pointer;
+
+  @include abs.transition-standard(background-color, color);
+
+  @include abs.font-form;
+
+  &:hover, &:focus {
+    background-color: transparent;
+    color: abs.$color-accent-green;
+  }
+}
+
+.border-button {
+  width: fit-content;
+  padding: 12px 60px;
+  border-radius: abs.$small-radius;
+  border: 1px solid abs.$color-accent-green;
+  color: abs.$color-accent-green;
+  background-color: transparent;
+  cursor: pointer;
+
+  @include abs.transition-standard(background-color, color);
+
+  @include abs.font-form;
+
+  &:hover, &:focus {
+    background-color: abs.$color-accent-green;
+    color: abs.$color-background;
+  }
 }
