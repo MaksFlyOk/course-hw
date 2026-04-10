@@ -2,35 +2,35 @@
 
 // Typography
 @mixin font-h1 {
-  font: normal 700 vars.$h1-size / vars.$lh-tight vars.$font-family-main;
+  font: normal 700 #{vars.$h1-size} / #{vars.$lh-tight} vars.$font-family-main;
 }
 
 @mixin font-h2 {
-  font: normal 700 vars.$h2-size / vars.$lh-h2 vars.$font-family-main;
+  font: normal 700 #{vars.$h2-size} / #{vars.$lh-h2} vars.$font-family-main;
 }
 
 @mixin font-h3 {
-  font: normal 700 vars.$h3-size / vars.$lh-h3 vars.$font-family-main;
+  font: normal 700 #{vars.$h3-size} / #{vars.$lh-h3} vars.$font-family-main;
 }
 
 @mixin font-h4-bold {
-  font: normal 700 vars.$h4-size / vars.$lh-tight vars.$font-family-main;
+  font: normal 700 #{vars.$h4-size} / #{vars.$lh-tight} vars.$font-family-main;
 }
 
 @mixin font-h4-regular {
-  font: normal 400 vars.$h4-size / vars.$lh-tight vars.$font-family-main;
+  font: normal 400 #{vars.$h4-size} / #{vars.$lh-tight} vars.$font-family-main;
 }
 
 @mixin font-subtitle {
-  font: normal 400 vars.$subtitle-size / vars.$lh-tight vars.$font-family-main;
+  font: normal 400 #{vars.$subtitle-size} / #{vars.$lh-tight} vars.$font-family-main;
 }
 
 @mixin font-form {
-  font: normal 400 vars.$form-size / vars.$lh-tight vars.$font-family-main;
+  font: normal 400 #{vars.$form-size} / #{vars.$lh-tight} vars.$font-family-main;
 }
 
 @mixin font-text {
-  font: normal 400 vars.$text-size / vars.$lh-text vars.$font-family-main;
+  font: normal 400 #{vars.$text-size} / #{vars.$lh-text} vars.$font-family-main;
 }
 
 // Grids
@@ -41,6 +41,30 @@
 }
 
 // Transitions
-@mixin transition-standard($property: all) {
-  transition: $property vars.$transition-speed ease-in-out;
+@mixin transition-standard($properties...) {
+  $props: if(length($properties) > 0, $properties, (all));
+
+  $transitions: ();
+
+  @each $prop in $props {
+    $transitions: append(
+        $transitions,
+        #{$prop} vars.$transition-speed ease-in-out,
+        comma
+    );
+  }
+
+  transition: $transitions;
+}
+
+@mixin visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
 }
