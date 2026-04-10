@@ -1,0 +1,57 @@
+@use "abstract" as abs;
+
+.header {
+  position: fixed;
+  z-index: 1000;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: abs.$header-height;
+  background-color: abs.$color-background;
+  padding: 30px abs.$padding-horizontal 25px abs.$padding-horizontal;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-logo {
+  font: normal 500 30px/1 "Inter", sans-serif;
+}
+
+/* Navigation */
+.nav-list {
+  display: flex;
+  gap: 25px;
+}
+
+.nav-list__item > a {
+  color: abs.$color-secondary;
+  text-decoration: none;
+
+  @include abs.transition-standard(font-weight, color);
+
+  &::before {
+    content: attr(data-text);
+    height: 0;
+    font-weight: bold;
+    display: block;
+    visibility: hidden;
+    overflow: hidden;
+  }
+
+  &:hover, &:focus {
+    color: abs.$color-accent-green;
+    font-weight: 700;
+  }
+
+  @include abs.font-text;
+}
+
+/* Используется атрибут id так как:
+ - Данный элемент может быть лишь один на страницы
+ - Для более высокой специфичности, нежели `.nav-list__item > a`
+ */
+#current-page-link {
+  color: abs.$color-accent-green;
+  font-weight: 700;
+}
