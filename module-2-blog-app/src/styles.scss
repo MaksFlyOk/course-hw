@@ -1,1 +1,94 @@
-/* You can add global styles to this file, and also import other style files */
+@use "base/reset";
+@use "base/typography";
+@use "base/animations";
+@use "abstract" as abs;
+
+body {
+  min-height: 100vh;
+  background-color: abs.$color-background;
+  color: abs.$color-primary;
+  text-rendering: optimizeSpeed;
+  line-height: 1;
+  padding-top: abs.$header-height + 50px;
+
+  @include abs.font-text;
+}
+
+section {
+  @include abs.container;
+}
+
+h1 {
+  @include abs.font-h1;
+}
+
+h2 {
+  @include abs.font-h2;
+}
+
+h3 {
+  @include abs.font-h3;
+}
+
+h4 {
+  @include abs.font-h4-bold;
+}
+
+p {
+  @include abs.font-text;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  margin: 0 0 4px 4px;
+
+  @include abs.font-form;
+}
+
+input,
+textarea {
+  padding: 17px 20px;
+  border-radius: abs.$small-radius;
+  background-color: abs.$color-background;
+  border: 1px solid abs.$color-primary;
+  margin-bottom: 16px;
+  color: abs.$color-primary;
+
+  @include abs.font-form;
+  @include abs.transition-standard(border-color);
+
+  &::placeholder {
+    color: abs.$color-placeholder;
+  }
+
+  &:focus {
+    outline: none;
+    border-color: abs.$color-accent-green;
+  }
+}
+
+textarea {
+  resize: none;
+}
+
+// Стили для заблокированных элементов
+button[disabled],
+input[disabled],
+textarea[disabled] {
+  cursor: default;
+  outline: none;
+  border-color: abs.$color-placeholder;
+  color: abs.$color-placeholder;
+  background: linear-gradient(
+      90deg,
+      abs.$color-background 25%,
+      #f0f0f0 50%,
+      abs.$color-background 75%
+  );
+  background-size: 200% 100%;
+  animation: loadingShimmer 3s infinite linear; // Анимация из _animations.scss
+}
