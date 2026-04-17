@@ -18,6 +18,7 @@ blog-app-button {
 
 .blog-item {
   display: flex;
+  justify-content: space-between;
   min-height: 460px;
   margin-bottom: 60px;
   border-radius: abs.$large-radius;
