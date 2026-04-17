@@ -36,20 +36,3 @@ form {
   display: flex;
   flex-direction: column;
 }
-
-button[disabled],
-input[disabled],
-textarea[disabled] {
-  cursor: default;
-  outline: none;
-  border-color: abs.$color-placeholder !important;
-  color: abs.$color-placeholder !important;
-  background: linear-gradient(
-      90deg,
-      abs.$color-background 25%,
-      #f0f0f0 50%,
-      abs.$color-background 75%
-  );
-  background-size: 200% 100%;
-  animation: loadingShimmer 3s infinite linear;
-}
