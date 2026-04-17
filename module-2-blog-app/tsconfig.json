@@ -19,6 +19,8 @@
       "@components/*": ["src/app/ui/components/*"],
       "@pages/*": ["src/app/ui/pages/*"],
       "@assets/*": ["src/assets/*"],
+      "@models/*": ["src/app/core/models/*"],
+      "@core/*": ["src/app/core/*"],
       "@app/*": ["src/app/*"]
     }
   },
