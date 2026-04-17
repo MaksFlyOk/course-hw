@@ -1,20 +1,18 @@
 <div class="articles-container">
   @if (isLoading()) {
-    <div class="articles-loader">
-      <div class="spinner"></div>
-    </div>
+    <blog-app-spinner />
+  } @else {
+    <ul class="articles-list">
+      @for (article of articles(); track article.id) {
+        <li>
+          <blog-app-article-item
+            [data]="article"
+            (delete)="deleteArticle.emit($event)"
+          />
+        </li>
+      } @empty {
+        <div class="articles-list--empty"></div>
+      }
+    </ul>
   }
-
-  <ul class="articles-list">
-    @for (article of articles(); track article.id) {
-      <li>
-        <blog-app-article-item
-          [data]="article"
-          (delete)="deleteArticle.emit($event)"
-        />
-      </li>
-    } @empty {
-      <div class="articles-list--empty"></div>
-    }
-  </ul>
 </div>
