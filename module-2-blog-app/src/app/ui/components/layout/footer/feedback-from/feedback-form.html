@@ -18,6 +18,7 @@
   <div class="add-article-form__buttons">
     <blog-app-button
       buttonText="Отправить"
+      [buttonType]="ButtonType.Submit"
       [disabled]="articleForm.invalid"
       (callback)="onSubmit()"
     />
