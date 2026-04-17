@@ -1,0 +1,73 @@
+@use "abstract" as abs;
+
+.article {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  height: 100%;
+}
+
+.article > button {
+  $button-delete-article-size: 24px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 8px;
+  width: $button-delete-article-size;
+  height: $button-delete-article-size;
+  background-color: abs.$color-background;
+  border: 1px solid transparent;
+  border-radius: abs.$small-radius;
+
+  @include abs.transition-standard(border, background-color);
+
+  &::after {
+    content: "";
+    display: block;
+    background-image: url("../../../../../assets/images/delete-article.webp");
+    width: 100%;
+    height: 100%;
+  }
+
+  &:hover,
+  &:focus {
+    background-color: transparent;
+    border: 1px solid abs.$color-accent-green;
+  }
+}
+
+.article > img {
+  aspect-ratio: abs.$blog-image-aspect-ratio;
+  border-radius: abs.$large-radius;
+}
+
+.article__content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex-grow: 1;
+}
+
+.article__content > h2 {
+  display: none;
+}
+
+.article__content > p {
+  word-break: break-word;
+  /* Все свойства имеют поддержку >97% */
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  hyphens: auto;
+  word-wrap: anywhere;
+  margin-bottom: 21px;
+
+  @include abs.font-h4-regular;
+}
+
+.article__content > time {
+  @include abs.font-text;
+}
