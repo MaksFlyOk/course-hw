@@ -32,13 +32,6 @@ dialog::backdrop {
   @include abs.font-h3;
 }
 
-.modal__header > button {
+.modal__header > blog-app-button ::ng-deep > button {
   padding: 12px;
-  border-color: abs.$color-accent-red;
-  color: abs.$color-accent-red;
-
-  &:hover, &:focus {
-    background-color: abs.$color-accent-red;
-    color: abs.$color-background;
-  }
 }

@@ -6,11 +6,12 @@
   <section class="modal">
     <header class="modal__header">
       <h2>{{ title() }}</h2>
-      <button
-        class="border-button"
-        type="button"
-        aria-label="Закрыть"
-        (click)="onClose()">✕</button>
+      <blog-app-button
+        buttonText="✕"
+        [variant]="buttonVariant"
+        [color]="buttonColor"
+        (callback)="onClose()"
+      />
     </header>
     <div class="modal__content">
       <ng-content />

@@ -1,17 +1,22 @@
 import { ChangeDetectionStrategy, Component, ElementRef, effect, input, output, viewChild } from '@angular/core';
 
+import { Button } from '@components/shared/button/button';
+import { ButtonColor, ButtonVariant } from '@components/shared/button/button.type';
+
 @Component({
   selector: 'blog-app-modal',
-  imports: [],
+  imports: [Button],
   templateUrl: './modal.html',
   styleUrl: './modal.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class Modal {
-  public readonly title = input.required<string>();
-  public isOpen = input<boolean>(false);
-  public readonly closed = output<void>();
   private readonly dialogRef = viewChild.required<ElementRef<HTMLDialogElement>>('dialogElement');
+  protected readonly buttonVariant = ButtonVariant.Outlined;
+  protected readonly buttonColor = ButtonColor.Red;
+  public readonly title = input.required<string>();
+  public readonly closed = output<void>();
+  public isOpen = input<boolean>(false);
 
   constructor() {
     effect(() => {
