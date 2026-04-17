@@ -2,9 +2,10 @@ import { Component, inject, output, signal } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 
 import { Button } from '@components/shared/button/button';
-import { ButtonColor, ButtonVariant } from '@components/shared/button/button.type';
+import { ButtonColor, ButtonType, ButtonVariant } from '@components/shared/button/button.type';
 import { FormField } from '@components/shared/form-field/form-field';
 import { FormFieldType, FormTheme } from '@components/shared/form-field/form-field.type';
+import { simulateNetworkDelay } from '@core/utils/simulate-network-delay';
 
 @Component({
   selector: 'blog-app-add-article-form',
@@ -15,8 +16,14 @@ import { FormFieldType, FormTheme } from '@components/shared/form-field/form-fie
 })
 export class AddArticleForm {
   private readonly fb = inject(FormBuilder);
+  protected readonly buttonVariant = ButtonVariant;
+  protected readonly buttonType = ButtonType;
+  protected readonly formFieldType = FormFieldType;
+  protected readonly formTheme = FormTheme.Light;
+  protected readonly buttonColor = ButtonColor;
+  protected isLoading = signal(false);
   public readonly isOpen = signal(false);
-  readonly submitted = output<any>();
+  public readonly submitted = output<any>();
 
   protected readonly articleForm = this.fb.group({
     title: ['', [Validators.required]],
@@ -33,8 +40,14 @@ export class AddArticleForm {
     }
   }
 
-  protected onSubmit(): void {
+  protected async onSubmit() {
     if (this.articleForm.valid) {
+      this.isLoading.set(true);
+
+      await simulateNetworkDelay();
+
+      this.isLoading.set(false);
+
       this.submitted.emit(this.articleForm.getRawValue());
       this.onReset();
     }
@@ -43,10 +56,6 @@ export class AddArticleForm {
   protected onReset(): void {
     this.articleForm.reset();
     this.isOpen.set(false);
+    this.isLoading.set(false);
   }
-
-  protected readonly ButtonVariant = ButtonVariant;
-  protected readonly formFieldType = FormFieldType;
-  protected readonly formTheme = FormTheme.Light;
-  protected readonly buttonColor = ButtonColor;
 }

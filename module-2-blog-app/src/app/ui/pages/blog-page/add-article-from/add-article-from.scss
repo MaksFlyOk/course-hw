@@ -1,55 +1,50 @@
 @use "abstract" as abs;
 
-.add-article:not([data-hidden]) {
-  overflow: hidden;
-}
+.add-article {
+  &-wrapper {
+    display: grid;
+    grid-template-rows: 0fr;
+    transition:
+      grid-template-rows 300ms ease-in-out,
+      opacity 250ms ease,
+      margin-bottom 300ms ease;
+    opacity: 0;
+    overflow: hidden;
+    visibility: hidden;
 
-#add-article:not([data-hidden]) {
-  animation: showAddArticleForm 250ms ease both;
-  height: 376px;
-  margin-bottom: abs.$sections-gap;
-}
+    &.is-open {
+      grid-template-rows: 1fr;
+      opacity: 1;
+      visibility: visible;
+      margin-bottom: abs.$sections-gap;
+    }
+  }
 
-#add-article[data-hidden] {
-  animation: hideAddArticleForm 250ms ease;
-  height: 0;
-  margin-bottom: 0;
-}
+  &-content {
+    min-height: 0;
+  }
 
-.add-article > h2 {
-  margin-bottom: 46px;
-
-  @include abs.font-h3;
+  & > h2 {
+    margin-bottom: 46px;
+    @include abs.font-h3;
+  }
 }
 
 .add-article-form__buttons {
   display: flex;
   gap: 20px;
-}
-
-.add-article__reset {
-  border-color: abs.$color-accent-red;
-  color: abs.$color-accent-red;
-
-  &:hover, &:focus {
-    background-color: abs.$color-accent-red;
-    color: abs.$color-accent-red;
-  }
+  padding-bottom: 10px;
 }
 
 @include abs.media("sm") {
   .add-article-form__buttons {
     flex-direction: column;
     gap: 8px;
-  }
 
-  .add-article-form__buttons > blog-app-button {
-    display: flex;
-    width: inherit;
-    justify-content: center;
-  }
-
-  #add-article:not([data-hidden]) {
-    height: 410px;
+    & > blog-app-button {
+      display: flex;
+      width: 100%;
+      justify-content: center;
+    }
   }
 }
