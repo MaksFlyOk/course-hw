@@ -1,0 +1,14 @@
+@use "abstract" as abs;
+
+:host {
+  $form-width: 50%;
+  max-width: $form-width;
+  flex: 0 0 $form-width;
+}
+
+@include abs.media("max") {
+  :host {
+    max-width: 100%;
+    margin-bottom: 24px;
+  }
+}

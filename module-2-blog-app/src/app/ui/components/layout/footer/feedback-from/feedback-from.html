@@ -1,0 +1,25 @@
+<form [formGroup]="articleForm" (ngSubmit)="onSubmit()">
+  <blog-app-form-field
+    id="email"
+    label="Ваш Email"
+    [type]="formFieldType.Email"
+    placeholder="Ваш Email"
+    [control]="articleForm.controls.email"
+    [theme]="formTheme"
+  />
+  <blog-app-form-field
+    id="content"
+    label="Ваше сообщение"
+    [type]="formFieldType.TextArea"
+    placeholder="Опишите ваш проект или задачу"
+    [control]="articleForm.controls.message"
+    [theme]="formTheme"
+  />
+  <div class="add-article-form__buttons">
+    <blog-app-button
+      buttonText="Отправить"
+      [disabled]="articleForm.invalid"
+      (callback)="onSubmit()"
+    />
+  </div>
+</form>

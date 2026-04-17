@@ -36,19 +36,6 @@
   @include abs.font-h1
 }
 
-.feedback {
-  $form-width: 50%;
-  max-width: $form-width;
-  flex: 0 0 $form-width;
-}
-
-.feedback-form > input,
-.feedback-form > textarea {
-  background-color: abs.$color-primary;
-  border-color: abs.$color-background;
-  color: abs.$color-background;
-}
-
 @include abs.media("max") {
   .contacts {
     flex-direction: column;
@@ -57,11 +44,6 @@
 
   .contacts-content__social {
     margin-bottom: 16px;
-  }
-
-  .feedback {
-    max-width: 100%;
-    margin-bottom: 24px;
   }
 }
 
