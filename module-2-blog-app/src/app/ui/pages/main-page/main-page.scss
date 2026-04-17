@@ -79,116 +79,6 @@ main {
   }
 }
 
-/* My work Section & Study Section */
-.list-section {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  column-gap: 24px;
-  margin-bottom: abs.$sections-gap;
-}
-
-.list-section__title > h2 {
-  margin-bottom: 13px;
-
-  @include abs.font-h1
-}
-
-.list-section__title > p {
-  @include abs.font-subtitle;
-}
-
-.list-section__item {
-  position: relative;
-  display: flex;
-  gap: 24px;
-
-  &:after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    height: 2px;
-    width: 100%;
-    background-color: abs.$color-tertiary;
-  }
-
-  &:not(:last-child) {
-    margin-bottom: 38px;
-  }
-}
-
-.list-section__item > img {
-  width: 60px;
-  height: fit-content;
-  object-fit: cover;
-}
-
-.list-section__item__content > h3 {
-  margin-bottom: 14px;
-
-  & > span {
-    display: block;
-  }
-
-  & > span:first-child {
-    margin-bottom: 14px;
-
-    @include abs.font-text;
-  }
-
-  & > span:last-child {
-    @include abs.font-subtitle
-  }
-}
-
-.list-section__item__content > p {
-  margin-bottom: 38px;
-}
-
-/* Courses & Skills Section */
-.table-section {
-  margin-bottom: abs.$sections-gap;
-}
-
-.table-section > h2 {
-  margin-bottom: 51px;
-
-  @include abs.font-h1;
-}
-
-.table-section__content {
-  display: flex;
-  flex-wrap: wrap;
-  gap: abs.$list-gap;
-}
-
-.table-section__content__item {
-  flex: 1 1 calc(33% - #{abs.$list-gap});
-  min-width: 368px;
-  max-width: 100%;
-  border-bottom: 1px solid #e5e7eb;
-  padding-bottom: 24px;
-}
-
-.table-section__content__item > h3 {
-  @include abs.font-subtitle;
-
-  & > span {
-    display: block;
-  }
-
-  & > span:first-child {
-    margin-bottom: 8px;
-
-    @include abs.font-text;
-  }
-
-  & > span:last-child {
-    margin-bottom: 24px;
-
-    @include abs.font-subtitle;
-  }
-}
-
 /* Achievements Section */
 .achievements {
   margin-bottom: abs.$sections-gap;
@@ -282,10 +172,10 @@ main {
   margin-bottom: abs.$sections-gap;
 }
 
-.blog > a {
+.blog > blog-app-button {
   display: block;
   margin: 0 auto;
-  text-decoration: none;
+  text-align: center;
 }
 
 .blog > h2 {
@@ -361,14 +251,6 @@ main {
     border-radius: 0 0 abs.$large-radius 1000px;
   }
 
-  .list-section {
-    grid-template-columns: 1fr;
-  }
-
-  .list-section__title {
-    margin-bottom: 24px;
-  }
-
   .achievements__title {
     grid-template-columns: 1fr;
   }
@@ -418,8 +300,6 @@ main {
     margin: 0 auto abs.$sections-gap-tablet auto;
   }
 
-  .list-section,
-  .table-section,
   .achievements,
   .blog {
     margin-bottom: abs.$sections-gap-tablet;
@@ -427,12 +307,6 @@ main {
 
   .blog-item {
     min-height: 0;
-  }
-}
-
-@include abs.media("sm") {
-  .table-section__content__item {
-    min-width: 100%;
   }
 }
 
@@ -445,8 +319,6 @@ main {
     margin: 0 auto abs.$sections-gap-mobile auto;
   }
 
-  .list-section,
-  .table-section,
   .achievements,
   .blog {
     margin-bottom: abs.$sections-gap-mobile;
