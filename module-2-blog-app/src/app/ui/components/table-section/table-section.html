@@ -1,0 +1,13 @@
+<section class="table-section">
+  <h2>{{ tableSectionData().title }}</h2>
+  <ul class="table-section__content">
+    @for (tableElement of tableSectionData().list; track tableElement.title) {
+      <li class="table-section__content__item">
+        <h3>
+          <span>{{ tableElement.subtitle }}</span>
+          <span>{{ tableElement.title }}</span>
+        </h3>
+      </li>
+    }
+  </ul>
+</section>

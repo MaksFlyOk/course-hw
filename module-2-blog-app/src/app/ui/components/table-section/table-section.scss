@@ -1,0 +1,71 @@
+@use "abstract" as abs;
+
+.table-section {
+  margin-bottom: abs.$sections-gap;
+}
+
+.table-section > h2 {
+  margin-bottom: 51px;
+
+  @include abs.font-h1;
+}
+
+.table-section__content {
+  display: flex;
+  flex-wrap: wrap;
+  gap: abs.$list-gap;
+}
+
+.table-section__content__item {
+  flex: 1 1 calc(33% - #{abs.$list-gap});
+  min-width: 368px;
+  max-width: 100%;
+  border-bottom: 1px solid #e5e7eb;
+  padding-bottom: 24px;
+}
+
+.table-section__content__item > h3 {
+  @include abs.font-subtitle;
+
+  & > span {
+    display: block;
+  }
+
+  & > span:first-child {
+    margin-bottom: 8px;
+
+    @include abs.font-text;
+  }
+
+  & > span:last-child {
+    margin-bottom: 24px;
+
+    @include abs.font-subtitle;
+  }
+}
+
+@include abs.media("md") {
+  .table-section {
+    margin-bottom: abs.$sections-gap-tablet;
+  }
+}
+
+@include abs.media("sm") {
+  .table-section__content__item {
+    min-width: 100%;
+  }
+}
+
+@include abs.media("xs") {
+  main {
+    padding: 0 abs.$padding-horizontal-mobile;
+  }
+
+  .about-me {
+    margin: 0 auto abs.$sections-gap-mobile auto;
+  }
+
+  .table-section {
+    margin-bottom: abs.$sections-gap-mobile;
+  }
+}
