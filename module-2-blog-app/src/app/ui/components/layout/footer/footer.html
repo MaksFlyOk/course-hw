@@ -12,15 +12,7 @@
         <li><a href="#" target="_blank" aria-label="Профиль GitHub Суховарова Максима (открывается в новой вкладке)"><img src="images/contacts/github-img.webp" alt="Github Суховаров Максим"></a></li>
       </ul>
     </div>
-    <div class="feedback">
-      <form class="feedback-form" action="#" method="post">
-        <label for="email">Ваш Email</label>
-        <input type="email" id="email" required name="email" placeholder="Ваш Email">
-        <label for="message">Ваше сообщение</label>
-        <textarea id="message" name="message" required rows="4" cols="50" placeholder="Опишите ваш проект или задачу"></textarea>
-        <button class="fill-button" type="submit">Отправить</button>
-      </form>
-    </div>
+    <blog-app-feedback-from (submitted)="submitFeedbackForm($event)"/>
   </section>
   <span>&#169; 2026, Sukhovarov Maksim</span>
 </footer>
