@@ -11,6 +11,7 @@ import { FeedbackFrom } from '@components/layout/footer/feedback-from/feedback-f
 })
 export class Footer {
   protected submitFeedbackForm(data: FeedbackData): void {
+    // Заглушка для визуального отображения работы формы
     console.log('Feedback form submitted:', data);
   }
 }
