@@ -1,0 +1,52 @@
+@use "abstract" as abs;
+
+.field-container {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-bottom: 16px;
+
+  &.theme--dark {
+    --text-color: #{abs.$color-background};
+    --field-background-color: #{abs.$color-primary};
+    --field-border-color: #{abs.$color-background};
+  }
+
+  &.theme--light {
+    --text-color: #{abs.$color-primary};
+    --field-background-color: #{abs.$color-background};
+    --field-border-color: #{abs.$color-primary};
+  }
+
+  label {
+    margin: 0 0 4px 4px;
+    color: var(--text-color);
+
+    @include abs.font-form;
+  }
+
+  input, textarea {
+    padding: 17px 20px;
+    border-radius: abs.$small-radius;
+    background-color: var(--field-background-color);
+    border: 1px solid var(--field-border-color);
+    color: var(--text-color);
+    transition: border-color 0.2s;
+
+    @include abs.font-form;
+    @include abs.transition-standard(border-color);
+
+    &::placeholder {
+      color: abs.$color-placeholder;
+    }
+
+    &:focus {
+      outline: none;
+      border-color: abs.$color-accent-green;
+    }
+  }
+
+  textarea {
+    resize: none;
+  }
+}

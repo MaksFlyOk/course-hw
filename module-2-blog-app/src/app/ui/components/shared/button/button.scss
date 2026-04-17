@@ -1,0 +1,63 @@
+@use "abstract" as abs;
+
+.btn {
+  width: fit-content;
+  padding: 12px 60px;
+  border-radius: abs.$small-radius;
+  cursor: pointer;
+  border: 1px solid transparent;
+
+  @include abs.transition-standard(background-color, color, border-color);
+  @include abs.font-form;
+
+  &--green {
+    --main-color: #{abs.$color-accent-green};
+    --accent-color: #{abs.$color-background};
+  }
+
+  &--red {
+    --main-color: #{abs.$color-accent-red};
+    --accent-color: #{abs.$color-background};
+  }
+
+  &--filled {
+    background-color: var(--main-color);
+    color: var(--accent-color);
+    border-color: var(--main-color);
+
+    &:hover, &:focus {
+      background-color: transparent;
+      color: var(--main-color);
+    }
+  }
+
+  &--outlined {
+    background-color: transparent;
+    color: var(--main-color);
+    border-color: var(--main-color);
+
+    &:hover, &:focus {
+      background-color: var(--main-color);
+      color: var(--accent-color);
+    }
+  }
+
+  @include abs.media("xs") {
+    padding: 12px 30px;
+  }
+}
+
+button[disabled] {
+  cursor: default;
+  outline: none;
+  border-color: abs.$color-placeholder;
+  color: abs.$color-placeholder;
+  background: linear-gradient(
+      90deg,
+      abs.$color-background 25%,
+      #f0f0f0 50%,
+      abs.$color-background 75%
+  );
+  background-size: 200% 100%;
+  animation: loadingShimmer 3s infinite linear;
+}
