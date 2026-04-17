@@ -15,6 +15,7 @@ import { FormFieldType, FormTheme } from '@components/shared/form-field/form-fie
 })
 export class FeedbackForm {
   private readonly fb = inject(FormBuilder);
+
   protected readonly form = form;
   protected readonly formFieldType = FormFieldType;
   protected readonly formTheme = FormTheme.Dark;

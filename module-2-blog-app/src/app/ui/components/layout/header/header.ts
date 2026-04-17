@@ -12,6 +12,7 @@ import { filter, map } from 'rxjs';
 })
 export class Header {
   private readonly router = inject(Router);
+
   protected readonly currentPath: Signal<string> = toSignal(
     this.router.events.pipe(
       filter((event) => event instanceof NavigationEnd),
