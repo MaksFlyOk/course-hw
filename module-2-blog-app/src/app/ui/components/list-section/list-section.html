@@ -1,0 +1,20 @@
+<section class="list-section">
+  <div class="list-section__title">
+    <h2>{{ listSectionData().title }}</h2>
+    <p>{{ listSectionData().description }}</p>
+  </div>
+  <div>
+    @for (listElement of listSectionData().list; track listElement.subtitle) {
+      <article class="list-section__item">
+        <img [src]="listElement.img.src" [alt]="listElement.img.alt">
+        <div class="list-section__item__content">
+          <h3>
+            <span>{{ listElement.subtitle }}</span>
+            <span>{{ listElement.title }}</span>
+          </h3>
+          <p>{{ listElement.description }}</p>
+        </div>
+      </article>
+    }
+  </div>
+</section>
