@@ -5,27 +5,6 @@
   min-height: 200px;
 }
 
-.articles-loader {
-  position: absolute;
-  inset: 0;
-  z-index: 10;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: abs.$color-background;
-}
-
-.spinner {
-  $loader-size: 80px;
-  $loader-border: 6px;
-  width: $loader-size;
-  height: $loader-size;
-  border: $loader-border solid abs.$color-secondary;
-  border-top-color: abs.$color-accent-green;
-  border-radius: 50%;
-  animation: loaderSpin 1s linear infinite;
-}
-
 .articles-list {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -39,6 +18,7 @@
     grid-column: span 3;
     text-align: center;
     padding-bottom: abs.$sections-gap * 2;
+
     &::after {
       content: "Нет статей";
       color: abs.$color-secondary;
@@ -80,6 +60,40 @@
   }
 }
 
-@keyframes loaderSpin {
-  to { transform: rotate(360deg); }
+@include abs.media("xxl") {
+  .articles-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .articles-list > li:first-child {
+    grid-column: span 2;
+
+    ::ng-deep .article {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+
+      & > img {
+        $img-width: 100%;
+        max-width: $img-width;
+        flex: 0 0 $img-width;
+        flex-basis: auto;
+      }
+
+      & > .article__content {
+        display: block;
+        padding: 0 28px 23px 28px;
+      }
+    }
+  }
+}
+
+@include abs.media("lg") {
+  .articles-list {
+    grid-template-columns: 1fr;
+  }
+
+  .articles-list > li:first-child {
+    grid-column: span 1;
+  }
 }
