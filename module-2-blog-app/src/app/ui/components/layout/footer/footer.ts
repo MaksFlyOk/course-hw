@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
 
 import { FeedbackData } from '@components/layout/footer/feedback-from/feedback-data.type';
-import { FeedbackFrom } from '@components/layout/footer/feedback-from/feedback-from';
+import { FeedbackForm } from '@components/layout/footer/feedback-from/feedback-form';
 
 @Component({
   selector: 'app-blog-footer',
-  imports: [FeedbackFrom],
+  imports: [FeedbackForm],
   templateUrl: './footer.html',
   styleUrl: './footer.scss',
 })

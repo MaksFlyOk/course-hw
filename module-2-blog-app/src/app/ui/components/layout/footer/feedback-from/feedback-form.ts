@@ -3,16 +3,17 @@ import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { form } from '@angular/forms/signals';
 
 import { Button } from '@components/shared/button/button';
+import { ButtonType } from '@components/shared/button/button.type';
 import { FormField } from '@components/shared/form-field/form-field';
 import { FormFieldType, FormTheme } from '@components/shared/form-field/form-field.type';
 
 @Component({
-  selector: 'blog-app-feedback-from',
+  selector: 'blog-app-feedback-form',
   imports: [Button, FormField, ReactiveFormsModule],
-  templateUrl: './feedback-from.html',
-  styleUrl: './feedback-from.scss',
+  templateUrl: './feedback-form.html',
+  styleUrl: './feedback-form.scss',
 })
-export class FeedbackFrom {
+export class FeedbackForm {
   private readonly fb = inject(FormBuilder);
   protected readonly form = form;
   protected readonly formFieldType = FormFieldType;
@@ -30,4 +31,6 @@ export class FeedbackFrom {
       this.articleForm.reset();
     }
   }
+
+  protected readonly ButtonType = ButtonType;
 }

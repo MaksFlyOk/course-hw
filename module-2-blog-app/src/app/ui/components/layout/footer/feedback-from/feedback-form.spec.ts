@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { FeedbackFrom } from './feedback-from';
+import { FeedbackFrom } from './feedback-form';
 
 describe('FeedbackFrom', () => {
   let component: FeedbackFrom;
