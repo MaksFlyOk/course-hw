@@ -9,13 +9,15 @@
   &.theme--dark {
     --text-color: #{abs.$color-background};
     --field-background-color: #{abs.$color-primary};
-    --field-border-color: #{abs.$color-background};
+    --field-border-color: #{abs.$color-secondary};
+    --field-border-active-color: #{abs.$color-background};
   }
 
   &.theme--light {
     --text-color: #{abs.$color-primary};
     --field-background-color: #{abs.$color-background};
     --field-border-color: #{abs.$color-primary};
+    --field-border-active-color: #{abs.$color-accent-green};
   }
 
   label {
@@ -42,7 +44,7 @@
 
     &:focus {
       outline: none;
-      border-color: abs.$color-accent-green;
+      border-color: var(--field-border-active-color);
     }
   }
 
