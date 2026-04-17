@@ -1,3 +1,9 @@
+<!--
+  Блоки "about-me" & "achievements" не были вынесены в отдельные компоненты
+  т.к. в этом нету необходимости, ведь они не относятся ни к одну из двух категорий:
+  - Не являются списком или таблицей, значит являются уникальным элементом, который не будет повторяться на других страницах
+  - Не содержат сложной логики, которая требует изоляции в отдельном компонент
+ -->
 <main>
   <section class="about-me">
     <div class="about-me__title">
@@ -59,30 +65,5 @@
       </li>
     </ul>
   </section>
-  <section class="blog" id="blog">
-    <h2>Последние статьи</h2>
-    <div>
-      <article class="blog-item">
-        <header class="blog-item__header">
-          <time datetime="2024-12-15">15 декабря 2024</time>
-          <h3>Основы работы с Git для начинающих разработчиков</h3>
-          <p>В этой статье рассмотрим основные команды Git, которые необходимы каждому разработчику.</p>
-        </header>
-        <img src="images/blog/blog-img1.webp" alt="Обложка статьи 'Основы работы с Git для начинающих разработчиков'">
-      </article>
-      <article class="blog-item">
-        <header class="blog-item__header">
-          <time datetime="2024-09-03">3 сентября 2024</time>
-          <h3>Создание первого веб-приложения на React</h3>
-          <p>Пошаговое руководство по созданию простого веб-приложения с использованием React.</p>
-        </header>
-        <img src="images/blog/blog-img2.webp" alt="Обложка статьи 'Как создать адаптивный дизайн за 30 минут'">
-      </article>
-    </div>
-    <blog-app-button
-      buttonText="Посмотреть все статьи"
-      [variant]="buttonVariant.Outlined"
-      (callback)="router.navigate(['blog'])"
-    />
-  </section>
+  <blog-app-last-articles />
 </main>
