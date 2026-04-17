@@ -19,4 +19,6 @@ export class Button {
   protected onClick(event: MouseEvent): void {
     this.callback.emit(event);
   }
+
+  protected readonly ButtonType = ButtonType;
 }
