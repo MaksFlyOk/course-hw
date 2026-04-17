@@ -42,7 +42,7 @@
       color: abs.$color-placeholder;
     }
 
-    &:focus {
+    &:not(:disabled):focus {
       outline: none;
       border-color: var(--field-border-active-color);
     }
@@ -51,4 +51,12 @@
   textarea {
     resize: none;
   }
+}
+
+input:disabled, textarea:disabled {
+  cursor: default;
+  outline: none;
+  border-color: abs.$color-placeholder;
+  color: abs.$color-primary;
+  background-color: abs.$color-placeholder;
 }
