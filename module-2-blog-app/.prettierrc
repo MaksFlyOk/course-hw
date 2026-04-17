@@ -12,13 +12,14 @@
   "endOfLine": "lf",
   "importOrder": [
     "^@angular/(.*)$",
-    "^@rxjs/(.*)$",
+    "^rxjs/(.*)$",
     "<THIRD_PARTY_MODULES>",
     "^src/(.*)$",
     "^[./]"
   ],
   "importOrderSeparation": true,
   "importOrderSortSpecifiers": true,
+  "importOrderParserPlugins": ["typescript", "classProperties", "decorators-legacy"],
   "overrides": [
     {
       "files": "*.html",
