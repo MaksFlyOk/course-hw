@@ -1,0 +1,43 @@
+<section class="add-article">
+  @if (isOpen()) {
+    <div id="add-article">
+      <h2>Добавить статью</h2>
+
+      <form [formGroup]="articleForm" (ngSubmit)="onSubmit()">
+
+        <blog-app-form-field
+          id="title"
+          label="Заголовок"
+          [type]="formFieldType.Text"
+          placeholder="Заголовок"
+          [control]="articleForm.controls.title"
+          [theme]="formTheme"
+        />
+
+        <blog-app-form-field
+          id="content"
+          label="Текст статьи"
+          [type]="formFieldType.TextArea"
+          placeholder="Текст статьи"
+          [control]="articleForm.controls.content"
+          [theme]="formTheme"
+        />
+
+        <div class="add-article-form__buttons">
+          <blog-app-button
+            buttonText="Добавить"
+            [disabled]="articleForm.invalid"
+            (callback)="onSubmit()"
+          />
+
+          <blog-app-button
+            buttonText="Отмена"
+            [variant]="ButtonVariant.Outlined"
+            [color]="buttonColor.Red"
+            (callback)="onReset()"
+          />
+        </div>
+      </form>
+    </div>
+  }
+</section>
