@@ -44,7 +44,7 @@ export class AddArticleForm {
     if (this.articleForm.valid) {
       this.isLoading.set(true);
 
-      await simulateNetworkDelay(10_000);
+      await simulateNetworkDelay();
 
       this.isLoading.set(false);
 
