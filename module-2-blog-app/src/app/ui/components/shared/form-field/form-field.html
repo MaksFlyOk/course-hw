@@ -1,0 +1,9 @@
+<div class="field-container" [class]="'theme--' + theme()">
+  <label [for]="id()">{{ label() }}</label>
+
+  @if (type() === 'text' || type() === 'email') {
+    <input [id]="id()" [type]="type()" [formControl]="control()" [placeholder]="placeholder()">
+  } @else {
+    <textarea [id]="id()" [formControl]="control()" rows="5" [placeholder]="placeholder()"></textarea>
+  }
+</div>

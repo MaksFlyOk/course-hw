@@ -1,0 +1,8 @@
+<button
+  class="btn"
+  [class]="'btn--' + color() + ' btn--' + variant()"
+  (click)="onClick($event)"
+  type="button"
+>
+  {{ buttonText() }}
+</button>
