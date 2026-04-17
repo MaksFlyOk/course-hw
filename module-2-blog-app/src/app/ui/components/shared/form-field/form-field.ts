@@ -1,4 +1,4 @@
-import { Component, input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, computed, input } from '@angular/core';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
 
 import { FormFieldType, FormTheme } from './form-field.type';
@@ -8,12 +8,13 @@ import { FormFieldType, FormTheme } from './form-field.type';
   imports: [ReactiveFormsModule],
   templateUrl: './form-field.html',
   styleUrl: './form-field.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class FormField {
-  readonly id = input.required<string>();
-  readonly label = input.required<string>();
-  readonly placeholder = input<string>('');
-  readonly type = input<FormFieldType>(FormFieldType.Text);
-  readonly theme = input<FormTheme>(FormTheme.Light);
-  readonly control = input.required<FormControl>();
+  public readonly id = input.required<string>();
+  public readonly label = input.required<string>();
+  public readonly placeholder = input<string>('');
+  public readonly type = input<FormFieldType>(FormFieldType.Text);
+  public readonly theme = input<FormTheme>(FormTheme.Light);
+  public readonly control = input.required<FormControl>();
 }
