@@ -1,12 +1,13 @@
 import { Component } from '@angular/core';
-import { Header } from '@components/header/header';
-import { Footer } from '@components/footer/footer';
-import { MainPage } from '@pages/main-page/main-page';
+import { RouterOutlet } from '@angular/router';
+
+import { Footer } from '@components/layout/footer/footer';
+import { Header } from '@components/layout/header/header';
 
 @Component({
   selector: 'app-blog-root',
-  imports: [Header, Footer, MainPage],
+  imports: [Header, Footer, RouterOutlet],
   templateUrl: './app.html',
   styleUrl: './app.scss',
 })
-export class App { }
+export class App {}
