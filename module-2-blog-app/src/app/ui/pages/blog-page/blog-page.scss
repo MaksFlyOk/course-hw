@@ -90,245 +90,59 @@ main {
   min-width: clamp(140px, 15vw, 213px);
 }
 
-/* Blog articles Section */
-.articles {
-  position: relative;
-  margin-bottom: abs.$sections-gap;
-}
-
-.articles > button {
-  display: block;
-  width: fit-content;
-  margin: 0 auto;
-
-  & > svg {
-    margin-left: 10px;
-
-    & > path {
-      fill: currentColor;
-    }
+@include abs.media("xxl") {
+  .articles-list {
+    grid-template-columns: repeat(2, 1fr);
   }
 
-  &:hover, &:focus {
-    background-color: abs.$color-accent-green;
-    color: abs.$color-background;
-  }
-}
+  .articles-list > li:first-child {
+    grid-column: span 2;
 
-/* Loader */
-.articles-loader {
-  position: absolute;
-  top: 0;
-  left: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 200px;
-  width: 100%;
-  background-color: abs.$color-background;
+    & > .article {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
 
-  &[hidden] {
-    display: none;
-  }
-}
+      & > img {
+        --img-article-width: 100%;
+        flex-basis: auto;
+      }
 
-.spinner {
-  $loader-size: 80px;
-  $loader-border: 6px;
-  width: $loader-size;
-  height: $loader-size;
-  border: $loader-border solid abs.$color-secondary;
-  border-top: $loader-border solid abs.$color-secondary;
-  border-radius: 50%;
-  animation: loaderSpin 1s linear infinite;
-}
-
-.articles-list {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-column-gap: 16px;
-  column-gap: 34px;
-  row-gap: 64px;
-  margin-bottom: 64px;
-}
-
-.articles-list:empty {
-  display: block;
-  text-align: center;
-  padding-bottom: abs.$sections-gap * 2;
-
-  &::after {
-    content: "Нет статей";
-    color: abs.$color-secondary;
-  }
-}
-
-.articles-list:empty + button {
-  display: none;
-}
-
-.article {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  height: 100%;
-}
-
-.article > button {
-  $button-delete-article-size: 24px;
-  position: absolute;
-  top: 0;
-  right: 0;
-  margin: 8px;
-  width: $button-delete-article-size;
-  height: $button-delete-article-size;
-  background-color: abs.$color-background;
-  border: 1px solid transparent;
-  border-radius: abs.$small-radius;
-
-  @include abs.transition-standard(border, background-color);
-
-  &::after {
-    content: "";
-    display: block;
-    background-image: url("../../../../assets/images/delete-article.webp");
-    width: 100%;
-    height: 100%;
-  }
-
-  &:hover,
-  &:focus {
-    background-color: transparent;
-    border: 1px solid abs.$color-accent-green;
-  }
-}
-
-.article > img {
-  aspect-ratio: abs.$blog-image-aspect-ratio;
-  border-radius: abs.$large-radius;
-}
-
-.article__content {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  flex-grow: 1;
-}
-
-.article__content > h2 {
-  display: none;
-}
-
-.article__content > p {
-  word-break: break-word;
-  /* Все свойства имеют поддержку >97% */
-  display: -webkit-box;
-  -webkit-line-clamp: 4;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  hyphens: auto;
-  word-wrap: anywhere;
-  margin-bottom: 21px;
-
-  @include abs.font-h4-regular;
-}
-
-.article__content > time {
-  @include abs.font-text
-}
-
-.articles-list > li:first-child {
-  grid-column: span 3;
-
-  & > .article {
-    background-color: abs.$color-featured;
-    border-radius: abs.$large-radius;
-    overflow: hidden;
-    display: flex;
-    flex-direction: row;
-    gap: 46px;
-    margin-bottom: 62px;
-
-    & > img {
-      $img-article-width: 60%;
-      max-width: $img-article-width;
-      flex: 0 0 $img-article-width;
-      height: auto;
-      object-fit: cover;
-    }
-
-    & > .article__content {
-      display: block;
-      padding: 23px 28px 0 0;
-    }
-
-    & > .article__content > h2 {
-      display: initial;
-      hyphens: auto;
-      word-wrap: anywhere;
-      overflow-wrap: break-word;
-      margin-bottom: 16px;
-
-      @include abs.font-h2;
-    }
-
-    & > .article__content > p {
-      margin-bottom: 16px;
-
-      @include abs.font-subtitle;
-    }
-
-    & > .article__content > time {
-      @include abs.font-text;
+      & > .article__content {
+        display: block;
+        padding: 0 28px 23px 28px;
+      }
     }
   }
 }
 
 @include abs.media("lg") {
+  .blog-header {
+    flex-direction: column;
+    gap: 24px;
+    align-items: center;
+  }
+
   .side-menu__container {
     transform: translateY(50%);
   }
 }
 
+@include abs.media("md") {
+  main {
+    padding: 0 abs.$padding-horizontal-tablet;
+  }
+}
+
 @include abs.media("sm") {
-  .add-article-form__buttons {
-    flex-direction: column;
-    gap: 8px;
-  }
-
-  .add-article-form__buttons > button {
-    display: flex;
-    width: inherit;
-    justify-content: center;
-  }
-
   .model__stats-list {
     display: flex;
     flex-direction: column;
-  }
-
-  #add-article:not([data-hidden]) {
-    height: 410px;
   }
 }
 
 @include abs.media("xs") {
   main {
     padding: 0 abs.$padding-horizontal-mobile;
-  }
-
-  .about-me {
-    margin: 0 auto abs.$sections-gap-mobile auto;
-  }
-
-  .achievements,
-  .blog {
-    margin-bottom: abs.$sections-gap-mobile;
-  }
-
-  .achievements__content > li > img {
-    height: 70vw;
   }
 }
