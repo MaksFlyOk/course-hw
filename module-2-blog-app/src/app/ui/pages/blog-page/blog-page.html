@@ -34,26 +34,25 @@
     <div class="blog-header">
       <div class="blog-header__title">
         <h1>Мой блог</h1>
-        <p>Здесь я делюсь полезными материалами и своими мыслями о веб-разработке. Пишу о новых технологиях, инструментах и подходах, которые помогают создавать современные веб-приложения.</p>
+        <p>Здесь я делюсь полезными материалами и своими мыслями о веб-разработке. Пишу о новых технологиях,
+          инструментах и подходах, которые помогают создавать современные веб-приложения.</p>
       </div>
       <div class="blog-header__hero">
         <img src="images/my-blogs.svg" alt="Ссылка на блог">
       </div>
     </div>
     <section class="articles">
-      <section class="articles">
-        <blog-app-articles-list
-          [articles]="articles()"
-          [isLoading]="isLoading()"
-          (deleteArticle)="deleteArticle($event)"
+      <blog-app-articles-list
+        [articles]="articles()"
+        [isLoading]="isLoading()"
+        (deleteArticle)="deleteArticle($event)"
+      />
+      @if (articles().length > 0) {
+        <blog-app-button
+          buttonText="Слудеющие ➔"
+          [variant]="buttonVariant"
         />
-        @if (articles().length > 0) {
-          <button class="border-button">
-            Следующие
-            <svg width="19" height="13" viewBox="0 0 19 15">...</svg>
-          </button>
-        }
-      </section>
+      }
     </section>
   </section>
   <blog-app-add-article-form #articleForm (submitted)="addNewArticle($event)"/>
