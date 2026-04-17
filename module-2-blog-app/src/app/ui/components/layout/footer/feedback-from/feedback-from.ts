@@ -14,8 +14,10 @@ import { FormFieldType, FormTheme } from '@components/shared/form-field/form-fie
 })
 export class FeedbackFrom {
   private readonly fb = inject(FormBuilder);
-
-  readonly submitted = output<any>();
+  protected readonly form = form;
+  protected readonly formFieldType = FormFieldType;
+  protected readonly formTheme = FormTheme.Dark;
+  public readonly submitted = output<any>();
 
   protected readonly articleForm = this.fb.group({
     email: ['', [Validators.required, Validators.email]],
@@ -28,8 +30,4 @@ export class FeedbackFrom {
       this.articleForm.reset();
     }
   }
-
-  protected readonly form = form;
-  protected readonly formFieldType = FormFieldType;
-  protected readonly formTheme = FormTheme.Dark;
 }
