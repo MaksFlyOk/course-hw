@@ -37,46 +37,13 @@ form {
   flex-direction: column;
 }
 
-label {
-  margin: 0 0 4px 4px;
-
-  @include abs.font-form;
-}
-
-input,
-textarea {
-  padding: 17px 20px;
-  border-radius: abs.$small-radius;
-  background-color: abs.$color-background;
-  border: 1px solid abs.$color-primary;
-  margin-bottom: 16px;
-  color: abs.$color-primary;
-
-  @include abs.font-form;
-  @include abs.transition-standard(border-color);
-
-  &::placeholder {
-    color: abs.$color-placeholder;
-  }
-
-  &:focus {
-    outline: none;
-    border-color: abs.$color-accent-green;
-  }
-}
-
-textarea {
-  resize: none;
-}
-
-// Стили для заблокированных элементов
 button[disabled],
 input[disabled],
 textarea[disabled] {
   cursor: default;
   outline: none;
-  border-color: abs.$color-placeholder;
-  color: abs.$color-placeholder;
+  border-color: abs.$color-placeholder !important;
+  color: abs.$color-placeholder !important;
   background: linear-gradient(
       90deg,
       abs.$color-background 25%,
@@ -84,51 +51,5 @@ textarea[disabled] {
       abs.$color-background 75%
   );
   background-size: 200% 100%;
-  animation: loadingShimmer 3s infinite linear; // Анимация из _animations.scss
-}
-
-/* Button */
-.fill-button {
-  width: fit-content;
-  padding: 12px 60px;
-  border-radius: abs.$small-radius;
-  color: abs.$color-background;
-  border: 1px solid abs.$color-accent-green;
-  background-color: abs.$color-accent-green;
-  cursor: pointer;
-
-  @include abs.transition-standard(background-color, color);
-
-  @include abs.font-form;
-
-  &:hover, &:focus {
-    background-color: transparent;
-    color: abs.$color-accent-green;
-  }
-}
-
-.border-button {
-  width: fit-content;
-  padding: 12px 60px;
-  border-radius: abs.$small-radius;
-  border: 1px solid abs.$color-accent-green;
-  color: abs.$color-accent-green;
-  background-color: transparent;
-  cursor: pointer;
-
-  @include abs.transition-standard(background-color, color);
-
-  @include abs.font-form;
-
-  &:hover, &:focus {
-    background-color: abs.$color-accent-green;
-    color: abs.$color-background;
-  }
-}
-
-@include abs.media("xs") {
-  .fill-button,
-  .border-button {
-    padding: 12px 30px;
-  }
+  animation: loadingShimmer 3s infinite linear;
 }
