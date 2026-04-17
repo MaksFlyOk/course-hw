@@ -1,0 +1,85 @@
+@use "abstract" as abs;
+
+.articles-container {
+  position: relative;
+  min-height: 200px;
+}
+
+.articles-loader {
+  position: absolute;
+  inset: 0;
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: abs.$color-background;
+}
+
+.spinner {
+  $loader-size: 80px;
+  $loader-border: 6px;
+  width: $loader-size;
+  height: $loader-size;
+  border: $loader-border solid abs.$color-secondary;
+  border-top-color: abs.$color-accent-green;
+  border-radius: 50%;
+  animation: loaderSpin 1s linear infinite;
+}
+
+.articles-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  column-gap: 34px;
+  row-gap: 64px;
+  list-style: none;
+  padding: 0;
+  margin: 0 0 64px 0;
+
+  &--empty {
+    grid-column: span 3;
+    text-align: center;
+    padding-bottom: abs.$sections-gap * 2;
+    &::after {
+      content: "Нет статей";
+      color: abs.$color-secondary;
+    }
+  }
+
+  & > li:first-child {
+    grid-column: span 3;
+
+    ::ng-deep .article {
+      background-color: abs.$color-featured;
+      border-radius: abs.$large-radius;
+      flex-direction: row;
+      gap: 46px;
+      margin-bottom: 62px;
+
+      img {
+        $img-width: 60%;
+        max-width: $img-width;
+        flex: 0 0 $img-width;
+        aspect-ratio: auto;
+      }
+
+      .article__content {
+        display: block;
+        padding: 23px 28px 0 0;
+
+        h2 {
+          display: block;
+          @include abs.font-h2;
+          margin-bottom: 16px;
+        }
+
+        p {
+          @include abs.font-subtitle;
+        }
+      }
+    }
+  }
+}
+
+@keyframes loaderSpin {
+  to { transform: rotate(360deg); }
+}
