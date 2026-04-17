@@ -12,6 +12,7 @@ export class Button {
   public readonly buttonText = input.required<string>();
   public readonly buttonType = input<ButtonType>(ButtonType.Button);
   public readonly disabled = input<boolean>(false);
+  public readonly loading = input<boolean>(false);
   public readonly color = input<ButtonColor>(ButtonColor.Green);
   public readonly variant = input<ButtonVariant>(ButtonVariant.Filled);
   public readonly callback = output<MouseEvent>();

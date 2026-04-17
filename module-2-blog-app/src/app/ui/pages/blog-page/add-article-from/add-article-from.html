@@ -7,6 +7,8 @@
           id="title"
           label="Заголовок"
           [type]="formFieldType.Text"
+          [loading]="isLoading()"
+          [disabled]="isLoading()"
           placeholder="Заголовок"
           [control]="articleForm.controls.title"
           [theme]="formTheme"
@@ -15,6 +17,8 @@
           id="content"
           label="Текст статьи"
           [type]="formFieldType.TextArea"
+          [loading]="isLoading()"
+          [disabled]="isLoading()"
           placeholder="Текст статьи"
           [control]="articleForm.controls.content"
           [theme]="formTheme"
@@ -22,14 +26,15 @@
         <div class="add-article-form__buttons">
           <blog-app-button
             buttonText="Добавить"
-            [disabled]="isLoading()"
+            [disabled]="articleForm.invalid"
+            [loading]="isLoading()"
             [buttonType]="buttonType.Submit"
           />
           <blog-app-button
             buttonText="Отмена"
             [variant]="buttonVariant.Outlined"
             [color]="buttonColor.Red"
-            [disabled]="isLoading()"
+            [loading]="isLoading()"
             [buttonType]="buttonType.Reset"
             (callback)="onReset()"
           />

@@ -1,6 +1,6 @@
 <button
   class="btn"
-  [class]="'btn--' + color() + ' btn--' + variant()"
+  [class]="loading() ? 'btn--loading' : 'btn--' + color() + ' btn--' + variant()"
   (click)="onClick($event)"
   [disabled]="disabled()"
   [type]="buttonType()"
