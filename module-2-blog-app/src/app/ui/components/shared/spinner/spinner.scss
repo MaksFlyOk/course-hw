@@ -1,0 +1,20 @@
+@use "abstract" as abs;
+
+.articles-loader {
+  inset: 0;
+  margin-bottom: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.spinner {
+  $loader-size: 80px;
+  $loader-border: 6px;
+  width: $loader-size;
+  height: $loader-size;
+  border: $loader-border solid abs.$color-secondary;
+  border-top-color: abs.$color-accent-green;
+  border-radius: 50%;
+  animation: loaderSpin 1s linear infinite;
+}
