@@ -19,6 +19,7 @@
   </ul>
 </blog-app-modal>
 <main>
+  <!-- "side-menu" на данном этапе работы не стал пока выносить в отдельный компонент  -->
   <aside class="side-menu">
     <div class="side-menu__container" id="side-menu">
       <button title="Создать статью">
@@ -46,7 +47,6 @@
           [isLoading]="isLoading()"
           (deleteArticle)="deleteArticle($event)"
         />
-
         @if (articles().length > 0) {
           <button class="border-button">
             Следующие
