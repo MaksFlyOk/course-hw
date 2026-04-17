@@ -6,6 +6,31 @@
   gap: 4px;
   margin-bottom: 16px;
 
+  input:disabled, textarea:disabled {
+    cursor: default;
+    outline: none;
+    border-color: abs.$color-placeholder;
+    color: abs.$color-primary;
+    background-color: abs.$color-placeholder;
+  }
+
+  &.field-loading {
+    > input, textarea {
+      cursor: default;
+      outline: none;
+      border: 1px solid abs.$color-placeholder;
+      color: abs.$color-placeholder;
+      background: linear-gradient(
+          90deg,
+          abs.$color-background 25%,
+          #f0f0f0 50%,
+          abs.$color-background 75%
+      );
+      background-size: 200% 100%;
+      animation: loadingShimmer 3s infinite linear;
+    }
+  }
+
   &.theme--dark {
     --text-color: #{abs.$color-background};
     --field-background-color: #{abs.$color-primary};
@@ -51,12 +76,4 @@
   textarea {
     resize: none;
   }
-}
-
-input:disabled, textarea:disabled {
-  cursor: default;
-  outline: none;
-  border-color: abs.$color-placeholder;
-  color: abs.$color-primary;
-  background-color: abs.$color-placeholder;
 }
