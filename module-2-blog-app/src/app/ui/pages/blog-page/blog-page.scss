@@ -90,30 +90,14 @@ main {
   min-width: clamp(140px, 15vw, 213px);
 }
 
-@include abs.media("xxl") {
-  .articles-list {
-    grid-template-columns: repeat(2, 1fr);
-  }
+/* Articles */
+.articles {
+  margin-bottom: abs.$sections-gap;
+}
 
-  .articles-list > li:first-child {
-    grid-column: span 2;
-
-    & > .article {
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-
-      & > img {
-        --img-article-width: 100%;
-        flex-basis: auto;
-      }
-
-      & > .article__content {
-        display: block;
-        padding: 0 28px 23px 28px;
-      }
-    }
-  }
+.articles > blog-app-button {
+  display: block;
+  text-align: center;
 }
 
 @include abs.media("lg") {
@@ -132,6 +116,10 @@ main {
   main {
     padding: 0 abs.$padding-horizontal-tablet;
   }
+
+  .articles {
+    margin-bottom: abs.$sections-gap-tablet;
+  }
 }
 
 @include abs.media("sm") {
@@ -144,5 +132,9 @@ main {
 @include abs.media("xs") {
   main {
     padding: 0 abs.$padding-horizontal-mobile;
+  }
+
+  .articles {
+    margin-bottom: abs.$sections-gap-mobile;
   }
 }
