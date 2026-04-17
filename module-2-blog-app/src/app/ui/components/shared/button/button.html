@@ -3,7 +3,7 @@
   [class]="'btn--' + color() + ' btn--' + variant()"
   (click)="onClick($event)"
   [disabled]="disabled()"
-  type="button"
+  [type]="buttonType()"
 >
   {{ buttonText() }}
 </button>
