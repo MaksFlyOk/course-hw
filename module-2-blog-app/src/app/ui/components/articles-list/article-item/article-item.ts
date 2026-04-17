@@ -1,6 +1,6 @@
-import { DatePipe } from '@angular/common';
 import { Component, input, output } from '@angular/core';
 
+import { localeDate } from '@core/utils/locale-date';
 import { Article } from '@models/article.model';
 
 @Component({
@@ -11,10 +11,12 @@ import { Article } from '@models/article.model';
   styleUrl: './article-item.scss',
 })
 export class ArticleItem {
-  readonly data = input.required<Article>();
-  readonly delete = output<string>();
+  public readonly data = input.required<Article>();
+  public readonly delete = output<string>();
 
   protected onDelete(): void {
     this.delete.emit(this.data().id);
   }
+
+  protected readonly localeDate = localeDate;
 }

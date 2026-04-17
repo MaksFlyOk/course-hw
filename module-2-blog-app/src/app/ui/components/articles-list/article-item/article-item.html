@@ -3,15 +3,15 @@
     type="button"
     title="Удалить статью"
     (click)="onDelete()"
-    class="article__delete-btn">
-    Delete
+    class="article__delete-button"
+  >
   </button>
   <img [src]="data().image" [alt]="'Обложка статьи ' + data().title">
   <div class="article__content">
     <h2 id="article-title">{{ data().title }}</h2>
     <p id="article-description">{{ data().description }}</p>
     <time [attr.datetime]="data().date">
-      {{ data().date }}
+      {{ localeDate(data().date) }}
     </time>
   </div>
 </article>
