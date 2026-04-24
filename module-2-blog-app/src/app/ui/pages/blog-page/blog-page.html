@@ -23,7 +23,7 @@
   <aside class="side-menu">
     <div class="side-menu__container" id="side-menu">
       <button title="Создать статью">
-        <img src="images/post-add.webp" alt="Добавить статью" (click)="articleForm.toggleForm()">
+        <img src="images/post-add.webp" alt="Добавить статью" (click)="addArticleForm()">
       </button>
       <button title="Показать статистику статей" (click)="openStatModal()">
         <img src="images/stats.webp" alt="Открыть статистику статей" (click)="openStatModal()">
@@ -56,5 +56,9 @@
       }
     </section>
   </section>
-  <blog-app-add-article-form #articleForm (submitted)="addNewArticle($event)"/>
+  <blog-app-article-form
+    #articleForm
+    (submitted)="handleFormSubmit($event)"
+    [editArticleData]="editArticleData()"
+  />
 </main>
