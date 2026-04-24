@@ -1,6 +1,6 @@
 <div class="articles-container">
   @if (isLoading()) {
-    <blog-app-spinner />
+    <blog-app-spinner/>
   } @else {
     <ul class="articles-list">
       @for (article of articles(); track article.id) {

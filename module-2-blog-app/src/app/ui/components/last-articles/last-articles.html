@@ -2,7 +2,7 @@
   <h2>Последние статьи</h2>
   <div>
     @if (isLoading()) {
-      <blog-app-spinner />
+      <blog-app-spinner/>
     } @else {
       @for (article of lastArticles(); track article.id) {
         <article class="blog-item">
