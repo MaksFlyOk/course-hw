@@ -21,4 +21,11 @@ export class LastArticles {
   protected readonly lastArticles = computed(() => this.articleService.articles().slice(0, 2));
   protected readonly isLoading = this.articleService.isLoading;
   protected readonly localeDate = localeDate;
+  protected readonly sectionTitle = computed(() => {
+    const count = this.lastArticles().length;
+
+    if (count === 0) return '';
+
+    return count === 1 ? 'Последняя статья' : 'Последние статьи';
+  });
 }

@@ -1,26 +1,30 @@
 <section class="blog" id="blog">
-  <h2>Последние статьи</h2>
-  <div>
-    @if (isLoading()) {
-      <blog-app-spinner/>
-    } @else {
-      @for (article of lastArticles(); track article.id) {
-        <article class="blog-item">
-          <header class="blog-item__header">
-            <time [attr.datetime]="article.date">
-              {{ localeDate(article.date) }}
-            </time>
-            <h3>{{ article.title }}</h3>
-            <p>{{ article.description }}</p>
-          </header>
-          <img [src]="article.image" [alt]="'Обложка статьи ' + article.title">
-        </article>
+  @let quantityArticles = lastArticles().length;
+
+  @if (quantityArticles !== 0) {
+    <h2>{{ sectionTitle() }}</h2>
+    <div>
+      @if (isLoading()) {
+        <blog-app-spinner/>
+      } @else {
+        @for (article of lastArticles(); track article.id) {
+          <article class="blog-item">
+            <header class="blog-item__header">
+              <time [attr.datetime]="article.date">
+                {{ localeDate(article.date) }}
+              </time>
+              <h3>{{ article.title }}</h3>
+              <p>{{ article.description }}</p>
+            </header>
+            <img [src]="article.image" [alt]="'Обложка статьи ' + article.title">
+          </article>
+        }
+        <blog-app-button
+          buttonText="Посмотреть все статьи"
+          [variant]="buttonVariant.Outlined"
+          (callback)="router.navigate(['blog'])"
+        />
       }
-      <blog-app-button
-        buttonText="Посмотреть все статьи"
-        [variant]="buttonVariant.Outlined"
-        (callback)="router.navigate(['blog'])"
-      />
-    }
-  </div>
+    </div>
+  }
 </section>
