@@ -31,13 +31,8 @@ export class FeedbackForm {
   });
 
   protected async onSubmit() {
-    await this.formService.processSubmit(
-      this.feedbackFrom,
-      this.isLoading,
-      () => {
-        this.submitted.emit(this.feedbackFrom.value);
-      },
-      5_000,
-    );
+    await this.formService.processSubmit(this.feedbackFrom, this.isLoading, () => {
+      this.submitted.emit(this.feedbackFrom.value);
+    });
   }
 }

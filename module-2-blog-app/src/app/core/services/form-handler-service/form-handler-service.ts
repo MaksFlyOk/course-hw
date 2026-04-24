@@ -11,7 +11,7 @@ export class FormHandlerService {
     form: FormGroup,
     isLoadingSignal: { set: (v: boolean) => void },
     callback: (data: T) => void,
-    delayMs: number = 2000,
+    delayMs: number = 1000,
   ) {
     if (form.invalid) {
       form.markAllAsTouched();
