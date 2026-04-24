@@ -1,4 +1,5 @@
 export interface AddArticleData {
+  id?: string;
   title: string;
-  content: string;
+  description: string;
 }
