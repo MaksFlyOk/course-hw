@@ -4,6 +4,7 @@ import { InitArticlesList, localStorageArticlesListKey } from '@core/constants';
 import { simulateNetworkDelay } from '@core/utils/simulate-network-delay';
 import { Article } from '@models/article.model';
 import { AddArticleData } from '@pages/blog-page/article-from/article-data.type';
+import { ArticleForm } from '@pages/blog-page/article-from/article-from';
 
 @Injectable({
   providedIn: 'root',
@@ -70,6 +71,20 @@ export class ArticleService {
 
     this._articles.update((list) => [newArticle, ...list]);
     this.saveToStorage();
+  }
+
+  public getArticleById(id: string): Article | undefined {
+    return this._articles().find((item) => item.id === id);
+  }
+
+  public editArticle(newData: Article): void {
+    const articleIndex: number = this.articles().findIndex((article) => article.id === newData.id);
+
+    this._articles.update((list) => {
+      list[articleIndex] = newData;
+
+      return list;
+    });
   }
 
   public deleteArticle(id: string): void {
