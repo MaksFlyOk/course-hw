@@ -1,8 +1,5 @@
-import { Component, Signal, inject } from '@angular/core';
-import { toSignal } from '@angular/core/rxjs-interop';
-import { NavigationEnd, Router, RouterLink, RouterLinkActive } from '@angular/router';
-
-import { filter, map } from 'rxjs';
+import { Component } from '@angular/core';
+import { RouterLink, RouterLinkActive } from '@angular/router';
 
 @Component({
   selector: 'app-blog-header',
@@ -10,14 +7,4 @@ import { filter, map } from 'rxjs';
   templateUrl: './header.html',
   styleUrl: './header.scss',
 })
-export class Header {
-  private readonly router = inject(Router);
-
-  protected readonly currentPath: Signal<string> = toSignal(
-    this.router.events.pipe(
-      filter((event) => event instanceof NavigationEnd),
-      map(() => this.router.url),
-    ),
-    { initialValue: this.router.url },
-  );
-}
+export class Header {}
