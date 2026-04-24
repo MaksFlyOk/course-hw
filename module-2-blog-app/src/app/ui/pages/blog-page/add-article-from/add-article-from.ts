@@ -1,12 +1,11 @@
 import { Component, inject, output, signal } from '@angular/core';
-import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 
 import { Button } from '@components/shared/button/button';
 import { ButtonColor, ButtonType, ButtonVariant } from '@components/shared/button/button.type';
 import { FormField } from '@components/shared/form-field/form-field';
 import { FormFieldType, FormTheme } from '@components/shared/form-field/form-field.type';
 import { FormHandlerService } from '@core/services/form-handler-service/form-handler-service';
-import { simulateNetworkDelay } from '@core/utils/simulate-network-delay';
 
 @Component({
   selector: 'blog-app-add-article-form',

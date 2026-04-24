@@ -46,6 +46,7 @@
         [articles]="articles()"
         [isLoading]="isLoading()"
         (deleteArticle)="deleteArticle($event)"
+        (editArticle)="editArticle($event)"
       />
       @if (articles().length > 0) {
         <blog-app-button
