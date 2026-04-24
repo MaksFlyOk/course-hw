@@ -64,7 +64,7 @@ export class ArticleService {
     const newArticle: Article = {
       id: crypto.randomUUID(),
       title: data.title,
-      description: data.content,
+      description: data.description,
       image: this.getRandomImage(),
       date: new Date().toISOString().slice(0, 10),
     };
@@ -77,14 +77,19 @@ export class ArticleService {
     return this._articles().find((item) => item.id === id);
   }
 
-  public editArticle(newData: Article): void {
+  public updateArticle(newData: AddArticleData): void {
     const articleIndex: number = this.articles().findIndex((article) => article.id === newData.id);
 
     this._articles.update((list) => {
-      list[articleIndex] = newData;
+      list[articleIndex] = {
+        ...list[articleIndex],
+        ...newData,
+      };
 
       return list;
     });
+
+    this.saveToStorage();
   }
 
   public deleteArticle(id: string): void {
