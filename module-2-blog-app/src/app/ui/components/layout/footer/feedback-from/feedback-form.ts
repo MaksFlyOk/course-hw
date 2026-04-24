@@ -1,4 +1,4 @@
-import { Component, inject, output } from '@angular/core';
+import { Component, inject, output, signal } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { form } from '@angular/forms/signals';
 
@@ -19,17 +19,29 @@ export class FeedbackForm {
   protected readonly form = form;
   protected readonly formFieldType = FormFieldType;
   protected readonly formTheme = FormTheme.Dark;
+  protected isLoading = signal(false);
   public readonly submitted = output<any>();
 
-  protected readonly articleForm = this.fb.group({
+  protected readonly feedbackFrom = this.fb.group({
     email: ['', [Validators.required, Validators.email]],
     message: ['', [Validators.required, Validators.minLength(30)]],
   });
 
   protected onSubmit(): void {
-    if (this.articleForm.valid) {
-      this.submitted.emit(this.articleForm.value);
-      this.articleForm.reset();
+    if (this.feedbackFrom.valid) {
+      this.setEnabledForm(false);
+      this.isLoading.set(true);
+
+      this.submitted.emit(this.feedbackFrom.value);
+      this.feedbackFrom.reset();
+    }
+  }
+
+  private setEnabledForm(enabled: boolean): void {
+    if (enabled) {
+      this.feedbackFrom.enable();
+    } else {
+      this.feedbackFrom.disable();
     }
   }
 

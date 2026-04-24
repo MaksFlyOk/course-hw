@@ -42,14 +42,24 @@ export class AddArticleForm {
 
   protected async onSubmit() {
     if (this.articleForm.valid) {
+      this.setEnabledForm(false);
       this.isLoading.set(true);
 
-      await simulateNetworkDelay();
+      await simulateNetworkDelay(10_000);
 
       this.isLoading.set(false);
 
       this.submitted.emit(this.articleForm.getRawValue());
       this.onReset();
+      this.setEnabledForm(true);
+    }
+  }
+
+  private setEnabledForm(enabled: boolean): void {
+    if (enabled) {
+      this.articleForm.enable();
+    } else {
+      this.articleForm.disable();
     }
   }
 
