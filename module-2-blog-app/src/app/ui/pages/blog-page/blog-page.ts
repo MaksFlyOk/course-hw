@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, inject, input, signal, viewChild } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject, signal, viewChild } from '@angular/core';
 
 import { ArticlesList } from '@components/articles-list/articles-list';
 import { Modal } from '@components/modal/modal';
@@ -25,17 +25,17 @@ export class BlogPage {
   protected readonly buttonVariant = ButtonVariant.Outlined;
   protected readonly articleForm = viewChild.required<ArticleForm>('articleForm');
   protected readonly editArticleData = signal<Article | undefined>(undefined);
-  protected isStatModalOpen = false;
+  protected readonly isStatModalOpen = signal(false);
 
   protected openStatModal(): void {
-    this.isStatModalOpen = true;
+    this.isStatModalOpen.set(true);
   }
 
   protected closeStatModal(): void {
-    this.isStatModalOpen = false;
+    this.isStatModalOpen.set(false);
   }
 
-  protected handleFormSubmit(data: AddArticleData): void {
+  protected handleFormSubmit(data: AddArticleData & { id: string }): void {
     if (this.editArticleData()) {
       this.articleService.updateArticle(data);
     } else {

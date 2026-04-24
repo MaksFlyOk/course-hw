@@ -1,6 +1,6 @@
 <blog-app-modal
   [title]="'Статистика страницы'"
-  [isOpen]="isStatModalOpen"
+  [isOpen]="isStatModalOpen()"
   (closed)="closeStatModal()"
 >
   <ul class="model__stats-list">
@@ -22,11 +22,11 @@
   <!-- "side-menu" на данном этапе работы не стал пока выносить в отдельный компонент  -->
   <aside class="side-menu">
     <div class="side-menu__container" id="side-menu">
-      <button title="Создать статью">
-        <img src="images/post-add.webp" alt="Добавить статью" (click)="addArticleForm()">
+      <button title="Создать статью" (click)="addArticleForm()">
+        <img src="images/post-add.webp" alt="Добавить статью">
       </button>
       <button title="Показать статистику статей" (click)="openStatModal()">
-        <img src="images/stats.webp" alt="Открыть статистику статей" (click)="openStatModal()">
+        <img src="images/stats.webp" alt="Открыть статистику статей">
       </button>
     </div>
   </aside>
