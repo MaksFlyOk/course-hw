@@ -1,7 +1,7 @@
 <section class="add-article" id="add-article-anchor">
   <div class="add-article-wrapper" [class.is-open]="isOpen()">
     <div class="add-article-content">
-      <h2>Добавить статью</h2>
+      <h2>{{ articleFormTitles[formVariant()] }}</h2>
       <form [formGroup]="articleForm" (ngSubmit)="onSubmit()">
         <blog-app-form-field
           id="title"
@@ -14,18 +14,18 @@
           [theme]="formTheme"
         />
         <blog-app-form-field
-          id="content"
+          id="description"
           label="Текст статьи"
           [type]="formFieldType.TextArea"
           [loading]="isLoading()"
           [disabled]="isLoading()"
           placeholder="Текст статьи"
-          [control]="articleForm.controls.content"
+          [control]="articleForm.controls.description"
           [theme]="formTheme"
         />
         <div class="add-article-form__buttons">
           <blog-app-button
-            buttonText="Добавить"
+            [buttonText]="articleFormButtonSubmitTitles[formVariant()]"
             [disabled]="articleForm.invalid || isLoading()"
             [loading]="isLoading()"
             [buttonType]="buttonType.Submit"
