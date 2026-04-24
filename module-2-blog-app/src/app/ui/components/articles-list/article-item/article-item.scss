@@ -8,32 +8,45 @@
   height: 100%;
 }
 
-.article > button {
-  $button-delete-article-size: 24px;
+.buttons-container {
   position: absolute;
   top: 0;
   right: 0;
   margin: 8px;
-  width: $button-delete-article-size;
-  height: $button-delete-article-size;
-  background-color: abs.$color-background;
-  border: 1px solid transparent;
-  border-radius: abs.$small-radius;
+  display: flex;
+  gap: 8px;
 
-  @include abs.transition-standard(border, background-color);
+  > button {
+    $button-delete-article-size: 24px;
+    width: $button-delete-article-size;
+    height: $button-delete-article-size;
+    background-color: abs.$color-background;
+    border: 1px solid transparent;
+    border-radius: abs.$small-radius;
 
-  &::after {
-    content: "";
-    display: block;
-    background-image: url("../../../../../assets/images/delete-article.webp");
-    width: 100%;
-    height: 100%;
-  }
+    @include abs.transition-standard(border, background-color);
 
-  &:hover,
-  &:focus {
-    background-color: transparent;
-    border: 1px solid abs.$color-accent-green;
+    &.article__delete-button::after {
+      content: "";
+      display: block;
+      background-image: url("../../../../../assets/images/delete-article.webp");
+      width: 100%;
+      height: 100%;
+    }
+
+    &.article__edit-button::after {
+      content: "";
+      display: block;
+      background-image: url("../../../../../assets/images/edit-article.webp");
+      width: 100%;
+      height: 100%;
+    }
+
+    &:hover,
+    &:focus {
+      background-color: transparent;
+      border: 1px solid abs.$color-accent-green;
+    }
   }
 }
 

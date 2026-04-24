@@ -1,11 +1,18 @@
 <article class="article">
-  <button
-    type="button"
-    title="Удалить статью"
-    (click)="onDelete()"
-    class="article__delete-button"
-  >
-  </button>
+  <div class="buttons-container">
+    <button
+      type="button"
+      title="Редактировать статью"
+      (click)="onEdit()"
+      class="article__edit-button"
+    ></button>
+    <button
+      type="button"
+      title="Удалить статью"
+      (click)="onDelete()"
+      class="article__delete-button"
+    ></button>
+  </div>
   <img [src]="data().image" [alt]="'Обложка статьи ' + data().title">
   <div class="article__content">
     <h2 id="article-title">{{ data().title }}</h2>

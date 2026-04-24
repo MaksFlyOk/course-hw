@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, OnInit, inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 
 import { ArticlesList } from '@components/articles-list/articles-list';
 import { Modal } from '@components/modal/modal';
@@ -37,5 +37,9 @@ export class BlogPage {
 
   protected deleteArticle(id: string): void {
     this.articleService.deleteArticle(id);
+  }
+
+  protected editArticle(id: string): void {
+    console.log(`Редактирование статьи с id: ${id}`);
   }
 }

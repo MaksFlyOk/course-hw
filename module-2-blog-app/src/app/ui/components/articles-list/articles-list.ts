@@ -15,4 +15,5 @@ export class ArticlesList {
   readonly articles = input.required<Article[]>();
   readonly isLoading = input<boolean>(false);
   readonly deleteArticle = output<string>();
+  readonly editArticle = output<string>();
 }

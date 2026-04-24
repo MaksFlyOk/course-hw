@@ -13,10 +13,14 @@ import { Article } from '@models/article.model';
 export class ArticleItem {
   public readonly data = input.required<Article>();
   public readonly delete = output<string>();
+  public readonly edit = output<string>();
+  protected readonly localeDate = localeDate;
 
   protected onDelete(): void {
     this.delete.emit(this.data().id);
   }
 
-  protected readonly localeDate = localeDate;
+  protected onEdit(): void {
+    this.edit.emit(this.data().id);
+  }
 }
