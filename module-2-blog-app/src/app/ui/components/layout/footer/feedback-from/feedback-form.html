@@ -1,10 +1,10 @@
-<form [formGroup]="articleForm" (ngSubmit)="onSubmit()">
+<form [formGroup]="feedbackFrom" (ngSubmit)="onSubmit()">
   <blog-app-form-field
     id="email"
     label="Ваш Email"
     [type]="formFieldType.Email"
     placeholder="Ваш Email"
-    [control]="articleForm.controls.email"
+    [control]="feedbackFrom.controls.email"
     [theme]="formTheme"
   />
   <blog-app-form-field
@@ -12,14 +12,14 @@
     label="Ваше сообщение"
     [type]="formFieldType.TextArea"
     placeholder="Опишите ваш проект или задачу"
-    [control]="articleForm.controls.message"
+    [control]="feedbackFrom.controls.message"
     [theme]="formTheme"
   />
   <div class="add-article-form__buttons">
     <blog-app-button
       buttonText="Отправить"
       [buttonType]="ButtonType.Submit"
-      [disabled]="articleForm.invalid"
+      [disabled]="feedbackFrom.invalid"
       (callback)="onSubmit()"
     />
   </div>

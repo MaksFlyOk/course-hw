@@ -12,6 +12,10 @@
     border-color: abs.$color-placeholder;
     color: abs.$color-primary;
     background-color: abs.$color-placeholder;
+
+    &::placeholder {
+      color: abs.$color-primary;
+    }
   }
 
   &.field-loading {

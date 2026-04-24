@@ -26,7 +26,7 @@
         <div class="add-article-form__buttons">
           <blog-app-button
             buttonText="Добавить"
-            [disabled]="articleForm.invalid"
+            [disabled]="articleForm.invalid || isLoading()"
             [loading]="isLoading()"
             [buttonType]="buttonType.Submit"
           />
@@ -35,6 +35,7 @@
             [variant]="buttonVariant.Outlined"
             [color]="buttonColor.Red"
             [loading]="isLoading()"
+            [disabled]="isLoading()"
             [buttonType]="buttonType.Reset"
             (callback)="onReset()"
           />

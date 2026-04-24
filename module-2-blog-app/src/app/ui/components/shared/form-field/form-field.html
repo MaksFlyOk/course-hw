@@ -2,8 +2,8 @@
   <label [for]="id()">{{ label() }}</label>
 
   @if (type() === 'text' || type() === 'email') {
-    <input [id]="id()" [disabled]="disabled()" [type]="type()" [formControl]="control()" [placeholder]="placeholder()">
+    <input [id]="id()" [type]="type()" [formControl]="control()" [placeholder]="placeholder()">
   } @else {
-    <textarea [id]="id()" [disabled]="disabled()" [formControl]="control()" rows="5" [placeholder]="placeholder()"></textarea>
+    <textarea [id]="id()" [formControl]="control()" rows="5" [placeholder]="placeholder()"></textarea>
   }
 </div>
