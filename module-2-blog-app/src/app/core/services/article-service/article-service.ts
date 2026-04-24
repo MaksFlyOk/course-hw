@@ -3,7 +3,7 @@ import { Injectable, computed, effect, signal } from '@angular/core';
 import { InitArticlesList, localStorageArticlesListKey } from '@core/constants';
 import { simulateNetworkDelay } from '@core/utils/simulate-network-delay';
 import { Article } from '@models/article.model';
-import { AddArticleData } from '@pages/blog-page/add-article-from/add-article-data.type';
+import { AddArticleData } from '@pages/blog-page/article-from/article-data.type';
 
 @Injectable({
   providedIn: 'root',

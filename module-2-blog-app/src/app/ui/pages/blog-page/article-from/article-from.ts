@@ -11,8 +11,8 @@ import { FormHandlerService } from '@core/services/form-handler-service/form-han
   selector: 'blog-app-add-article-form',
   standalone: true,
   imports: [Button, FormField, ReactiveFormsModule],
-  templateUrl: './add-article-from.html',
-  styleUrl: './add-article-from.scss',
+  templateUrl: './article-from.html',
+  styleUrl: './article-from.scss',
 })
 export class AddArticleForm {
   private readonly fb = inject(FormBuilder);

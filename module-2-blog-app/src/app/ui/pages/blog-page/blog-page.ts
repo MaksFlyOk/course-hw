@@ -5,8 +5,8 @@ import { Modal } from '@components/modal/modal';
 import { Button } from '@components/shared/button/button';
 import { ButtonVariant } from '@components/shared/button/button.type';
 import { ArticleService } from '@core/services/article-service/article-service';
-import { AddArticleData } from '@pages/blog-page/add-article-from/add-article-data.type';
-import { AddArticleForm } from '@pages/blog-page/add-article-from/add-article-from';
+import { AddArticleData } from '@pages/blog-page/article-from/article-data.type';
+import { AddArticleForm } from '@pages/blog-page/article-from/article-from';
 
 @Component({
   selector: 'blog-app-blog-page',
