@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, WritableSignal } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 
 import { simulateNetworkDelay } from '@core/utils/simulate-network-delay';
@@ -9,7 +9,7 @@ import { simulateNetworkDelay } from '@core/utils/simulate-network-delay';
 export class FormHandlerService {
   async processSubmit<T>(
     form: FormGroup,
-    isLoadingSignal: { set: (v: boolean) => void },
+    isLoadingSignal: WritableSignal<boolean>,
     callback: (data: T) => void,
     delayMs: number = 1000,
   ) {

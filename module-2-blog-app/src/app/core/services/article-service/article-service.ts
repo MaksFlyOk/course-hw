@@ -4,7 +4,6 @@ import { InitArticlesList, localStorageArticlesListKey } from '@core/constants';
 import { simulateNetworkDelay } from '@core/utils/simulate-network-delay';
 import { Article } from '@models/article.model';
 import { AddArticleData } from '@pages/blog-page/article-from/article-data.type';
-import { ArticleForm } from '@pages/blog-page/article-from/article-from';
 
 @Injectable({
   providedIn: 'root',
@@ -18,7 +17,7 @@ export class ArticleService {
   public readonly totalArticles = computed(() => this._articles().length);
 
   constructor() {
-    this.loadInitialData();
+    void this.loadInitialData();
 
     effect(() => {
       if (!this._isInitialized()) return;
@@ -77,17 +76,10 @@ export class ArticleService {
     return this._articles().find((item) => item.id === id);
   }
 
-  public updateArticle(newData: AddArticleData): void {
-    const articleIndex: number = this.articles().findIndex((article) => article.id === newData.id);
-
-    this._articles.update((list) => {
-      list[articleIndex] = {
-        ...list[articleIndex],
-        ...newData,
-      };
-
-      return list;
-    });
+  public updateArticle(newData: AddArticleData & { id: string }): void {
+    this._articles.update((list) =>
+      list.map((article) => (article.id === newData.id ? { ...article, ...newData } : article)),
+    );
 
     this.saveToStorage();
   }
