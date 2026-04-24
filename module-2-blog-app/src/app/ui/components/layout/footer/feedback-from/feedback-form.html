@@ -3,6 +3,8 @@
     id="email"
     label="Ваш Email"
     [type]="formFieldType.Email"
+    [loading]="isLoading()"
+    [disabled]="isLoading()"
     placeholder="Ваш Email"
     [control]="feedbackFrom.controls.email"
     [theme]="formTheme"
@@ -11,6 +13,8 @@
     id="content"
     label="Ваше сообщение"
     [type]="formFieldType.TextArea"
+    [loading]="isLoading()"
+    [disabled]="isLoading()"
     placeholder="Опишите ваш проект или задачу"
     [control]="feedbackFrom.controls.message"
     [theme]="formTheme"
@@ -19,7 +23,8 @@
     <blog-app-button
       buttonText="Отправить"
       [buttonType]="ButtonType.Submit"
-      [disabled]="feedbackFrom.invalid"
+      [loading]="isLoading()"
+      [disabled]="feedbackFrom.invalid || isLoading()"
       (callback)="onSubmit()"
     />
   </div>

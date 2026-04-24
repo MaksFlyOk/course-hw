@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 import { Button } from '@components/shared/button/button';
 import { ButtonVariant } from '@components/shared/button/button.type';
 import { Spinner } from '@components/shared/spinner/spinner';
-import { ArticleService } from '@core/services/article-service';
+import { ArticleService } from '@core/services/article-service/article-service';
 import { localeDate } from '@core/utils/locale-date';
 
 @Component({

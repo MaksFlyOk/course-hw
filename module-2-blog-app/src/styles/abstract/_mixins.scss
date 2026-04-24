@@ -55,6 +55,10 @@
   @include font-base(400, vars.$text-size, vars.$text-lh, vars.$text-size-mobile, vars.$text-lh-mobile);
 }
 
+@mixin font-form-message {
+  @include font-base(400, vars.$form-message-size, vars.$form-message-lh, vars.$form-message-size-mobile, vars.$form-message-lh-mobile);
+}
+
 // Transitions
 @mixin transition-standard($properties...) {
   $props: if(length($properties) > 0, $properties, (all));

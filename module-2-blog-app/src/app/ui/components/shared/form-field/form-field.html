@@ -1,9 +1,30 @@
-<div class="field-container" [class]="loading() ? 'field-loading' : 'theme--' + theme()">
+<div class="field-container"
+     [class.field-loading]="loading()"
+     [class]="'theme--' + theme()"
+>
   <label [for]="id()">{{ label() }}</label>
 
+  @let ctrl = control();
+
   @if (type() === 'text' || type() === 'email') {
-    <input [id]="id()" [type]="type()" [formControl]="control()" [placeholder]="placeholder()">
+    <input
+      [id]="id()"
+      [type]="type()"
+      [formControl]="control()"
+      [placeholder]="placeholder()"
+      [attr.aria-busy]="loading()"
+    >
   } @else {
-    <textarea [id]="id()" [formControl]="control()" rows="5" [placeholder]="placeholder()"></textarea>
+    <textarea
+      [id]="id()"
+      [formControl]="control()"
+      rows="5"
+      [placeholder]="placeholder()"
+      [attr.aria-busy]="loading()"
+    ></textarea>
+  }
+
+  @if (ctrl.invalid && (ctrl.dirty || ctrl.touched)) {
+    <span class="error-messages">{{ getErrorsMessage() }}</span>
   }
 </div>
