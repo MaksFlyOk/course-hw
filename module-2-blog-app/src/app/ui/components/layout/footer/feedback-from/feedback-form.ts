@@ -6,6 +6,7 @@ import { Button } from '@components/shared/button/button';
 import { ButtonType } from '@components/shared/button/button.type';
 import { FormField } from '@components/shared/form-field/form-field';
 import { FormFieldType, FormTheme } from '@components/shared/form-field/form-field.type';
+import { FormHandlerService } from '@core/services/form-handler-service/form-handler-service';
 
 @Component({
   selector: 'blog-app-feedback-form',
@@ -15,8 +16,10 @@ import { FormFieldType, FormTheme } from '@components/shared/form-field/form-fie
 })
 export class FeedbackForm {
   private readonly fb = inject(FormBuilder);
+  private readonly formService = inject(FormHandlerService);
 
   protected readonly form = form;
+  protected readonly ButtonType = ButtonType;
   protected readonly formFieldType = FormFieldType;
   protected readonly formTheme = FormTheme.Dark;
   protected isLoading = signal(false);
@@ -27,23 +30,14 @@ export class FeedbackForm {
     message: ['', [Validators.required, Validators.minLength(30)]],
   });
 
-  protected onSubmit(): void {
-    if (this.feedbackFrom.valid) {
-      this.setEnabledForm(false);
-      this.isLoading.set(true);
-
-      this.submitted.emit(this.feedbackFrom.value);
-      this.feedbackFrom.reset();
-    }
+  protected async onSubmit() {
+    await this.formService.processSubmit(
+      this.feedbackFrom,
+      this.isLoading,
+      () => {
+        this.submitted.emit(this.feedbackFrom.value);
+      },
+      5_000,
+    );
   }
-
-  private setEnabledForm(enabled: boolean): void {
-    if (enabled) {
-      this.feedbackFrom.enable();
-    } else {
-      this.feedbackFrom.disable();
-    }
-  }
-
-  protected readonly ButtonType = ButtonType;
 }

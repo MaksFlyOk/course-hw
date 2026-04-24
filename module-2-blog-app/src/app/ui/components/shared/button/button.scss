@@ -18,6 +18,16 @@
     background-color: abs.$color-placeholder;
   }
 
+  &--green {
+    --main-color: #{abs.$color-accent-green};
+    --accent-color: #{abs.$color-background};
+  }
+
+  &--red {
+    --main-color: #{abs.$color-accent-red};
+    --accent-color: #{abs.$color-background};
+  }
+
   &--loading {
     cursor: default;
     outline: none;
@@ -31,16 +41,6 @@
     );
     background-size: 200% 100%;
     animation: loadingShimmer 3s infinite linear;
-  }
-
-  &--green {
-    --main-color: #{abs.$color-accent-green};
-    --accent-color: #{abs.$color-background};
-  }
-
-  &--red {
-    --main-color: #{abs.$color-accent-red};
-    --accent-color: #{abs.$color-background};
   }
 
   &--filled {

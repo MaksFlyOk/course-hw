@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, computed, effect, input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, input } from '@angular/core';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
 
 import { FormFieldType, FormTheme } from './form-field.type';
@@ -19,5 +19,22 @@ export class FormField {
   public readonly type = input<FormFieldType>(FormFieldType.Text);
   public readonly theme = input<FormTheme>(FormTheme.Light);
   public readonly control = input.required<FormControl>();
-  protected readonly isInvalid = computed(() => this.control().invalid && this.control().touched);
+
+  protected getErrorsMessage(): string {
+    const errors = this.control().errors;
+
+    if (!errors) return '';
+
+    const errorKeys = Object.keys(errors);
+    const firstErrorKey = errorKeys[0];
+    console.log(errors);
+    const messages: Record<string, string> = {
+      required: 'Обязательное поле',
+      email: 'Неверный email',
+      minlength: `Минимальная длина ${errors['minlength']?.requiredLength} символов`,
+      maxlength: `Максимальная длина ${errors['maxlength']?.requiredLength} символов`,
+    };
+
+    return messages[firstErrorKey] || 'Неверное значение';
+  }
 }

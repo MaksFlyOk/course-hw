@@ -18,6 +18,12 @@
     }
   }
 
+  &.invalid {
+    > input, textarea {
+      border: 1px solid abs.$color-accent-red;
+    }
+  }
+
   &.field-loading {
     > input, textarea {
       cursor: default;
@@ -75,9 +81,19 @@
       outline: none;
       border-color: var(--field-border-active-color);
     }
+
+    &.ng-invalid.ng-touched {
+      border-color: abs.$color-accent-red;
+    }
   }
 
   textarea {
     resize: none;
+  }
+
+  .error-messages {
+    color: abs.$color-accent-red;
+
+    @include abs.font-form-message();
   }
 }

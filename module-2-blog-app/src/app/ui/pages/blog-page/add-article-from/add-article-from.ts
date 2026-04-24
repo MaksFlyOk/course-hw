@@ -1,10 +1,11 @@
 import { Component, inject, output, signal } from '@angular/core';
-import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 
 import { Button } from '@components/shared/button/button';
 import { ButtonColor, ButtonType, ButtonVariant } from '@components/shared/button/button.type';
 import { FormField } from '@components/shared/form-field/form-field';
 import { FormFieldType, FormTheme } from '@components/shared/form-field/form-field.type';
+import { FormHandlerService } from '@core/services/form-handler-service/form-handler-service';
 import { simulateNetworkDelay } from '@core/utils/simulate-network-delay';
 
 @Component({
@@ -16,6 +17,8 @@ import { simulateNetworkDelay } from '@core/utils/simulate-network-delay';
 })
 export class AddArticleForm {
   private readonly fb = inject(FormBuilder);
+  private readonly formService = inject(FormHandlerService);
+
   protected readonly buttonVariant = ButtonVariant;
   protected readonly buttonType = ButtonType;
   protected readonly formFieldType = FormFieldType;
@@ -26,7 +29,7 @@ export class AddArticleForm {
   public readonly submitted = output<any>();
 
   protected readonly articleForm = this.fb.group({
-    title: ['', [Validators.required]],
+    title: ['', [Validators.required, Validators.minLength(25)]],
     content: ['', [Validators.required]],
   });
 
@@ -41,26 +44,15 @@ export class AddArticleForm {
   }
 
   protected async onSubmit() {
-    if (this.articleForm.valid) {
-      this.setEnabledForm(false);
-      this.isLoading.set(true);
-
-      await simulateNetworkDelay(10_000);
-
-      this.isLoading.set(false);
-
-      this.submitted.emit(this.articleForm.getRawValue());
-      this.onReset();
-      this.setEnabledForm(true);
-    }
-  }
-
-  private setEnabledForm(enabled: boolean): void {
-    if (enabled) {
-      this.articleForm.enable();
-    } else {
-      this.articleForm.disable();
-    }
+    await this.formService.processSubmit(
+      this.articleForm,
+      this.isLoading,
+      () => {
+        this.submitted.emit(this.articleForm.getRawValue());
+        this.isOpen.set(false);
+      },
+      5_000,
+    );
   }
 
   protected onReset(): void {
