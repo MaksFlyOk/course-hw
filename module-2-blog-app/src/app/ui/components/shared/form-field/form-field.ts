@@ -27,7 +27,7 @@ export class FormField {
 
     const errorKeys = Object.keys(errors);
     const firstErrorKey = errorKeys[0];
-    console.log(errors);
+
     const messages: Record<string, string> = {
       required: 'Обязательное поле',
       email: 'Неверный email',
