@@ -1,4 +1,4 @@
-interface ListElement {
+export interface ListElement {
   readonly title: string;
   readonly subtitle: string;
   readonly description: string;

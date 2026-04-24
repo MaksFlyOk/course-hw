@@ -1,4 +1,4 @@
-interface TableElement {
+export interface TableElement {
   readonly title: string;
   readonly subtitle: string;
 }
