@@ -11,7 +11,7 @@
           <article class="blog-item">
             <header class="blog-item__header">
               <time [attr.datetime]="article.date">
-                {{ localeDate(article.date) }}
+                {{ article.date | date:"longDate":"":"ru-RU" }}
               </time>
               <h3>{{ article.title }}</h3>
               <p>{{ article.description }}</p>

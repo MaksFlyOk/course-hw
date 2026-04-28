@@ -18,7 +18,7 @@
     <h2 id="article-title">{{ data().title }}</h2>
     <p id="article-description">{{ data().description }}</p>
     <time [attr.datetime]="data().date">
-      {{ localeDate(data().date) }}
+      {{ data().date | date:"longDate":"":"ru-RU" }}
     </time>
   </div>
 </article>
