@@ -1,24 +1,5 @@
-<!--
-  Блоки "about-me" & "achievements" не были вынесены в отдельные компоненты
-  т.к. в этом нету необходимости, ведь они не относятся ни к одну из двух категорий:
-  - Не являются списком или таблицей, значит являются уникальным элементом, который не будет повторяться на других страницах
-  - Не содержат сложной логики, которая требует изоляции в отдельном компонент
- -->
 <main>
-  <section class="about-me">
-    <div class="about-me__title">
-      <h1>Привет! Меня зовут Максим, я разработчик</h1>
-      <p>Активно развиваюсь в веб-разработке, изучаю современные технологии и лучшие практики. Стремлюсь создавать
-        удобные и красивые интерфейсы, постоянно улучшая свои навыки</p>
-      <a routerLink="." fragment="more-about-me" target="_self" aria-label="Перейти к разделу 'Больше обо мне'">Больше обо мне</a>
-    </div>
-    <div class="about-me__hero">
-      <img src="images/hero-img.webp" alt="Горный пейзаж">
-      <a routerLink="." fragment="blog" aria-label="Перейти к разделу 'Блог'">
-        <img class="blog-link" src="images/my-blogs.svg" alt="Ссылка на блог">
-      </a>
-    </div>
-  </section>
+  <blog-app-about-me />
   <blog-app-list-section
     [listSectionData]="carrierListData"
     id="more-about-me"
@@ -26,44 +7,6 @@
   <blog-app-list-section [listSectionData]="uniListData"/>
   <blog-app-table-section [tableSectionData]="courseTableData"/>
   <blog-app-table-section [tableSectionData]="skillsTableData"/>
-  <section class="achievements">
-    <div class="achievements__title">
-      <h2>Мои достижения</h2>
-      <p>Постоянно развиваюсь в области веб-разработки, реализую учебные проекты и улучшаю свои навыки через
-        практику.</p>
-    </div>
-    <ul class="achievements__content">
-      <li>
-        <img src="images/achivments/achivment-img1.webp" alt="Обложка достижения 'Учебный проект 'TaskMaster''">
-        <article class="achievements__item__description">
-          <h3>Учебный проект "TaskMaster"</h3>
-          <p>Разработал приложение для управления задачами с использованием React и TypeScript</p>
-        </article>
-      </li>
-      <li>
-        <img src="images/achivments/achivment-img2.webp" alt="Обложка достижения 'Оптимизация учебного сайта'">
-        <article class="achievements__item__description">
-          <h3>Оптимизация учебного сайта</h3>
-          <p>Улучшил производительность учебного сайта на 50% за счёт оптимизации изображений, минификации CSS и
-            JavaScript</p>
-        </article>
-      </li>
-      <li>
-        <img src="images/achivments/achivment-img3.webp" alt="Обложка достижения 'Адаптивный дизайн для проекта'">
-        <article class="achievements__item__description">
-          <h3>Адаптивный дизайн для проекта</h3>
-          <p>Реализовал полностью адаптивный дизайн для учебного веб-приложения</p>
-        </article>
-      </li>
-      <li>
-        <img src="images/achivments/achivment-img4.webp" alt="Обложка достижения 'Создание личного портфолио'">
-        <article class="achievements__item__description">
-          <h3>Создание личного портфолио</h3>
-          <p>Разработал и опубликовал личное портфолио с использованием современных технологий: HTML5, CSS3 и
-            JavaScript</p>
-        </article>
-      </li>
-    </ul>
-  </section>
+  <blog-app-achievements [achievementsData]="achievementsData"/>
   <blog-app-last-articles />
 </main>

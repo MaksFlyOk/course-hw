@@ -1,0 +1,18 @@
+<section class="achievements">
+  <div class="achievements__title">
+    <h2>Мои достижения</h2>
+    <p>Постоянно развиваюсь в области веб-разработки, реализую учебные проекты и улучшаю свои навыки через
+      практику.</p>
+  </div>
+  <ul class="achievements__content">
+    @for (achievement of achievementsData(); track achievement.title) {
+      <li>
+        <img [src]="achievement.img.src" [alt]="achievement.img.alt">
+        <article class="achievements__item__description">
+          <h3>{{ achievement.title }}</h3>
+          <p>{{ achievement.description }}</p>
+        </article>
+      </li>
+    }
+  </ul>
+</section>
