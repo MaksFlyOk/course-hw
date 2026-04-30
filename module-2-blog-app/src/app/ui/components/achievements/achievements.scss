@@ -1,0 +1,135 @@
+@use "abstract" as abs;
+
+.achievements {
+  margin-bottom: abs.$sections-gap;
+}
+
+.achievements__title {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  align-items: start;
+  margin-bottom: 21px;
+}
+
+.achievements__title > h2 {
+  @include abs.font-h1
+}
+
+.achievements__title > p {
+  @include abs.font-subtitle
+}
+
+.achievements__content {
+  display: grid;
+  grid-template-columns: 1fr 1fr 2fr;
+  grid-auto-rows: 300px;
+  gap: 36px;
+  grid-auto-flow: dense;
+
+  & > li {
+    list-style: none;
+    position: relative;
+    overflow: hidden;
+    border-radius: abs.$large-radius;
+
+    grid-column: span 1;
+    grid-row: span 1;
+
+    &:nth-child(4n + 1),
+    &:nth-child(4n + 2) {
+      grid-row: span 2;
+    }
+
+    // Стили для того чтобы мозаика всегда заполняла всю площадь, даже если количество элементов не кратно 4
+    &:last-child {
+      &:nth-child(4n + 1) {
+        grid-column: span 3;
+      }
+      &:nth-child(4n + 2) {
+        grid-column: span 2;
+      }
+      &:nth-child(4n + 3) {
+        grid-row: span 2;
+      }
+    }
+  }
+}
+
+.achievements__content > li {
+  position: relative;
+  overflow: hidden;
+  border-radius: abs.$large-radius;
+}
+
+.achievements__content > li > img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.achievements__item__description {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  color: abs.$color-background;
+  padding: 24px 16px;
+  border-radius: abs.$large-radius;
+  background-color: abs.$color-overlay;
+  opacity: 0;
+
+  @include abs.transition-standard(opacity);
+
+  &:hover, &:focus {
+    opacity: 1;
+  }
+}
+
+.achievements__item__description > h3 {
+  margin-bottom: 12px;
+
+  @include abs.font-h4-bold
+}
+
+@include abs.media("xl") {
+  .achievements__title {
+    grid-template-columns: 1fr;
+  }
+
+  .achievements__title > h2 {
+    margin-bottom: 13px;
+  }
+
+  .achievements__content {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(4, 1fr);
+    grid-template-areas:
+        "item1"
+        "item2"
+        "item3"
+        "item4";
+  }
+
+  .achievements__content > li > img {
+    width: 100%;
+    height: 20vh;
+    object-fit: cover;
+  }
+}
+
+@include abs.media("md") {
+  .achievements {
+    margin-bottom: abs.$sections-gap-tablet;
+  }
+}
+
+@include abs.media("xs") {
+  .achievements {
+    margin-bottom: abs.$sections-gap-mobile;
+  }
+
+  .achievements__content > li > img {
+    height: 70vw;
+  }
+}
