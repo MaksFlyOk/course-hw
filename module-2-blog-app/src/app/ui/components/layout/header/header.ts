@@ -14,7 +14,7 @@ type Link = HeaderPageLink | HeaderAnchorLink;
 export class Header {
   protected readonly links: Link[] = [
     { type: HeaderLinkTypes.Page, routerLink: '', ariaLabel: "Текущая страница 'Главная'", dataText: 'Главная' },
-    { type: HeaderLinkTypes.Page, routerLink: 'blog', ariaLabel: 'string', dataText: 'string' },
+    { type: HeaderLinkTypes.Page, routerLink: 'blog', ariaLabel: "Перейти на страницу 'Блог'", dataText: 'Блог' },
     {
       type: HeaderLinkTypes.Anchor,
       fragment: 'contacts',
