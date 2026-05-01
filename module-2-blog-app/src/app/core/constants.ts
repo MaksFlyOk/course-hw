@@ -51,3 +51,5 @@ export const InitArticlesList = [
 ];
 
 export const localStorageArticlesListKey = 'ARTICLES_LIST';
+
+export const delayConstant = 500;
