@@ -1,6 +1,6 @@
 <blog-app-stat-modal [totalArticles]="totalArticles()" [totalComments]="0"/>
-<main>
-<blog-app-side-menu [sideMenuButtons]="sideMenuButtons" />
+<div class="page-container">
+  <blog-app-side-menu [sideMenuButtons]="sideMenuButtons"/>
   <section>
     <blog-app-blog-header/>
     <blog-app-articles-list
@@ -15,4 +15,4 @@
     (submitted)="handleFormSubmit($event)"
     [editArticleData]="editArticleData()"
   />
-</main>
+</div>
