@@ -1,3 +1,5 @@
-export const simulateNetworkDelay = (ms: number = 1000) => {
+import { delayConstant } from '@core/constants';
+
+export const simulateNetworkDelay = (ms: number = delayConstant) => {
   return new Promise((resolve) => setTimeout(resolve, ms));
 };
