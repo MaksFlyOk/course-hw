@@ -6,8 +6,12 @@
     <blog-app-articles-list
       [articles]="articles()"
       [isLoading]="isLoading()"
+      [page]="currentPage()"
+      [quantityPages]="quantityPages()"
       (deleteArticle)="deleteArticle($event)"
       (editArticle)="editArticle($event)"
+      (nextButtonCallback)="nextButtonCallback()"
+      (prevButtonCallback)="prevButtonCallback()"
     />
   </section>
   <blog-app-article-form
