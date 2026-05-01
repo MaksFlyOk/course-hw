@@ -2,7 +2,7 @@ import { ChangeDetectionStrategy, Component, inject, signal, viewChild } from '@
 
 import { ArticlesList } from '@components/articles-list/articles-list';
 import { SideMenu } from '@components/side-menu/side-menu';
-import { ArticleService } from '@core/services/article-service/article-service';
+import { ArticlesStoreService } from '@core/services/articles/articles-store.service';
 import { Article } from '@models/article.model';
 import { SideMenuButton } from '@models/side-menu-buttons.model';
 import { AddArticleData } from '@pages/blog-page/article-from/article-data.type';
@@ -19,7 +19,8 @@ import { StatModal } from '@pages/blog-page/stat-modal/stat-modal';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class BlogPage {
-  private readonly articleService = inject(ArticleService);
+  private readonly articleService = inject(ArticlesStoreService);
+
   protected readonly articles = this.articleService.articles;
   protected readonly isLoading = this.articleService.isLoading;
   protected readonly articleForm = viewChild.required<ArticleForm>('articleForm');
@@ -28,12 +29,12 @@ export class BlogPage {
   protected readonly sideMenuButtons: SideMenuButton[] = [
     {
       buttonTitle: 'Создать статью',
-      callback: () => this.openStatModal(),
+      callback: () => this.addArticleForm(),
       img: { src: 'images/post-add.webp', alt: 'Добавить статью' },
     },
     {
       buttonTitle: 'Показать статистику статей',
-      callback: () => this.addArticleForm(),
+      callback: () => this.openStatModal(),
       img: { src: 'images/stats.webp', alt: 'Открыть статистику статей' },
     },
   ];
