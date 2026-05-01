@@ -36,3 +36,20 @@ form {
   display: flex;
   flex-direction: column;
 }
+
+.page-container {
+  margin: 0 auto;
+  padding: 0 abs.$padding-horizontal;
+}
+
+@include abs.media("md") {
+  .page-container {
+    padding: 0 abs.$padding-horizontal-tablet;
+  }
+}
+
+@include abs.media("xs") {
+  .page-container {
+    padding: 0 abs.$padding-horizontal-mobile;
+  }
+}
