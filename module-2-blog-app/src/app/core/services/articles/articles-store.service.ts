@@ -8,7 +8,7 @@ import { AddArticleData } from '@pages/blog-page/article-from/article-data.type'
 @Injectable({
   providedIn: 'root',
 })
-export class ArticleService {
+export class ArticlesServiceStoreService {
   private readonly _articles = signal<Article[]>([]);
   protected readonly _isLoading = signal(false);
   private readonly _isInitialized = signal(false);
