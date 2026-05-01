@@ -5,7 +5,7 @@ import { Router } from '@angular/router';
 import { Button } from '@components/shared/button/button';
 import { ButtonVariant } from '@components/shared/button/button.type';
 import { Spinner } from '@components/shared/spinner/spinner';
-import { ArticleService } from '@core/services/article-service/article-service';
+import { ArticlesStoreService } from '@core/services/articles/articles-store.service';
 
 @Component({
   selector: 'blog-app-last-articles',
@@ -14,11 +14,11 @@ import { ArticleService } from '@core/services/article-service/article-service';
   styleUrl: './last-articles.scss',
 })
 export class LastArticles {
-  private readonly articleService = inject(ArticleService);
+  private readonly articleService = inject(ArticlesStoreService);
   protected router = inject(Router);
 
   protected readonly buttonVariant = ButtonVariant;
-  protected readonly lastArticles = computed(() => this.articleService.articles().slice(0, 2));
+  protected readonly lastArticles = this.articleService.lastArticles;
   protected readonly isLoading = this.articleService.isLoading;
   protected readonly sectionTitle = computed(() => {
     const count = this.lastArticles().length;
