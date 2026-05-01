@@ -1,6 +1,6 @@
 import { Component, input } from '@angular/core';
 
-import { SideMenuButton } from '@models/side-menu-buttons';
+import { SideMenuButton } from '@models/side-menu-buttons.model';
 
 @Component({
   selector: 'blog-app-side-menu',
