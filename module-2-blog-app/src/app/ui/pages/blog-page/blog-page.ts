@@ -4,7 +4,7 @@ import { ArticlesList } from '@components/articles-list/articles-list';
 import { SideMenu } from '@components/side-menu/side-menu';
 import { ArticleService } from '@core/services/article-service/article-service';
 import { Article } from '@models/article.model';
-import { SideMenuButton } from '@models/side-menu-buttons';
+import { SideMenuButton } from '@models/side-menu-buttons.model';
 import { AddArticleData } from '@pages/blog-page/article-from/article-data.type';
 import { ArticleFormVariants } from '@pages/blog-page/article-from/article-form-variants';
 import { ArticleForm } from '@pages/blog-page/article-from/article-from';
