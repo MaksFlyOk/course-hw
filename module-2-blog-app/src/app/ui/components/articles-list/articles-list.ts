@@ -16,7 +16,11 @@ import { Article } from '@models/article.model';
 export class ArticlesList {
   protected readonly buttonVariant = ButtonVariant.Outlined;
   public readonly articles = input.required<Article[]>();
+  public readonly page = input.required<number>();
+  public readonly quantityPages = input.required<number>();
   public readonly isLoading = input<boolean>(false);
   public readonly deleteArticle = output<string>();
   public readonly editArticle = output<string>();
+  public readonly nextButtonCallback = output<void>();
+  public readonly prevButtonCallback = output<void>();
 }

@@ -20,9 +20,26 @@
   </div>
 
   @if (articles().length > 0) {
-    <blog-app-button
-      buttonText="Слудеющие ➔"
-      [variant]="buttonVariant"
-    />
+    <div class="article-list-control">
+      @if (quantityPages() !== 1) {
+        @if (page() !== 1) {
+          <blog-app-button
+            buttonText="&larr; Предыдущие"
+            [variant]="buttonVariant"
+            (callback)="prevButtonCallback.emit()"
+          />
+        }
+        @if (page() !== quantityPages() && page() !== 1) {
+          <span>{{ page() }}</span>
+        }
+        @if (page() !== quantityPages()) {
+          <blog-app-button
+            buttonText="Слудеющие &rarr;"
+            [variant]="buttonVariant"
+            (callback)="nextButtonCallback.emit()"
+          />
+        }
+      }
+    </div>
   }
 </section>
