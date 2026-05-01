@@ -1,0 +1,28 @@
+@use "abstract" as abs;
+
+.blog-header {
+  display: flex;
+  justify-content: space-between;
+  gap: 160px;
+  margin-bottom: abs.$sections-gap;
+}
+
+.blog-header__title > h1 {
+  margin-bottom: 25px;
+}
+
+.blog-header__title > p {
+  @include abs.font-subtitle;
+}
+
+.blog-header__hero > img {
+  min-width: clamp(140px, 15vw, 213px);
+}
+
+@include abs.media("lg") {
+  .blog-header {
+    flex-direction: column;
+    gap: 24px;
+    align-items: center;
+  }
+}
