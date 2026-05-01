@@ -2,6 +2,7 @@ import { ChangeDetectionStrategy, Component, inject, signal, viewChild } from '@
 
 import { ArticlesList } from '@components/articles-list/articles-list';
 import { SideMenu } from '@components/side-menu/side-menu';
+import { ARTICLES_REPOSITORY_TOKEN } from '@core/services/articles/articles-repository.token';
 import { ArticlesStoreService } from '@core/services/articles/articles-store.service';
 import { Article } from '@models/article.model';
 import { SideMenuButton } from '@models/side-menu-buttons.model';
@@ -19,13 +20,16 @@ import { StatModal } from '@pages/blog-page/stat-modal/stat-modal';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class BlogPage {
-  private readonly articleService = inject(ArticlesStoreService);
+  private readonly articlesService = inject(ARTICLES_REPOSITORY_TOKEN);
+  private readonly articlesStore = inject(ArticlesStoreService);
 
-  protected readonly articles = this.articleService.articles;
-  protected readonly isLoading = this.articleService.isLoading;
+  protected readonly articles = this.articlesStore.articles;
+  protected readonly isLoading = this.articlesStore.isLoading;
+  protected readonly currentPage = this.articlesStore.currentPage;
+  protected readonly quantityPages = this.articlesStore.quantityPages;
+  protected readonly totalArticles = this.articlesStore.totalArticles;
   protected readonly articleForm = viewChild.required<ArticleForm>('articleForm');
   protected readonly editArticleData = signal<Article | undefined>(undefined);
-  protected readonly totalArticles = this.articleService.totalArticles;
   protected readonly sideMenuButtons: SideMenuButton[] = [
     {
       buttonTitle: 'Создать статью',
@@ -47,14 +51,14 @@ export class BlogPage {
 
   protected handleFormSubmit(data: AddArticleData & { id: string }): void {
     if (this.editArticleData()) {
-      this.articleService.updateArticle(data);
+      this.articlesService.updateArticle(data);
     } else {
-      this.articleService.addNewArticle(data);
+      this.articlesService.addArticle(data);
     }
   }
 
   protected deleteArticle(id: string): void {
-    this.articleService.deleteArticle(id);
+    this.articlesService.deleteArticle(id);
   }
 
   protected addArticleForm(): void {
@@ -63,7 +67,13 @@ export class BlogPage {
   }
 
   protected editArticle(id: string): void {
-    this.editArticleData.set(this.articleService.getArticleById(id));
+    this.editArticleData.set(this.articlesStore.getArticleById(id));
     this.articleForm().toggleForm(ArticleFormVariants.Edit, id);
+  }
+  protected prevButtonCallback(): void {
+    this.articlesStore.updatePage(this.articlesStore.currentPage() - 1);
+  }
+  protected nextButtonCallback(): void {
+    this.articlesStore.updatePage(this.articlesStore.currentPage() + 1);
   }
 }
