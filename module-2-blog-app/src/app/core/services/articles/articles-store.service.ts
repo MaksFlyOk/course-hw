@@ -1,91 +1,47 @@
-import { Injectable, computed, effect, signal } from '@angular/core';
+import { Injectable, signal } from '@angular/core';
 
-import { InitArticlesList, localStorageArticlesListKey } from '@core/constants';
-import { simulateNetworkDelay } from '@core/utils/simulate-network-delay';
 import { Article } from '@models/article.model';
-import { AddArticleData } from '@pages/blog-page/article-from/article-data.type';
 
-@Injectable({
-  providedIn: 'root',
-})
-export class ArticlesServiceStoreService {
+@Injectable({ providedIn: 'root' })
+export class ArticlesStoreService {
   private readonly _articles = signal<Article[]>([]);
-  protected readonly _isLoading = signal(false);
-  private readonly _isInitialized = signal(false);
+  private readonly _lastArticles = signal<Article[]>([]);
+  private readonly _totalArticles = signal(0);
+  private readonly _currentPage = signal(1);
+  private readonly _quantityPages = signal(1);
+  private readonly _isLoading = signal(true);
   public readonly articles = this._articles.asReadonly();
+  public readonly lastArticles = this._lastArticles.asReadonly();
+  public readonly totalArticles = this._totalArticles.asReadonly();
+  public readonly quantityPages = this._quantityPages.asReadonly();
+  public readonly currentPage = this._currentPage.asReadonly();
   public readonly isLoading = this._isLoading.asReadonly();
-  public readonly totalArticles = computed(() => this._articles().length);
 
-  constructor() {
-    void this.loadInitialData();
-
-    effect(() => {
-      if (!this._isInitialized()) return;
-      localStorage.setItem(localStorageArticlesListKey, JSON.stringify(this._articles()));
-    });
+  public updateArticles(items: Article[]): void {
+    this._articles.set(items);
   }
 
-  private async loadInitialData() {
-    this._isLoading.set(true);
-
-    await simulateNetworkDelay();
-
-    const storageData = localStorage.getItem(localStorageArticlesListKey);
-    if (storageData) {
-      try {
-        const parsedData = JSON.parse(storageData);
-
-        this._articles.set(parsedData);
-      } catch (e) {
-        console.error('Ошибка парсинга LocalStorage', e);
-        this._articles.set(InitArticlesList);
-      }
-    } else {
-      this._articles.set(InitArticlesList);
-
-      this.saveToStorage();
-    }
-
-    this._isLoading.set(false);
-    this._isInitialized.set(true);
+  public updateLastArticles(lastArticles: Article[]): void {
+    this._lastArticles.set(lastArticles);
   }
 
-  private saveToStorage(): void {
-    localStorage.setItem(localStorageArticlesListKey, JSON.stringify(this._articles()));
+  public updateTotalArticles(total: number): void {
+    this._totalArticles.set(total);
   }
 
-  private getRandomImage(): string {
-    const idx = Math.floor(Math.random() * 7) + 1;
-    return `images/blog/blog-img${idx}.webp`;
+  public updateQuantityPages(quantity: number): void {
+    this._quantityPages.set(quantity);
   }
 
-  public addNewArticle(data: AddArticleData): void {
-    const newArticle: Article = {
-      id: crypto.randomUUID(),
-      title: data.title,
-      description: data.description,
-      image: this.getRandomImage(),
-      date: new Date().toISOString().slice(0, 10),
-    };
+  public updatePage(page: number): void {
+    this._currentPage.set(page);
+  }
 
-    this._articles.update((list) => [newArticle, ...list]);
-    this.saveToStorage();
+  public setLoading(value: boolean): void {
+    this._isLoading.set(value);
   }
 
   public getArticleById(id: string): Article | undefined {
-    return this._articles().find((item) => item.id === id);
-  }
-
-  public updateArticle(newData: AddArticleData & { id: string }): void {
-    this._articles.update((list) =>
-      list.map((article) => (article.id === newData.id ? { ...article, ...newData } : article)),
-    );
-
-    this.saveToStorage();
-  }
-
-  public deleteArticle(id: string): void {
-    this._articles.update((list) => list.filter((a) => a.id !== id));
-    this.saveToStorage();
+    return this._articles().find((article) => article.id === id);
   }
 }
