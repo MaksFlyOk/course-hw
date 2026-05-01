@@ -1,5 +1,14 @@
 @use "abstract" as abs;
 
+.articles {
+  margin-bottom: abs.$sections-gap;
+}
+
+.articles > blog-app-button {
+  display: block;
+  text-align: center;
+}
+
 .articles-container {
   position: relative;
   min-height: 200px;
@@ -97,3 +106,15 @@
     grid-column: span 1;
   }
 }
+@include abs.media("md") {
+  .articles {
+    margin-bottom: abs.$sections-gap-tablet;
+  }
+}
+
+@include abs.media("xs") {
+  .articles {
+    margin-bottom: abs.$sections-gap-mobile;
+  }
+}
+

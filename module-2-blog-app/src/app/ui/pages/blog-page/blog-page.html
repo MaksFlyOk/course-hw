@@ -1,60 +1,14 @@
-<blog-app-modal
-  [title]="'Статистика страницы'"
-  [isOpen]="isStatModalOpen()"
-  (closed)="closeStatModal()"
->
-  <ul class="model__stats-list">
-    <li>
-      <article class="stats-card">
-        <h3>Всего статей</h3>
-        <p id="stat-articles-quantity">{{ totalArticles() }}</p>
-      </article>
-    </li>
-    <li>
-      <article class="stats-card">
-        <h3>Комментарии</h3>
-        <p id="stat-articles-comments-quantity">0</p>
-      </article>
-    </li>
-  </ul>
-</blog-app-modal>
+<blog-app-stat-modal [totalArticles]="totalArticles()" [totalComments]="0"/>
 <main>
-  <!-- "side-menu" на данном этапе работы не стал пока выносить в отдельный компонент  -->
-  <aside class="side-menu">
-    <div class="side-menu__container" id="side-menu">
-      <button title="Создать статью" (click)="addArticleForm()">
-        <img src="images/post-add.webp" alt="Добавить статью">
-      </button>
-      <button title="Показать статистику статей" (click)="openStatModal()">
-        <img src="images/stats.webp" alt="Открыть статистику статей">
-      </button>
-    </div>
-  </aside>
+<blog-app-side-menu [sideMenuButtons]="sideMenuButtons" />
   <section>
-    <div class="blog-header">
-      <div class="blog-header__title">
-        <h1>Мой блог</h1>
-        <p>Здесь я делюсь полезными материалами и своими мыслями о веб-разработке. Пишу о новых технологиях,
-          инструментах и подходах, которые помогают создавать современные веб-приложения.</p>
-      </div>
-      <div class="blog-header__hero">
-        <img src="images/my-blogs.svg" alt="Ссылка на блог">
-      </div>
-    </div>
-    <section class="articles">
-      <blog-app-articles-list
-        [articles]="articles()"
-        [isLoading]="isLoading()"
-        (deleteArticle)="deleteArticle($event)"
-        (editArticle)="editArticle($event)"
-      />
-      @if (articles().length > 0) {
-        <blog-app-button
-          buttonText="Слудеющие ➔"
-          [variant]="buttonVariant"
-        />
-      }
-    </section>
+    <blog-app-blog-header/>
+    <blog-app-articles-list
+      [articles]="articles()"
+      [isLoading]="isLoading()"
+      (deleteArticle)="deleteArticle($event)"
+      (editArticle)="editArticle($event)"
+    />
   </section>
   <blog-app-article-form
     #articleForm

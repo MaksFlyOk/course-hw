@@ -1,0 +1,9 @@
+<aside class="side-menu">
+  <div class="side-menu__container" id="side-menu">
+    @for (button of sideMenuButtons(); track button.buttonTitle) {
+      <button [title]="button.buttonTitle" (click)="button.callback()">
+        <img [src]="button.img.src" [alt]="button.img.alt">
+      </button>
+    }
+  </div>
+</aside>

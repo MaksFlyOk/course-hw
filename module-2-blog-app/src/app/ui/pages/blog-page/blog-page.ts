@@ -1,18 +1,19 @@
 import { ChangeDetectionStrategy, Component, inject, signal, viewChild } from '@angular/core';
 
 import { ArticlesList } from '@components/articles-list/articles-list';
-import { Modal } from '@components/modal/modal';
-import { Button } from '@components/shared/button/button';
-import { ButtonVariant } from '@components/shared/button/button.type';
+import { SideMenu } from '@components/side-menu/side-menu';
 import { ArticleService } from '@core/services/article-service/article-service';
 import { Article } from '@models/article.model';
+import { SideMenuButton } from '@models/side-menu-buttons';
 import { AddArticleData } from '@pages/blog-page/article-from/article-data.type';
 import { ArticleFormVariants } from '@pages/blog-page/article-from/article-form-variants';
 import { ArticleForm } from '@pages/blog-page/article-from/article-from';
+import { BlogHeader } from '@pages/blog-page/blog-header/blog-header';
+import { StatModal } from '@pages/blog-page/stat-modal/stat-modal';
 
 @Component({
   selector: 'blog-app-blog-page',
-  imports: [Modal, ArticleForm, ArticlesList, Button],
+  imports: [ArticleForm, ArticlesList, StatModal, BlogHeader, SideMenu],
   templateUrl: './blog-page.html',
   styleUrl: './blog-page.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -21,18 +22,26 @@ export class BlogPage {
   private readonly articleService = inject(ArticleService);
   protected readonly articles = this.articleService.articles;
   protected readonly isLoading = this.articleService.isLoading;
-  protected readonly totalArticles = this.articleService.totalArticles;
-  protected readonly buttonVariant = ButtonVariant.Outlined;
   protected readonly articleForm = viewChild.required<ArticleForm>('articleForm');
   protected readonly editArticleData = signal<Article | undefined>(undefined);
-  protected readonly isStatModalOpen = signal(false);
+  protected readonly totalArticles = this.articleService.totalArticles;
+  protected readonly sideMenuButtons: SideMenuButton[] = [
+    {
+      buttonTitle: 'Создать статью',
+      callback: () => this.openStatModal(),
+      img: { src: 'images/post-add.webp', alt: 'Добавить статью' },
+    },
+    {
+      buttonTitle: 'Показать статистику статей',
+      callback: () => this.addArticleForm(),
+      img: { src: 'images/stats.webp', alt: 'Открыть статистику статей' },
+    },
+  ];
+
+  private readonly statModal = viewChild.required(StatModal);
 
   protected openStatModal(): void {
-    this.isStatModalOpen.set(true);
-  }
-
-  protected closeStatModal(): void {
-    this.isStatModalOpen.set(false);
+    this.statModal()?.openStatModal();
   }
 
   protected handleFormSubmit(data: AddArticleData & { id: string }): void {

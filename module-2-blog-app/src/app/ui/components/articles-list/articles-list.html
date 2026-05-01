@@ -1,19 +1,28 @@
-<div class="articles-container">
-  @if (isLoading()) {
-    <blog-app-spinner/>
-  } @else {
-    <ul class="articles-list">
-      @for (article of articles(); track article.id) {
-        <li>
-          <blog-app-article-item
-            [data]="article"
-            (delete)="deleteArticle.emit($event)"
-            (edit)="editArticle.emit($event)"
-          />
-        </li>
-      } @empty {
-        <div class="articles-list--empty"></div>
-      }
-    </ul>
+<section class="articles">
+  <div class="articles-container">
+    @if (isLoading()) {
+      <blog-app-spinner/>
+    } @else {
+      <ul class="articles-list">
+        @for (article of articles(); track article.id) {
+          <li>
+            <blog-app-article-item
+              [data]="article"
+              (delete)="deleteArticle.emit($event)"
+              (edit)="editArticle.emit($event)"
+            />
+          </li>
+        } @empty {
+          <div class="articles-list--empty"></div>
+        }
+      </ul>
+    }
+  </div>
+
+  @if (articles().length > 0) {
+    <blog-app-button
+      buttonText="Слудеющие ➔"
+      [variant]="buttonVariant"
+    />
   }
-</div>
+</section>

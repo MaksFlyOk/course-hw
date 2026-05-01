@@ -1,0 +1,20 @@
+<blog-app-modal
+  [title]="'Статистика страницы'"
+  [isOpen]="isStatModalOpen()"
+  (closed)="closeStatModal()"
+>
+  <ul class="model__stats-list">
+    <li>
+      <article class="stats-card">
+        <h3>Всего статей</h3>
+        <p id="stat-articles-quantity">{{ totalArticles() }}</p>
+      </article>
+    </li>
+    <li>
+      <article class="stats-card">
+        <h3>Комментарии</h3>
+        <p id="stat-articles-comments-quantity">{{ totalComments() }}</p>
+      </article>
+    </li>
+  </ul>
+</blog-app-modal>
