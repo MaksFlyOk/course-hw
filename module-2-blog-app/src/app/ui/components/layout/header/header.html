@@ -3,9 +3,7 @@
   <nav aria-label="Основная навигация">
     <ul class="nav-list">
       @for (link of links; track link.dataText) {
-        @let type = link.type;
-
-        @if (type === HeaderLinkTypes.Page) {
+        @if (link.type === HeaderLinkTypes.Page) {
           <li class="nav-list__item">
             <a
               [routerLink]="link.routerLink"
@@ -21,7 +19,7 @@
           </li>
         }
 
-        @if (type === HeaderLinkTypes.Anchor) {
+        @if (link.type === HeaderLinkTypes.Anchor) {
           <li class="nav-list__item">
             <a
               [routerLink]="[]"
