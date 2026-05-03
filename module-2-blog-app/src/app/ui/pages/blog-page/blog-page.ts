@@ -58,6 +58,11 @@ export class BlogPage {
   }
 
   protected deleteArticle(id: string): void {
+    if (this.editArticleData()?.id === id) {
+      this.articleForm().toggleForm(ArticleFormVariants.Edit, id);
+      this.editArticleData.set(undefined);
+    }
+
     this.articlesService.deleteArticle(id);
   }
 
@@ -70,9 +75,11 @@ export class BlogPage {
     this.editArticleData.set(this.articlesStore.getArticleById(id));
     this.articleForm().toggleForm(ArticleFormVariants.Edit, id);
   }
+
   protected prevButtonCallback(): void {
     this.articlesStore.updatePage(this.articlesStore.currentPage() - 1);
   }
+
   protected nextButtonCallback(): void {
     this.articlesStore.updatePage(this.articlesStore.currentPage() + 1);
   }
