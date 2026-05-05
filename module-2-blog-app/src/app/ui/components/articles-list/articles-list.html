@@ -24,7 +24,7 @@
       @if (quantityPages() !== 1) {
         @if (page() !== 1) {
           <blog-app-button
-            buttonText="&larr; Предыдущие"
+            [buttonText]="isMobile() ? '&larr;' : '&larr; Предыдущие'"
             [variant]="buttonVariant"
             (callback)="prevButtonCallback.emit()"
           />
@@ -34,7 +34,7 @@
         }
         @if (page() !== quantityPages()) {
           <blog-app-button
-            buttonText="Слудеющие &rarr;"
+            [buttonText]="isMobile() ? '&rarr;' : 'Следующие &rarr;'"
             [variant]="buttonVariant"
             (callback)="nextButtonCallback.emit()"
           />
