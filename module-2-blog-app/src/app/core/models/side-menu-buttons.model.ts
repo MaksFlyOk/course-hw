@@ -1,4 +1,4 @@
-export interface SideMenuButton {
+export interface ISideMenuButton {
   readonly buttonTitle: string;
   readonly callback: () => void;
   readonly img: {

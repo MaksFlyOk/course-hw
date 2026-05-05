@@ -1,6 +1,6 @@
-import { AchievementElement } from '@models/achievements';
+import { IAchievementElement } from '@models/achievements';
 
-export const achievementsData: AchievementElement[] = [
+export const achievementsData: IAchievementElement[] = [
   {
     title: 'Учебный проект "TaskMaster"',
     description: 'Разработал приложение для управления задачами с использованием React и TypeScript',

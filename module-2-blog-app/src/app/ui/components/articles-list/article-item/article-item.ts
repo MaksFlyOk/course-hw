@@ -1,7 +1,7 @@
 import { DatePipe } from '@angular/common';
 import { Component, input, output } from '@angular/core';
 
-import { Article } from '@models/article.model';
+import { IArticle } from '@models/article.model';
 
 @Component({
   selector: 'blog-app-article-item',
@@ -11,7 +11,7 @@ import { Article } from '@models/article.model';
   styleUrl: './article-item.scss',
 })
 export class ArticleItem {
-  public readonly data = input.required<Article>();
+  public readonly data = input.required<IArticle>();
   public readonly delete = output<string>();
   public readonly edit = output<string>();
 

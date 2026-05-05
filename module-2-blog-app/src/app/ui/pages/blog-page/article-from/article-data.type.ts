@@ -1,4 +1,4 @@
-export interface AddArticleData {
+export interface IAddArticleData {
   title: string;
   description: string;
 }

@@ -1,6 +1,6 @@
 import { Component, input } from '@angular/core';
 
-import { ListSectionModel } from '@models/list-section.model';
+import { IListSectionModel } from '@models/list-section.model';
 
 @Component({
   selector: 'blog-app-list-section',
@@ -9,5 +9,5 @@ import { ListSectionModel } from '@models/list-section.model';
   styleUrl: './list-section.scss',
 })
 export class ListSection {
-  public readonly listSectionData = input.required<ListSectionModel>();
+  public readonly listSectionData = input.required<IListSectionModel>();
 }

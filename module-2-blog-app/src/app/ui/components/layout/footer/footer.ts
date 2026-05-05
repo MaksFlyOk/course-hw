@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import { FeedbackData } from '@components/layout/footer/feedback-from/feedback-data.type';
+import { IFeedbackData } from '@components/layout/footer/feedback-from/feedback-data.type';
 import { FeedbackForm } from '@components/layout/footer/feedback-from/feedback-form';
 
 @Component({
@@ -10,7 +10,7 @@ import { FeedbackForm } from '@components/layout/footer/feedback-from/feedback-f
   styleUrl: './footer.scss',
 })
 export class Footer {
-  protected submitFeedbackForm(data: FeedbackData): void {
+  protected submitFeedbackForm(data: IFeedbackData): void {
     // Заглушка для визуального отображения работы формы
     console.log('Feedback form submitted:', data);
   }

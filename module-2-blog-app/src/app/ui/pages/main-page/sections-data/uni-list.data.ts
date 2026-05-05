@@ -1,6 +1,6 @@
-import { ListSectionModel } from '@models/list-section.model';
+import { IListSectionModel } from '@models/list-section.model';
 
-export const uniListData: ListSectionModel = {
+export const uniListData: IListSectionModel = {
   title: 'Образование',
   description: '',
   list: [

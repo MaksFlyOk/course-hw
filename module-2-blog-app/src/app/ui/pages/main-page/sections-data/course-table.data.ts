@@ -1,6 +1,6 @@
-import { TableSectionModel } from '@models/table-section.model';
+import { ITableSectionModel } from '@models/table-section.model';
 
-export const courseTableData: TableSectionModel = {
+export const courseTableData: ITableSectionModel = {
   title: 'Курсы и сертификации',
   list: [
     {

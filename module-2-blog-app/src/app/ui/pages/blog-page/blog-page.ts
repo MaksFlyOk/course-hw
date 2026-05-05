@@ -4,9 +4,9 @@ import { ArticlesList } from '@components/articles-list/articles-list';
 import { SideMenu } from '@components/side-menu/side-menu';
 import { ARTICLES_REPOSITORY_TOKEN } from '@core/services/articles/articles-repository.token';
 import { ArticlesStoreService } from '@core/services/articles/articles-store.service';
-import { Article } from '@models/article.model';
-import { SideMenuButton } from '@models/side-menu-buttons.model';
-import { AddArticleData } from '@pages/blog-page/article-from/article-data.type';
+import { IArticle } from '@models/article.model';
+import { ISideMenuButton } from '@models/side-menu-buttons.model';
+import { IAddArticleData } from '@pages/blog-page/article-from/article-data.type';
 import { ArticleFormVariants } from '@pages/blog-page/article-from/article-form-variants';
 import { ArticleForm } from '@pages/blog-page/article-from/article-from';
 import { BlogHeader } from '@pages/blog-page/blog-header/blog-header';
@@ -29,8 +29,8 @@ export class BlogPage {
   protected readonly quantityPages = this.articlesStore.quantityPages;
   protected readonly totalArticles = this.articlesStore.totalArticles;
   protected readonly articleForm = viewChild.required<ArticleForm>('articleForm');
-  protected readonly editArticleData = signal<Article | undefined>(undefined);
-  protected readonly sideMenuButtons: SideMenuButton[] = [
+  protected readonly editArticleData = signal<IArticle | undefined>(undefined);
+  protected readonly sideMenuButtons: ISideMenuButton[] = [
     {
       buttonTitle: 'Создать статью',
       callback: () => this.addArticleForm(),
@@ -49,7 +49,7 @@ export class BlogPage {
     this.statModal()?.openStatModal();
   }
 
-  protected handleFormSubmit(data: AddArticleData & { id: string }): void {
+  protected handleFormSubmit(data: IAddArticleData & { id: string }): void {
     if (this.editArticleData()) {
       this.articlesService.updateArticle(data);
     } else {

@@ -1,11 +1,11 @@
 import { Injectable, signal } from '@angular/core';
 
-import { Article } from '@models/article.model';
+import { IArticle } from '@models/article.model';
 
 @Injectable({ providedIn: 'root' })
 export class ArticlesStoreService {
-  private readonly _articles = signal<Article[]>([]);
-  private readonly _lastArticles = signal<Article[]>([]);
+  private readonly _articles = signal<IArticle[]>([]);
+  private readonly _lastArticles = signal<IArticle[]>([]);
   private readonly _totalArticles = signal(0);
   private readonly _currentPage = signal(1);
   private readonly _quantityPages = signal(1);
@@ -17,11 +17,11 @@ export class ArticlesStoreService {
   public readonly currentPage = this._currentPage.asReadonly();
   public readonly isLoading = this._isLoading.asReadonly();
 
-  public updateArticles(items: Article[]): void {
+  public updateArticles(items: IArticle[]): void {
     this._articles.set(items);
   }
 
-  public updateLastArticles(lastArticles: Article[]): void {
+  public updateLastArticles(lastArticles: IArticle[]): void {
     this._lastArticles.set(lastArticles);
   }
 
@@ -41,7 +41,7 @@ export class ArticlesStoreService {
     this._isLoading.set(value);
   }
 
-  public getArticleById(id: string): Article | undefined {
+  public getArticleById(id: string): IArticle | undefined {
     return this._articles().find((article) => article.id === id);
   }
 }

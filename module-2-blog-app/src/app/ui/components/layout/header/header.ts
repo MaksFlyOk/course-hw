@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 
-import { HeaderAnchorLink, HeaderLinkTypes, HeaderPageLink } from '@models/header-link.model';
+import { HeaderLinkTypes, IHeaderAnchorLink, IHeaderPageLink } from '@models/header-link.model';
 
-type Link = HeaderPageLink | HeaderAnchorLink;
+type Link = IHeaderPageLink | IHeaderAnchorLink;
 
 @Component({
   selector: 'app-blog-header',

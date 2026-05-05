@@ -1,6 +1,6 @@
 import { Component, input } from '@angular/core';
 
-import { SideMenuButton } from '@models/side-menu-buttons.model';
+import { ISideMenuButton } from '@models/side-menu-buttons.model';
 
 @Component({
   selector: 'blog-app-side-menu',
@@ -9,5 +9,5 @@ import { SideMenuButton } from '@models/side-menu-buttons.model';
   styleUrl: './side-menu.scss',
 })
 export class SideMenu {
-  public readonly sideMenuButtons = input.required<SideMenuButton[]>();
+  public readonly sideMenuButtons = input.required<ISideMenuButton[]>();
 }

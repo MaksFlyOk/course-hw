@@ -1,15 +1,15 @@
-import { Article } from '@models/article.model';
-import { AddArticleData } from '@pages/blog-page/article-from/article-data.type';
+import { IArticle } from '@models/article.model';
+import { IAddArticleData } from '@pages/blog-page/article-from/article-data.type';
 
 export interface IArticlesResult {
-  items: Article[];
+  items: IArticle[];
   total: number;
-  latest: Article[];
+  latest: IArticle[];
 }
 
 export interface IArticlesRepository {
   loadArticles(): void;
-  addArticle(article: AddArticleData & { id: string }): void;
+  addArticle(article: IAddArticleData & { id: string }): void;
   deleteArticle(id: string): void;
-  updateArticle(newArticle: AddArticleData & { id: string }): void;
+  updateArticle(newArticle: IAddArticleData & { id: string }): void;
 }

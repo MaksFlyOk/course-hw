@@ -1,4 +1,4 @@
-export interface AchievementElement {
+export interface IAchievementElement {
   readonly title: string;
   readonly description: string;
   readonly img: {

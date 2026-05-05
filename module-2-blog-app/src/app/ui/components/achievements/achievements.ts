@@ -1,6 +1,6 @@
 import { Component, input } from '@angular/core';
 
-import { AchievementElement } from '@models/achievements';
+import { IAchievementElement } from '@models/achievements';
 
 @Component({
   selector: 'blog-app-achievements',
@@ -9,5 +9,5 @@ import { AchievementElement } from '@models/achievements';
   styleUrl: './achievements.scss',
 })
 export class Achievements {
-  public readonly achievementsData = input.required<AchievementElement[]>();
+  public readonly achievementsData = input.required<IAchievementElement[]>();
 }

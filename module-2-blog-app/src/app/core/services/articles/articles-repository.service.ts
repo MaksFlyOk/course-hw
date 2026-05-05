@@ -4,8 +4,8 @@ import { takeUntilDestroyed, toObservable } from '@angular/core/rxjs-interop';
 import { InitArticlesList, delayConstant, localStorageArticlesListKey } from '@core/constants';
 import { IArticlesRepository, IArticlesResult } from '@core/services/articles/articles-repository.interface';
 import { ArticlesStoreService } from '@core/services/articles/articles-store.service';
-import { Article } from '@models/article.model';
-import { AddArticleData } from '@pages/blog-page/article-from/article-data.type';
+import { IArticle } from '@models/article.model';
+import { IAddArticleData } from '@pages/blog-page/article-from/article-data.type';
 import { Observable, concatMap, delay, of, switchMap, tap } from 'rxjs';
 
 const pageSize = 7;
@@ -50,7 +50,7 @@ export class ArticlesRepository implements IArticlesRepository {
     }).pipe(delay(delayConstant));
   }
 
-  public addArticle(data: AddArticleData & { id: string }): void {
+  public addArticle(data: IAddArticleData & { id: string }): void {
     this.modifyData((all) => {
       const newItem = {
         ...data,
@@ -66,13 +66,13 @@ export class ArticlesRepository implements IArticlesRepository {
     this.modifyData((all) => all.filter((a) => a.id !== id)).subscribe((res) => this.syncStore(res));
   }
 
-  public updateArticle(data: AddArticleData & { id: string }): void {
+  public updateArticle(data: IAddArticleData & { id: string }): void {
     this.modifyData((all) => all.map((a) => (a.id === data.id ? { ...a, ...data } : a))).subscribe((res) =>
       this.syncStore(res),
     );
   }
 
-  private modifyData(modifier: (all: Article[]) => Article[]): Observable<IArticlesResult> {
+  private modifyData(modifier: (all: IArticle[]) => IArticle[]): Observable<IArticlesResult> {
     return of(null).pipe(
       tap(() => {
         const all = this.getAllArticlesFromStorage();
@@ -83,7 +83,7 @@ export class ArticlesRepository implements IArticlesRepository {
     );
   }
 
-  private getAllArticlesFromStorage(): Article[] {
+  private getAllArticlesFromStorage(): IArticle[] {
     const data = localStorage.getItem(localStorageArticlesListKey);
     return data ? JSON.parse(data) : InitArticlesList;
   }

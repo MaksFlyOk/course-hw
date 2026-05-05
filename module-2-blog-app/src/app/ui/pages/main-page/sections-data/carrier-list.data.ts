@@ -1,6 +1,6 @@
-import { ListSectionModel } from '@models/list-section.model';
+import { IListSectionModel } from '@models/list-section.model';
 
-export const carrierListData: ListSectionModel = {
+export const carrierListData: IListSectionModel = {
   title: 'Моя карьера',
   description:
     'Постоянно развиваюсь в области веб-разработки, изучаю новые технологии и применяю их на практике в личных и учебных проектах',

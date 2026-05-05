@@ -1,4 +1,4 @@
-export interface Article {
+export interface IArticle {
   readonly id: string;
   readonly title: string;
   readonly description: string;

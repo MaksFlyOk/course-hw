@@ -1,4 +1,4 @@
-export interface ListElement {
+export interface IListElement {
   readonly title: string;
   readonly subtitle: string;
   readonly description: string;
@@ -8,8 +8,8 @@ export interface ListElement {
   };
 }
 
-export interface ListSectionModel {
+export interface IListSectionModel {
   readonly title: string;
   readonly description: string;
-  readonly list: readonly ListElement[];
+  readonly list: readonly IListElement[];
 }

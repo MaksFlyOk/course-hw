@@ -1,9 +1,9 @@
-export interface TableElement {
+export interface ITableElement {
   readonly title: string;
   readonly subtitle: string;
 }
 
-export interface TableSectionModel {
+export interface ITableSectionModel {
   readonly title: string;
-  readonly list: TableElement[];
+  readonly list: ITableElement[];
 }

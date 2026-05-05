@@ -6,7 +6,7 @@ import { ButtonColor, ButtonType, ButtonVariant } from '@components/shared/butto
 import { FormField } from '@components/shared/form-field/form-field';
 import { FormFieldType, FormTheme } from '@components/shared/form-field/form-field.type';
 import { FormHandlerService } from '@core/services/form-handler-service/form-handler-service';
-import { Article } from '@models/article.model';
+import { IArticle } from '@models/article.model';
 import { ArticleFormVariants } from '@pages/blog-page/article-from/article-form-variants';
 
 @Component({
@@ -29,7 +29,7 @@ export class ArticleForm {
   protected readonly isLoading = signal(false);
   protected readonly formVariant = signal(ArticleFormVariants.Add);
   public readonly isOpen = signal(false);
-  public readonly editArticleData = input<Article>();
+  public readonly editArticleData = input<IArticle>();
   public readonly submitted = output<any>();
 
   protected readonly articleForm = this.fb.group({
