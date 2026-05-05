@@ -7,9 +7,11 @@ export const routes: Routes = [
   {
     path: '',
     component: MainPage,
+    title: 'Главная',
   },
   {
     path: 'blog',
     component: BlogPage,
+    title: 'Блог',
   },
 ];
