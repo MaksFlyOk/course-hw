@@ -2,9 +2,10 @@ import { DestroyRef, Injectable, inject } from '@angular/core';
 import { takeUntilDestroyed, toObservable } from '@angular/core/rxjs-interop';
 
 import { InitArticlesList, delayConstant, localStorageArticlesListKey } from '@core/constants';
-import { IArticlesRepository, IArticlesResult } from '@core/services/articles/articles-repository.interface';
+import { IArticlesRepository } from '@core/services/articles/articles-repository.interface';
 import { ArticlesStoreService } from '@core/services/articles/articles-store.service';
 import { IArticle } from '@models/article.model';
+import { IArticlesResult } from '@models/articles-result.model';
 import { IAddArticleData } from '@pages/blog-page/article-from/article-data.type';
 import { Observable, concatMap, delay, of, switchMap, tap } from 'rxjs';
 
