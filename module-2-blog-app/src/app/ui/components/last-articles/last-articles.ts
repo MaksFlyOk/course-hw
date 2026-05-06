@@ -1,6 +1,6 @@
 import { DatePipe } from '@angular/common';
 import { Component, computed, inject } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 
 import { Button } from '@components/shared/button/button';
 import { ButtonVariant } from '@components/shared/button/button.type';
@@ -9,7 +9,7 @@ import { ArticlesStoreService } from '@core/services/articles/articles-store.ser
 
 @Component({
   selector: 'blog-app-last-articles',
-  imports: [Button, Spinner, DatePipe],
+  imports: [Button, Spinner, DatePipe, RouterLink],
   templateUrl: './last-articles.html',
   styleUrl: './last-articles.scss',
 })

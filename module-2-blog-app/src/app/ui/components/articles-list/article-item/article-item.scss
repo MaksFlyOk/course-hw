@@ -2,9 +2,6 @@
 
 .article {
   position: relative;
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
   height: 100%;
 }
 
@@ -50,9 +47,18 @@
   }
 }
 
-.article > img {
-  aspect-ratio: abs.$blog-image-aspect-ratio;
-  border-radius: abs.$large-radius;
+.article > a {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  height: 100%;
+  text-decoration: none;
+  color: abs.$color-primary;
+
+  > img {
+    aspect-ratio: abs.$blog-image-aspect-ratio;
+    border-radius: abs.$large-radius;
+  }
 }
 
 .article__content {
