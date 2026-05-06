@@ -1,0 +1,19 @@
+<div class="star-rating-wrapper mat-elevation-z1">
+  <div class="star-rating-container">
+    @for (index of ratingArr(); track index) {
+      <button
+        matIconButton
+        type="button"
+        [color]="color()"
+        [id]="'star_' + index"
+        [matTooltip]="(index + 1).toString()"
+        matTooltipPosition="above"
+        (click)="onClick(index)"
+      >
+        <mat-icon>
+          {{ getIcon(index) }}
+        </mat-icon>
+      </button>
+    }
+  </div>
+</div>
