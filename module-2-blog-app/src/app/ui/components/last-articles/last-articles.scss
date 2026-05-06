@@ -16,6 +16,11 @@ blog-app-button {
   @include abs.font-h1;
 }
 
+a {
+  text-decoration: none;
+  color: abs.$color-primary;
+}
+
 .blog-item {
   display: flex;
   justify-content: space-between;

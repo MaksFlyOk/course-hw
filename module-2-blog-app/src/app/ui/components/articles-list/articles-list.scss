@@ -48,29 +48,32 @@
     ::ng-deep .article {
       background-color: abs.$color-featured;
       border-radius: abs.$large-radius;
-      flex-direction: row;
-      gap: 46px;
-      margin-bottom: 62px;
 
-      img {
-        $img-width: 60%;
-        max-width: $img-width;
-        flex: 0 0 $img-width;
-        aspect-ratio: auto;
-      }
+      > a {
+        flex-direction: row;
+        gap: 46px;
+        margin-bottom: 62px;
 
-      .article__content {
-        display: block;
-        padding: 23px 28px 0 0;
-
-        h2 {
-          display: block;
-          @include abs.font-h2;
-          margin-bottom: 16px;
+        img {
+          $img-width: 60%;
+          max-width: $img-width;
+          flex: 0 0 $img-width;
+          aspect-ratio: auto;
         }
 
-        p {
-          @include abs.font-subtitle;
+        .article__content {
+          display: block;
+          padding: 23px 28px 0 0;
+
+          h2 {
+            display: block;
+            @include abs.font-h2;
+            margin-bottom: 16px;
+          }
+
+          p {
+            @include abs.font-subtitle;
+          }
         }
       }
     }
@@ -85,7 +88,7 @@
   .articles-list > li:first-child {
     grid-column: span 2;
 
-    ::ng-deep .article {
+    ::ng-deep .article > a {
       display: flex;
       flex-direction: column;
       gap: 16px;

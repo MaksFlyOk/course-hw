@@ -1,12 +1,13 @@
 import { DatePipe } from '@angular/common';
 import { Component, input, output } from '@angular/core';
+import { RouterLink } from '@angular/router';
 
 import { IArticle } from '@models/article.model';
 
 @Component({
   selector: 'blog-app-article-item',
   standalone: true,
-  imports: [DatePipe],
+  imports: [DatePipe, RouterLink],
   templateUrl: './article-item.html',
   styleUrl: './article-item.scss',
 })

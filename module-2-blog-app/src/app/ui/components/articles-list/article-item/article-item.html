@@ -13,12 +13,18 @@
       class="article__delete-button"
     ></button>
   </div>
-  <img [src]="data().image" [alt]="'Обложка статьи ' + data().title">
-  <div class="article__content">
-    <h2 id="article-title">{{ data().title }}</h2>
-    <p id="article-description">{{ data().description }}</p>
-    <time [attr.datetime]="data().date">
-      {{ data().date | date:"longDate":"":"ru-RU" }}
-    </time>
-  </div>
+  <a
+    [routerLink]="data().id"
+    target="_self"
+    [attr.aria-label]="`Перейти к странице статьи '${data().title}'`"
+  >
+    <img [src]="data().image" [alt]="'Обложка статьи ' + data().title">
+    <div class="article__content">
+      <h2 id="article-title">{{ data().title }}</h2>
+      <p id="article-description">{{ data().description }}</p>
+      <time [attr.datetime]="data().date">
+        {{ data().date | date:"longDate":"":"ru-RU" }}
+      </time>
+    </div>
+  </a>
 </article>
