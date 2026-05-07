@@ -4,4 +4,5 @@ export interface IArticle {
   readonly description: string;
   readonly image: string;
   readonly date: string;
+  readonly rating: number;
 }

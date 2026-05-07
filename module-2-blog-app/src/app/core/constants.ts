@@ -1,10 +1,13 @@
-export const InitArticlesList = [
+import { IArticle } from '@models/article.model';
+
+export const InitArticlesList: IArticle[] = [
   {
     id: 'eed51255-f546-4c0b-bb05-5795a632d304',
     title: 'Веб-доступность: основные принципы',
     description: 'Поговорим о важности веб-доступности и основных принципах её реализации.',
     image: 'images/blog/blog-img7.webp',
     date: '2024-12-15',
+    rating: 5,
   },
   {
     id: 'fc02a985-ccc3-490c-9901-ff81f9c41547',
@@ -12,6 +15,7 @@ export const InitArticlesList = [
     description: 'Разберём ключевые концепции современного JavaScript.',
     image: 'images/blog/blog-img6.webp',
     date: '2024-11-30',
+    rating: 4,
   },
   {
     id: '22d1ed57-4e15-468d-b507-21d29c1423e5',
@@ -19,6 +23,7 @@ export const InitArticlesList = [
     description: 'Изучим возможности CSS Grid для создания сложных макетов.',
     image: 'images/blog/blog-img5.webp',
     date: '2024-08-12',
+    rating: 5,
   },
   {
     id: 'ac67d20d-f93f-43bb-b494-537f51f977aa',
@@ -26,6 +31,7 @@ export const InitArticlesList = [
     description: 'Почему TypeScript становится стандартом в современной фронтенд-разработке?',
     image: 'images/blog/blog-img4.webp',
     date: '2024-06-22',
+    rating: 5,
   },
   {
     id: '4f7fc48c-a59f-4a98-8637-281aca61aae5',
@@ -33,6 +39,7 @@ export const InitArticlesList = [
     description: 'Погружаемся в мир современной верстки: от базовых тегов HTML5 до продвинутых техник CSS.',
     image: 'images/blog/blog-img3.webp',
     date: '2024-04-05',
+    rating: 3,
   },
   {
     id: '1495b940-0fcb-45e1-b8f7-72bb2f67abcc',
@@ -40,6 +47,7 @@ export const InitArticlesList = [
     description: 'Пошаговое руководство по созданию простого веб-приложения с использованием Angular.',
     image: 'images/blog/blog-img2.webp',
     date: '2024-03-03',
+    rating: 4,
   },
   {
     id: '572e364c-4f2d-4e07-a4a2-c6dc0a3080ec',
@@ -47,6 +55,7 @@ export const InitArticlesList = [
     description: 'В этой статье рассмотрим основные команды Git, которые необходимы каждому разработчику.',
     image: 'images/blog/blog-img1.webp',
     date: '2024-02-15',
+    rating: 5,
   },
   {
     id: '7b3c2a1d-8e9f-4a5b-9c8d-7e6f5a4b3c2d',
@@ -54,6 +63,7 @@ export const InitArticlesList = [
     description: 'Рассматриваем хуки useMemo, useCallback и другие способы ускорения вашего UI.',
     image: 'images/blog/blog-img4.webp',
     date: '2024-01-10',
+    rating: 4,
   },
   {
     id: 'a1b2c3d4-e5f6-4a5b-8c9d-0e1f2a3b4c5d',
@@ -61,6 +71,7 @@ export const InitArticlesList = [
     description: 'Зачем контейнеризировать фронтенд и как написать свой первый Dockerfile.',
     image: 'images/blog/blog-img2.webp',
     date: '2023-12-05',
+    rating: 3,
   },
   {
     id: 'f9e8d7c6-b5a4-4321-8765-43210fedcba9',
@@ -68,6 +79,7 @@ export const InitArticlesList = [
     description: 'Сравнение классического подхода и новых возможностей Angular для управления состоянием.',
     image: 'images/blog/blog-img7.webp',
     date: '2023-11-20',
+    rating: 5,
   },
   {
     id: '2d3e4f5a-6b7c-8d9e-0f1a-2b3c4d5e6f7a',
@@ -75,6 +87,7 @@ export const InitArticlesList = [
     description: 'Как работает новый стандарт и как он влияет на скорость загрузки ресурсов.',
     image: 'images/blog/blog-img1.webp',
     date: '2023-10-15',
+    rating: 4,
   },
   {
     id: 'c7b6a5d4-e3f2-1a0b-9c8d-7e6f5a4b3c2d',
@@ -82,6 +95,7 @@ export const InitArticlesList = [
     description: 'Разделяем монолит на независимые части с использованием Module Federation.',
     image: 'images/blog/blog-img6.webp',
     date: '2023-09-01',
+    rating: 5,
   },
   {
     id: '1a2b3c4d-5e6f-7a8b-9c0d-e1f2a3b4c5d6',
@@ -89,6 +103,7 @@ export const InitArticlesList = [
     description: 'Инструменты и подходы для реализации сложной векторной анимации в вебе.',
     image: 'images/blog/blog-img3.webp',
     date: '2023-08-12',
+    rating: 4,
   },
   {
     id: '8f7e6d5c-4b3a-2109-8765-4321fedcba98',
@@ -96,6 +111,7 @@ export const InitArticlesList = [
     description: 'Основные уязвимости фронтенда и способы их предотвращения на стороне клиента.',
     image: 'images/blog/blog-img5.webp',
     date: '2023-07-05',
+    rating: 5,
   },
   {
     id: '5a4b3c2d-1e0f-9a8b-7c6d-5e4f3a2b1c0d',
@@ -103,6 +119,7 @@ export const InitArticlesList = [
     description: 'Service Workers, Manifest и кэширование для работы в офлайне.',
     image: 'images/blog/blog-img2.webp',
     date: '2023-06-18',
+    rating: 4,
   },
   {
     id: 'e1d2c3b4-a5f6-7e8d-9c0b-1a2b3c4d5e6f',
@@ -110,6 +127,7 @@ export const InitArticlesList = [
     description: 'Пишем надежные тесты для проверки логики и пользовательских интерфейсов.',
     image: 'images/blog/blog-img7.webp',
     date: '2023-05-10',
+    rating: 4,
   },
 ];
 
