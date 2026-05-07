@@ -6,9 +6,9 @@ import { ARTICLES_REPOSITORY_TOKEN } from '@core/services/articles/articles-repo
 import { ArticlesStoreService } from '@core/services/articles/articles-store.service';
 import { IArticle } from '@models/article.model';
 import { ISideMenuButton } from '@models/side-menu-buttons.model';
-import { IAddArticleData } from '@pages/blog-page/article-from/article-data.type';
-import { ArticleFormVariants } from '@pages/blog-page/article-from/article-form-variants';
-import { ArticleForm } from '@pages/blog-page/article-from/article-from';
+import { IAddArticleData } from '@pages/blog-page/article-form/article-data.type';
+import { ArticleForm } from '@pages/blog-page/article-form/article-form';
+import { ArticleFormVariants } from '@pages/blog-page/article-form/article-form-variants';
 import { BlogHeader } from '@pages/blog-page/blog-header/blog-header';
 import { StatModal } from '@pages/blog-page/stat-modal/stat-modal';
 
