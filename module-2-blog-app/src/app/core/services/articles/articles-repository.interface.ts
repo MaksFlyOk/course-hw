@@ -1,4 +1,4 @@
-import { IAddArticleData } from '@pages/blog-page/article-from/article-data.type';
+import { IAddArticleData } from '@pages/blog-page/article-form/article-data.type';
 
 export interface IArticlesRepository {
   loadArticles(): void;
