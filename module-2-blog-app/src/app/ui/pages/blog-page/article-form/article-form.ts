@@ -7,14 +7,14 @@ import { FormField } from '@components/shared/form-field/form-field';
 import { FormFieldType, FormTheme } from '@components/shared/form-field/form-field.type';
 import { FormHandlerService } from '@core/services/form-handler-service/form-handler-service';
 import { IArticle } from '@models/article.model';
-import { ArticleFormVariants } from '@pages/blog-page/article-from/article-form-variants';
+import { ArticleFormVariants } from '@pages/blog-page/article-form/article-form-variants';
 
 @Component({
   selector: 'blog-app-article-form',
   standalone: true,
   imports: [Button, FormField, ReactiveFormsModule],
-  templateUrl: './article-from.html',
-  styleUrl: './article-from.scss',
+  templateUrl: './article-form.html',
+  styleUrl: './article-form.scss',
 })
 export class ArticleForm {
   private readonly fb = inject(FormBuilder);
