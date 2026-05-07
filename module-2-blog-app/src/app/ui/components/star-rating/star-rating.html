@@ -5,6 +5,7 @@
         matIconButton
         type="button"
         [color]="color()"
+        [attr.aria-label]="'Установить рейтинг ' + (index + 1) + ' из ' + starCount()"
         [id]="'star_' + index"
         [matTooltip]="(index + 1).toString()"
         matTooltipPosition="above"
