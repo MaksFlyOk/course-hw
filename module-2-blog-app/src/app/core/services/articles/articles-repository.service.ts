@@ -55,6 +55,7 @@ export class ArticlesRepository implements IArticlesRepository {
     this.modifyData((all) => {
       const newItem = {
         ...data,
+        rating: 0,
         id: crypto.randomUUID(),
         date: new Date().toISOString().slice(0, 10),
         image: `images/blog/blog-img${Math.floor(Math.random() * 7) + 1}.webp`,
