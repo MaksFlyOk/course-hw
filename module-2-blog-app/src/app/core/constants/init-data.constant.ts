@@ -141,7 +141,7 @@ export const InitArticlesCommentsList: ICommentStorage = {
       author: 'Nikita JS',
       content: 'Замыкания всегда были для меня сложной темой, спасибо за разбор!',
       date: '2024-12-01',
-      rating: 5,
+      rating: 1,
     },
     {
       id: crypto.randomUUID(),
@@ -149,7 +149,7 @@ export const InitArticlesCommentsList: ICommentStorage = {
       author: 'SeniorPomidor',
       content: 'Стоило бы еще добавить про Event Loop чуть подробнее.',
       date: '2024-12-02',
-      rating: 2,
+      rating: 1,
     },
     {
       id: crypto.randomUUID(),
@@ -157,7 +157,7 @@ export const InitArticlesCommentsList: ICommentStorage = {
       author: 'Ivan',
       content: 'Классная статья!',
       date: '2024-12-05',
-      rating: 1,
+      rating: 0,
     },
   ],
   '22d1ed57-4e15-468d-b507-21d29c1423e5': [],
@@ -167,7 +167,7 @@ export const InitArticlesCommentsList: ICommentStorage = {
     author: `Dev_User_${i + 1}`,
     content: `Комментарий №${i + 1} о преимуществах строго типизированного кода. TypeScript — это сила!`,
     date: `2024-06-${23 + i > 30 ? '30' : 23 + i}`,
-    rating: Math.floor(Math.random() * 10),
+    rating: Math.floor(Math.random() * 3) - 1,
   })),
   '4f7fc48c-a59f-4a98-8637-281aca61aae5': [
     {
@@ -176,7 +176,7 @@ export const InitArticlesCommentsList: ICommentStorage = {
       author: 'Art Director',
       content: 'Интересные техники CSS, особенно про контейнерные запросы.',
       date: '2024-04-06',
-      rating: 8,
+      rating: 0,
     },
     {
       id: crypto.randomUUID(),
@@ -184,7 +184,7 @@ export const InitArticlesCommentsList: ICommentStorage = {
       author: 'Lera_Layout',
       content: 'А будет статья про Houdini API?',
       date: '2024-04-07',
-      rating: 3,
+      rating: 1,
     },
   ],
   '1495b940-0fcb-45e1-b8f7-72bb2f67abcc': Array.from({ length: 5 }, (_, i) => ({
@@ -193,7 +193,7 @@ export const InitArticlesCommentsList: ICommentStorage = {
     author: `Angular Fan_${i}`,
     content: `Пробую Signals в 18 версии, очень нравится!`,
     date: '2024-03-05',
-    rating: i + 2,
+    rating: Math.floor(Math.random() * 3) - 1,
   })),
   '572e364c-4f2d-4e07-a4a2-c6dc0a3080ec': [
     {
@@ -202,7 +202,7 @@ export const InitArticlesCommentsList: ICommentStorage = {
       author: 'GitMaster',
       content: 'Не забывайте про git commit --amend!',
       date: '2024-02-16',
-      rating: 15,
+      rating: 1,
     },
   ],
   '7b3c2a1d-8e9f-4a5b-9c8d-7e6f5a4b3c2d': Array.from({ length: 4 }, (_, i) => ({
@@ -211,7 +211,7 @@ export const InitArticlesCommentsList: ICommentStorage = {
     author: 'React_Dev',
     content: 'Оптимизация — это всегда актуально.',
     date: '2024-01-11',
-    rating: 2,
+    rating: 0,
   })),
   'a1b2c3d4-e5f6-4a5b-8c9d-0e1f2a3b4c5d': Array.from({ length: 3 }, (_, i) => ({
     id: crypto.randomUUID(),
@@ -227,7 +227,7 @@ export const InitArticlesCommentsList: ICommentStorage = {
     author: 'Architect',
     content: 'Сигналы — это будущее стейт-менеджмента.',
     date: '2023-11-21',
-    rating: 10,
+    rating: 1,
   })),
   '2d3e4f5a-6b7c-8d9e-0f1a-2b3c4d5e6f7a': [
     {
@@ -236,7 +236,7 @@ export const InitArticlesCommentsList: ICommentStorage = {
       author: 'Net_Admin',
       content: 'QUIC действительно меняет правила игры.',
       date: '2023-10-16',
-      rating: 7,
+      rating: 0,
     },
     {
       id: crypto.randomUUID(),
@@ -244,7 +244,7 @@ export const InitArticlesCommentsList: ICommentStorage = {
       author: 'Speedy',
       content: 'Ждем полной поддержки во всех браузерах.',
       date: '2023-10-17',
-      rating: 4,
+      rating: 0,
     },
   ],
   'c7b6a5d4-e3f2-1a0b-9c8d-7e6f5a4b3c2d': Array.from({ length: 8 }, (_, i) => ({
@@ -253,7 +253,7 @@ export const InitArticlesCommentsList: ICommentStorage = {
     author: 'Module_Fed',
     content: 'Сложно внедрять, но профит огромный для больших команд.',
     date: '2023-09-02',
-    rating: 3,
+    rating: 1,
   })),
   '1a2b3c4d-5e6f-7a8b-9c0d-e1f2a3b4c5d6': Array.from({ length: 4 }, (_, i) => ({
     id: crypto.randomUUID(),
@@ -261,7 +261,7 @@ export const InitArticlesCommentsList: ICommentStorage = {
     author: 'Motion_Designer',
     content: 'Lottie или чистый SVG? Я за второе.',
     date: '2023-08-13',
-    rating: 6,
+    rating: 0,
   })),
   '8f7e6d5c-4b3a-2109-8765-4321fedcba98': Array.from({ length: 10 }, (_, i) => ({
     id: crypto.randomUUID(),
@@ -269,7 +269,7 @@ export const InitArticlesCommentsList: ICommentStorage = {
     author: 'White_Hat',
     content: 'Безопасность начинается с головы разработчика.',
     date: '2023-07-06',
-    rating: 20,
+    rating: 0,
   })),
   '5a4b3c2d-1e0f-9a8b-7c6d-5e4f3a2b1c0d': [
     {
@@ -278,7 +278,7 @@ export const InitArticlesCommentsList: ICommentStorage = {
       author: 'Offline_First',
       content: 'PWA — отличная альтернатива нативкам.',
       date: '2023-06-19',
-      rating: 5,
+      rating: -1,
     },
     {
       id: crypto.randomUUID(),
@@ -295,6 +295,6 @@ export const InitArticlesCommentsList: ICommentStorage = {
     author: 'QA_Eng',
     content: 'Тесты писать лень, но надо!',
     date: '2023-05-11',
-    rating: i,
+    rating: Math.floor(Math.random() * 3) - 1,
   })),
 };
