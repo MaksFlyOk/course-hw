@@ -5,7 +5,7 @@
       <span>Оставить комментарий</span>
     </mat-panel-title>
   </mat-expansion-panel-header>
-  <form [formGroup]="commentForm" (ngSubmit)="onSubmit()" class="form-container">
+  <form [formGroup]="commentForm" #formDirective="ngForm" (ngSubmit)="onSubmit()" class="form-container">
     <blog-app-form-field
       label="Ваше имя"
       icon="person"

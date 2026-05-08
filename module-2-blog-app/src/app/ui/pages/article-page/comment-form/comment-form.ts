@@ -1,5 +1,5 @@
-import { Component, inject, model, output } from '@angular/core';
-import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
+import { Component, inject, model, output, viewChild } from '@angular/core';
+import { FormBuilder, FormGroupDirective, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -29,6 +29,8 @@ export class CommentForm {
   protected isExpanded = model(false);
   public readonly submitted = output<IAddCommentData>();
 
+  private readonly formDirective = viewChild.required<FormGroupDirective>('formDirective');
+
   protected readonly commentForm = this.fb.nonNullable.group({
     author: ['', [Validators.required, Validators.minLength(4), Validators.maxLength(25)]],
     content: ['', [Validators.required, Validators.minLength(50)]],
@@ -37,8 +39,8 @@ export class CommentForm {
   protected onSubmit(): void {
     if (this.commentForm.valid) {
       this.submitted.emit(this.commentForm.getRawValue());
-      this.commentForm.reset();
       this.isExpanded.set(false);
+      this.formDirective().resetForm();
     } else {
       this.commentForm.markAllAsTouched();
     }

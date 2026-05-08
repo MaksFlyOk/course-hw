@@ -6,7 +6,7 @@
     <input matInput [formControl]="control()" [placeholder]="placeholder()"/>
   }
   <mat-icon matPrefix>{{ icon() }}</mat-icon>
-  @if (control().invalid && control().touched) {
+  @if (control().invalid && (control().dirty || control().touched)) {
     <mat-error>{{ errorMessage }}</mat-error>
   }
 </mat-form-field>
