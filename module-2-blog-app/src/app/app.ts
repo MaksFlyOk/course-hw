@@ -1,4 +1,6 @@
 import { Component, OnInit, inject } from '@angular/core';
+import { MatIconRegistry } from '@angular/material/icon';
+import { DomSanitizer } from '@angular/platform-browser';
 import { RouterOutlet } from '@angular/router';
 
 import { Footer } from '@components/layout/footer/footer';
@@ -13,8 +15,26 @@ import { ARTICLES_REPOSITORY_TOKEN } from '@core/services/articles/articles-repo
 })
 export class App implements OnInit {
   private readonly articlesService = inject(ARTICLES_REPOSITORY_TOKEN);
+  private readonly iconRegistry = inject(MatIconRegistry);
+  private readonly sanitizer = inject(DomSanitizer);
+
+  constructor() {
+    this.registerCustomIcons();
+  }
 
   ngOnInit() {
     this.articlesService.loadArticles();
+  }
+
+  private registerCustomIcons(): void {
+    this.iconRegistry.addSvgIcon(
+      'blog-app-edit',
+      this.sanitizer.bypassSecurityTrustResourceUrl('/images/edit-article.svg'),
+    );
+
+    this.iconRegistry.addSvgIcon(
+      'blog-app-delete',
+      this.sanitizer.bypassSecurityTrustResourceUrl('/images/delete-article.svg'),
+    );
   }
 }

@@ -1,5 +1,7 @@
 import { DatePipe } from '@angular/common';
 import { Component, input, output } from '@angular/core';
+import { MatIconButton } from '@angular/material/button';
+import { MatIcon } from '@angular/material/icon';
 import { RouterLink } from '@angular/router';
 
 import { IArticle } from '@models/article.model';
@@ -7,7 +9,7 @@ import { IArticle } from '@models/article.model';
 @Component({
   selector: 'blog-app-article-item',
   standalone: true,
-  imports: [DatePipe, RouterLink],
+  imports: [DatePipe, RouterLink, MatIcon, MatIconButton],
   templateUrl: './article-item.html',
   styleUrl: './article-item.scss',
 })

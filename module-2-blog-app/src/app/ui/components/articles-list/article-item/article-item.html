@@ -1,17 +1,23 @@
 <article class="article">
   <div class="buttons-container">
     <button
+      matIconButton
       type="button"
       title="Редактировать статью"
       (click)="onEdit()"
       class="article__edit-button"
-    ></button>
+    >
+      <mat-icon svgIcon="blog-app-edit"/>
+    </button>
     <button
+      matIconButton
       type="button"
       title="Удалить статью"
       (click)="onDelete()"
       class="article__delete-button"
-    ></button>
+    >
+      <mat-icon svgIcon="blog-app-delete"/>
+    </button>
   </div>
   <a
     [routerLink]="data().id"
