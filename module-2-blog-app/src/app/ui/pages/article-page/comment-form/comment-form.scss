@@ -1,0 +1,42 @@
+@use "abstract" as abs;
+
+.comment-panel {
+  margin-bottom: abs.$sections-gap;
+
+  mat-panel-title {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-weight: 500;
+
+    > mat-icon {
+      flex-shrink: 0;
+    }
+
+    > span {
+      line-height: 1;
+    }
+  }
+}
+
+.form-container {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 16px 0;
+}
+
+
+.actions {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 8px;
+
+  button {
+    padding: 0 24px;
+
+    mat-icon {
+      margin-right: 8px;
+    }
+  }
+}
