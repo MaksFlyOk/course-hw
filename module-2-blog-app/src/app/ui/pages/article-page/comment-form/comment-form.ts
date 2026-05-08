@@ -8,6 +8,7 @@ import { MatInputModule } from '@angular/material/input';
 
 import { IAddCommentData } from '@pages/article-page/comment-form/comment-data.type';
 import { FormField } from '@pages/article-page/comment-form/form-field/form-field';
+import { FormFieldType } from '@pages/article-page/comment-form/form-field/form-field.type';
 
 @Component({
   selector: 'blog-app-comment-form',
@@ -26,6 +27,7 @@ import { FormField } from '@pages/article-page/comment-form/form-field/form-fiel
 export class CommentForm {
   private readonly fb = inject(FormBuilder);
 
+  protected readonly formFieldType = FormFieldType;
   protected isExpanded = model(false);
   public readonly submitted = output<IAddCommentData>();
 

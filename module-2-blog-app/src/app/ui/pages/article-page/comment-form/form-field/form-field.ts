@@ -4,6 +4,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 
+import { FormFieldType } from '@pages/article-page/comment-form/form-field/form-field.type';
+
 /*
  Компонент был создан исключительно для формы на странице статьи,
  в связи с версткой Angular Material и дублирует существующий компонент
@@ -19,7 +21,7 @@ export class FormField {
   public readonly label = input.required<string>();
   public readonly placeholder = input<string>('');
   public readonly icon = input<string>('');
-  public readonly type = input<'input' | 'textarea'>('input');
+  public readonly type = input<FormFieldType>(FormFieldType.Text);
   public readonly control = input.required<FormControl>();
 
   protected get errorMessage(): string {

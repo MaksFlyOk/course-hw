@@ -15,7 +15,7 @@
     <blog-app-form-field
       label="Текст комментария"
       icon="edit"
-      type="textarea"
+      [type]="formFieldType.TextArea"
       placeholder="Что вы думаете об этом?"
       [control]="commentForm.controls.content"
     />
