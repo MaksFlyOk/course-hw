@@ -1,4 +1,15 @@
 <div class="page-container">
-  <h1>article page</h1>
-  <p>{{ id() }}</p>
+  @if (isLoading()) {
+    <blog-app-spinner/>
+  } @else {
+    <blog-app-article-card [article]="article()" (updatedRating)="updateArticleRating($event)"/>
+    <blog-app-comment-form (submitted)="addComment($event)"/>
+    <blog-app-comments-list
+      [comments]="comments()"
+      [totalComments]="totalComments()"
+      [isCommentsLoading]="isCommentLoading()"
+      (ratingUpdated)="updateCommentRating($event)"
+      (loadMore)="onScrollLoad()"
+    />
+  }
 </div>
