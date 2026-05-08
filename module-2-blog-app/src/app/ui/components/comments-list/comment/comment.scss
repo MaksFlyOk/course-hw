@@ -1,0 +1,45 @@
+@use "abstract" as abs;
+
+.comment-card {
+  margin-bottom: 16px;
+
+  .user-avatar-circle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--mat-sys-primary-container);
+    color: var(--mat-sys-on-primary-container);
+    font-weight: 500;
+    border-radius: 50%;
+  }
+
+  .author-name {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 4px;
+    word-break: break-word;
+  }
+
+  .calendar-mini {
+    font-size: 14px;
+    width: 14px;
+    height: 14px;
+    vertical-align: middle;
+    margin-right: 4px;
+  }
+
+  .article-meta {
+    @include abs.meta-info;
+  }
+
+  .comment-text {
+    margin-top: 8px;
+    line-height: 1.5;
+    color: var(--mat-sys-on-surface);
+    word-break: break-word;
+  }
+
+  mat-card-actions {
+    padding: 4px 12px;
+  }
+}
