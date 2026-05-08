@@ -76,8 +76,11 @@ form {
 }
 
 .page-container {
+  display: flex;
+  flex-direction: column;
   margin: 0 auto;
   padding: 0 abs.$padding-horizontal;
+  min-height: 50vh;
 }
 
 @include abs.media('md') {

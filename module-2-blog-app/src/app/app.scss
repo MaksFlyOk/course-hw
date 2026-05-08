@@ -11,6 +11,10 @@ main {
   @include abs.font-text;
 }
 
+router-outlet + * {
+  flex: 1 0 auto;
+}
+
 @include abs.media("sm") {
   main {
     padding-top: abs.$header-height-mobile + 24px;
