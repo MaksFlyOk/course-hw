@@ -1,0 +1,42 @@
+<section class="article">
+  @if (article(); as data) {
+    <mat-card class="article-card" appearance="outlined">
+      <img mat-card-image [src]="data.image" [alt]="'Обложка статьи ' + data.title">
+      <mat-card-header>
+        <mat-card-title>{{ data.title }}</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <p class="description">
+          {{ data.description }}
+        </p>
+      </mat-card-content>
+      <mat-card-footer>
+        <div class="article-meta">
+          <mat-icon>calendar_today</mat-icon>
+          <span>{{ data.date | date: "longDate" : "" : "ru-RU" }}</span>
+        </div>
+      </mat-card-footer>
+      <mat-card-actions class="article-actions" align="end">
+        <blog-app-star-rating [rating]="data.rating" (ratingChange)="updateRating($event)"/>
+      </mat-card-actions>
+    </mat-card>
+  } @else {
+    <div class="error-wrapper">
+      <mat-icon
+        color="warn"
+        matBadge="!"
+        matBadgeColor="warn"
+        aria-hidden="false"
+        matBadgeDescription="Ошибка: статья не найдена"
+        class="error-icon"
+      >
+        article
+      </mat-icon>
+      <h3 class="mat-headline-small">Статья не найдена</h3>
+      <p class="mat-body-medium">К сожалению, запрашиваемый контент отсутствует</p>
+      <a mat-stroked-button color="primary" [routerLink]="['/blog']">
+        Вернуться в блог
+      </a>
+    </div>
+  }
+</section>
