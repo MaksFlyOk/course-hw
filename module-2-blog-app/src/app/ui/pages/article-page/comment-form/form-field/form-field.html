@@ -1,0 +1,12 @@
+<mat-form-field appearance="outline" class="form-field">
+  <mat-label>{{ label() }}</mat-label>
+  @if (type() === 'textarea') {
+    <textarea matInput [formControl]="control()" [placeholder]="placeholder()" rows="4"></textarea>
+  } @else {
+    <input matInput [formControl]="control()" [placeholder]="placeholder()"/>
+  }
+  <mat-icon matPrefix>{{ icon() }}</mat-icon>
+  @if (control().invalid && control().touched) {
+    <mat-error>{{ errorMessage }}</mat-error>
+  }
+</mat-form-field>
