@@ -5,9 +5,9 @@ import { Button } from '@components/shared/button/button';
 import { ButtonColor, ButtonType, ButtonVariant } from '@components/shared/button/button.type';
 import { FormField } from '@components/shared/form-field/form-field';
 import { FormFieldType, FormTheme } from '@components/shared/form-field/form-field.type';
-import { FormHandlerService } from '@core/services/form-handler-service/form-handler-service';
 import { IArticle } from '@models/article.model';
 import { ArticleFormVariants } from '@pages/blog-page/article-form/article-form-variants';
+import { FormHandlerService } from '@services/form-handler-service/form-handler-service';
 
 @Component({
   selector: 'blog-app-article-form',

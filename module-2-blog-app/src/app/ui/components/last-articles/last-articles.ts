@@ -5,7 +5,7 @@ import { Router, RouterLink } from '@angular/router';
 import { Button } from '@components/shared/button/button';
 import { ButtonVariant } from '@components/shared/button/button.type';
 import { Spinner } from '@components/shared/spinner/spinner';
-import { ArticlesStoreService } from '@core/services/articles/articles-store.service';
+import { ArticlesStoreService } from '@services/articles/articles-store.service';
 
 @Component({
   selector: 'blog-app-last-articles',

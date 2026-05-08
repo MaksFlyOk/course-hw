@@ -13,8 +13,8 @@ import { MatIcon } from '@angular/material/icon';
 
 import { RatingData } from '@components/comments-list/comment/rating-data.type';
 import { Rating } from '@components/rating/rating';
-import { InitialsPipe } from '@core/pipes/initials/initials-pipe';
 import { IComment } from '@models/comment.model';
+import { InitialsPipe } from '@pipes/initials/initials-pipe';
 
 @Component({
   selector: 'blog-app-comment',

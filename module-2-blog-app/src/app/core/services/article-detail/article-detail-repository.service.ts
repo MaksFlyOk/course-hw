@@ -1,19 +1,19 @@
 import { DestroyRef, Injectable, inject } from '@angular/core';
 import { takeUntilDestroyed, toObservable } from '@angular/core/rxjs-interop';
 
-import { delayConstant } from '@core/constants/delay.constant';
-import { InitArticlesCommentsList, InitArticlesList } from '@core/constants/init-data.constant';
+import { delayConstant } from '@constants/delay.constant';
+import { InitArticlesCommentsList, InitArticlesList } from '@constants/init-data.constant';
 import {
   localStorageArticlesCommentsListKey,
   localStorageArticlesListKey,
-} from '@core/constants/local-storage-keys.constant';
-import { IArticleDetailRepository } from '@core/services/article-detail/article-detail-repository.interface';
-import { ArticleDetailStoreService } from '@core/services/article-detail/article-detail-store.service';
-import { simulateNetworkDelay } from '@core/utils/simulate-network-delay';
+} from '@constants/local-storage-keys.constant';
 import { IArticle } from '@models/article.model';
 import { IComment } from '@models/comment.model';
 import { ICommentsResult } from '@models/comments-result.model';
 import { ICommentStorage } from '@models/comments-storage.model';
+import { IArticleDetailRepository } from '@services/article-detail/article-detail-repository.interface';
+import { ArticleDetailStoreService } from '@services/article-detail/article-detail-store.service';
+import { simulateNetworkDelay } from '@utils/simulate-network-delay';
 import { Observable, delay, of, switchMap } from 'rxjs';
 
 const pageSize = 5;

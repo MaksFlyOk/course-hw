@@ -6,7 +6,7 @@ import { Button } from '@components/shared/button/button';
 import { ButtonType } from '@components/shared/button/button.type';
 import { FormField } from '@components/shared/form-field/form-field';
 import { FormFieldType, FormTheme } from '@components/shared/form-field/form-field.type';
-import { FormHandlerService } from '@core/services/form-handler-service/form-handler-service';
+import { FormHandlerService } from '@services/form-handler-service/form-handler-service';
 
 @Component({
   selector: 'blog-app-feedback-form',

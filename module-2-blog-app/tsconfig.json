@@ -20,6 +20,10 @@
       "@pages/*": ["src/app/ui/pages/*"],
       "@assets/*": ["src/assets/*"],
       "@models/*": ["src/app/core/models/*"],
+      "@services/*": ["src/app/core/services/*"],
+      "@utils/*": ["src/app/core/utils/*"],
+      "@constants/*": ["src/app/core/constants/*"],
+      "@pipes/*": ["src/app/core/pipes/*"],
       "@core/*": ["src/app/core/*"],
       "@app/*": ["src/app/*"]
     }

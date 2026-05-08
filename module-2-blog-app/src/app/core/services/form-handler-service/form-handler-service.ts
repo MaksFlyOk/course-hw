@@ -1,7 +1,7 @@
 import { Injectable, WritableSignal } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 
-import { simulateNetworkDelay } from '@core/utils/simulate-network-delay';
+import { simulateNetworkDelay } from '@utils/simulate-network-delay';
 
 @Injectable({
   providedIn: 'root',

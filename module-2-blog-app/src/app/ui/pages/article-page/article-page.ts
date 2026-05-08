@@ -11,11 +11,11 @@ import { ArticleCard } from '@components/article-card/article-card';
 import { RatingData } from '@components/comments-list/comment/rating-data.type';
 import { CommentsList } from '@components/comments-list/comments-list';
 import { Spinner } from '@components/shared/spinner/spinner';
-import { ArticleDetailsRepository } from '@core/services/article-detail/article-detail-repository.service';
-import { ARTICLE_DETAIL_REPOSITORY_TOKEN } from '@core/services/article-detail/article-detail-repository.token';
-import { ArticleDetailStoreService } from '@core/services/article-detail/article-detail-store.service';
 import { IAddCommentData } from '@pages/article-page/comment-form/comment-data.type';
 import { CommentForm } from '@pages/article-page/comment-form/comment-form';
+import { ArticleDetailsRepository } from '@services/article-detail/article-detail-repository.service';
+import { ARTICLE_DETAIL_REPOSITORY_TOKEN } from '@services/article-detail/article-detail-repository.token';
+import { ArticleDetailStoreService } from '@services/article-detail/article-detail-store.service';
 
 @Component({
   selector: 'blog-app-article-page',

@@ -2,8 +2,6 @@ import { ChangeDetectionStrategy, Component, inject, signal, viewChild } from '@
 
 import { ArticlesList } from '@components/articles-list/articles-list';
 import { SideMenu } from '@components/side-menu/side-menu';
-import { ARTICLES_REPOSITORY_TOKEN } from '@core/services/articles/articles-repository.token';
-import { ArticlesStoreService } from '@core/services/articles/articles-store.service';
 import { IArticle } from '@models/article.model';
 import { ISideMenuButton } from '@models/side-menu-buttons.model';
 import { IAddArticleData } from '@pages/blog-page/article-form/article-data.type';
@@ -11,6 +9,8 @@ import { ArticleForm } from '@pages/blog-page/article-form/article-form';
 import { ArticleFormVariants } from '@pages/blog-page/article-form/article-form-variants';
 import { BlogHeader } from '@pages/blog-page/blog-header/blog-header';
 import { StatModal } from '@pages/blog-page/stat-modal/stat-modal';
+import { ARTICLES_REPOSITORY_TOKEN } from '@services/articles/articles-repository.token';
+import { ArticlesStoreService } from '@services/articles/articles-store.service';
 
 @Component({
   selector: 'blog-app-blog-page',
