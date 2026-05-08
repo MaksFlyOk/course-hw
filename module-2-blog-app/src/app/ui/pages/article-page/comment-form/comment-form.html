@@ -1,0 +1,29 @@
+<mat-expansion-panel class="comment-panel" [(expanded)]="isExpanded">
+  <mat-expansion-panel-header>
+    <mat-panel-title>
+      <mat-icon>comment</mat-icon>
+      <span>Оставить комментарий</span>
+    </mat-panel-title>
+  </mat-expansion-panel-header>
+  <form [formGroup]="commentForm" (ngSubmit)="onSubmit()" class="form-container">
+    <blog-app-form-field
+      label="Ваше имя"
+      icon="person"
+      placeholder="Иван Иванов"
+      [control]="commentForm.controls.author"
+    />
+    <blog-app-form-field
+      label="Текст комментария"
+      icon="edit"
+      type="textarea"
+      placeholder="Что вы думаете об этом?"
+      [control]="commentForm.controls.content"
+    />
+    <div class="actions">
+      <button mat-flat-button color="primary" type="submit" [disabled]="commentForm.invalid">
+        <mat-icon>send</mat-icon>
+        Опубликовать
+      </button>
+    </div>
+  </form>
+</mat-expansion-panel>
