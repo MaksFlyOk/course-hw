@@ -1,0 +1,21 @@
+<section class="comments">
+  <h2>Комментарии</h2>
+  <div class="comments-container">
+    <ul class="comments-list">
+      @for (comment of comments(); track comment.id) {
+        <li>
+          <blog-app-comment [comment]="comment" (ratingUpdated)="updateRating($event)"/>
+        </li>
+      } @empty {
+        <li class="comments-list--empty"></li>
+      }
+    </ul>
+    @if (comments().length < totalComments()) {
+      <div #scrollTrigger class="scroll-trigger">
+        @if (isCommentsLoading()) {
+          <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+        }
+      </div>
+    }
+  </div>
+</section>

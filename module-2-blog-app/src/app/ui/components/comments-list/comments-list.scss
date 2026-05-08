@@ -1,0 +1,33 @@
+@use "abstract" as abs;
+
+.comments {
+  margin-bottom: abs.$sections-gap;
+
+  > h2 {
+    margin-bottom: 16px;
+  }
+}
+
+.comments-list {
+  &--empty {
+    grid-column: span 3;
+    text-align: center;
+
+    &::after {
+      content: "Здесь пока пусто";
+      color: abs.$color-secondary;
+    }
+  }
+}
+
+@include abs.media("md") {
+  .comments {
+    margin-bottom: abs.$sections-gap-tablet;
+  }
+}
+
+@include abs.media("xs") {
+  .comments {
+    margin-bottom: abs.$sections-gap-mobile;
+  }
+}
