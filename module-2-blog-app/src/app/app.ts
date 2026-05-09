@@ -29,12 +29,12 @@ export class App implements OnInit {
   private registerCustomIcons(): void {
     this.iconRegistry.addSvgIcon(
       'blog-app-edit',
-      this.sanitizer.bypassSecurityTrustResourceUrl('/images/edit-article.svg'),
+      this.sanitizer.bypassSecurityTrustResourceUrl('images/edit-article.svg'),
     );
 
     this.iconRegistry.addSvgIcon(
       'blog-app-delete',
-      this.sanitizer.bypassSecurityTrustResourceUrl('/images/delete-article.svg'),
+      this.sanitizer.bypassSecurityTrustResourceUrl('images/delete-article.svg'),
     );
   }
 }
