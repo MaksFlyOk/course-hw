@@ -84,8 +84,13 @@ export class ArticleDetailsRepository implements IArticleDetailRepository {
     );
   }
 
-  public addComment(content: string, author: string): void {
+  public async addComment(content: string, username: string) {
+    this.store.setIsCommentsAddingLoading(true);
+
+    await simulateNetworkDelay();
+
     const article = this.store.article();
+
     if (!article) {
       return;
     }
@@ -93,9 +98,9 @@ export class ArticleDetailsRepository implements IArticleDetailRepository {
     const newComment: IComment = {
       id: crypto.randomUUID(),
       articleId: article.id,
-      author,
+      username,
       content,
-      date: new Date().toISOString().slice(0, 10),
+      createdAt: new Date().toISOString().slice(0, 10),
       rating: 0,
     };
 
@@ -141,16 +146,6 @@ export class ArticleDetailsRepository implements IArticleDetailRepository {
     localStorage.setItem(localStorageArticlesListKey, JSON.stringify(updatedAll));
 
     this.store.setArticle({ ...article, rating: newRating });
-  }
-
-  private modifyComments(articleId: string, modifier: (all: IComment[]) => IComment[]): void {
-    const storage = this.getStorage<ICommentStorage>(localStorageArticlesCommentsListKey, InitArticlesCommentsList);
-    const articleComments = storage[articleId] || [];
-
-    storage[articleId] = modifier(articleComments);
-    localStorage.setItem(localStorageArticlesCommentsListKey, JSON.stringify(storage));
-
-    this.setCommentPage(this.store.currentCommentPage());
   }
 
   private getStorage<T>(key: string, defaultValue: T): T {
