@@ -15,13 +15,13 @@
           >
             <article class="blog-item">
               <header class="blog-item__header">
-                <time [attr.datetime]="article.date">
-                  {{ article.date | date:"longDate":"":"ru-RU" }}
+                <time [attr.datetime]="article.createdAt">
+                  {{ article.createdAt | date:"longDate":"":"ru-RU" }}
                 </time>
                 <h3>{{ article.title }}</h3>
-                <p>{{ article.description }}</p>
+                <p>{{ article.content }}</p>
               </header>
-              <img [src]="article.image" [alt]="'Обложка статьи ' + article.title">
+              <img [src]="article.imgSrc" [alt]="'Обложка статьи ' + article.title">
             </article>
           </a>
         }

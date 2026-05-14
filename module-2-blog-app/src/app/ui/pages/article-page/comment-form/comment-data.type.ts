@@ -1,4 +1,4 @@
 export interface IAddCommentData {
-  author: string;
+  username: string;
   content: string;
 }

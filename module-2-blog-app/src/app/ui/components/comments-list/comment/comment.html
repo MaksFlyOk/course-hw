@@ -1,13 +1,13 @@
 <mat-card class="comment-card mat-typography" appearance="outlined">
   <mat-card-header>
     <div mat-card-avatar class="user-avatar-circle">
-      {{ comment().author | initials }}
+      {{ comment().username | initials }}
     </div>
-    <mat-card-title class="author-name">{{ comment().author }}</mat-card-title>
+    <mat-card-title class="author-name">{{ comment().username }}</mat-card-title>
     <mat-card-subtitle>
       <div class="article-meta">
         <mat-icon>calendar_today</mat-icon>
-        <span>{{ comment().date | date: "longDate" : "" : "ru-RU" }}</span>
+        <span>{{ comment().createdAt | date: "longDate" : "" : "ru-RU" }}</span>
       </div>
     </mat-card-subtitle>
   </mat-card-header>
