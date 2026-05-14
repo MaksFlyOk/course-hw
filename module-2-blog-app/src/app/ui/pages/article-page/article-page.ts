@@ -64,16 +64,14 @@ export class ArticlePage implements OnInit {
   }
 
   protected updateArticleRating(newRating: number) {
-    console.log(newRating);
     this.repository.updateArticleRating(newRating);
   }
 
   protected updateCommentRating(event: RatingData) {
-    console.log(event);
     this.repository.updateCommentRating(event.id, event.rating);
   }
 
   protected addComment(data: IAddCommentData) {
-    this.repository.addComment(data.content, data.author);
+    this.repository.addComment(data.content, data.username);
   }
 }

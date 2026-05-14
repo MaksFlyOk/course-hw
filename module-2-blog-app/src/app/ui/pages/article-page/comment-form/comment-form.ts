@@ -34,7 +34,7 @@ export class CommentForm {
   private readonly formDirective = viewChild.required<FormGroupDirective>('formDirective');
 
   protected readonly commentForm = this.fb.nonNullable.group({
-    author: ['', [Validators.required, Validators.minLength(4), Validators.maxLength(25)]],
+    username: ['', [Validators.required, Validators.minLength(4), Validators.maxLength(25)]],
     content: ['', [Validators.required, Validators.minLength(50)]],
   });
 
