@@ -11,12 +11,14 @@ export class ArticleDetailStoreService {
   private readonly _currentCommentPage = signal<number>(1);
   private readonly _isLoading = signal<boolean>(true);
   private readonly _isCommentsLoading = signal<boolean>(false);
+  private readonly _isCommentsAddingLoading = signal<boolean>(false);
   public readonly article = this._article.asReadonly();
   public readonly comments = this._comments.asReadonly();
   public readonly isLoading = this._isLoading.asReadonly();
   public readonly totalComments = this._totalComments.asReadonly();
   public readonly currentCommentPage = this._currentCommentPage.asReadonly();
   public readonly isCommentsLoading = this._isCommentsLoading.asReadonly();
+  private readonly isCommentsAddingLoading = this._isCommentsAddingLoading.asReadonly();
 
   public setArticle(article: IArticle | null): void {
     this._article.set(article);
@@ -44,5 +46,9 @@ export class ArticleDetailStoreService {
 
   public setIsCommentsLoading(isLoading: boolean): void {
     this._isCommentsLoading.set(isLoading);
+  }
+
+  public setIsCommentsAddingLoading(isLoading: boolean): void {
+    this._isCommentsAddingLoading.set(isLoading);
   }
 }
