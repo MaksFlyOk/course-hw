@@ -1,3 +1,6 @@
+<blog-app-update-category-modal
+  (created)="updateCategory($event)"
+/>
 <section class="add-article" id="add-article-anchor">
   <div class="add-article-wrapper" [class.is-open]="isOpen()">
     <div class="add-article-content">
@@ -20,9 +23,34 @@
           [loading]="isLoading()"
           [disabled]="isLoading()"
           placeholder="Текст статьи"
-          [control]="articleForm.controls.description"
+          [control]="articleForm.controls.content"
           [theme]="formTheme"
         />
+        <blog-app-search-select-with-create
+          id="category"
+          label="Категория статьи"
+          placeholder="Выберите категорию статьи..."
+          formControlName="categoryId"
+          [control]="articleForm.controls.categoryId"
+          [options]="categories()"
+          [loading]="isLoading() || isCategoriesLoading()"
+          [loadingOption]="isAddNewCategoryLoading() || isUpdateCategoryLoading()"
+          (deleted)="deleteCategory($event)"
+          (edited)="openUpdateCategoryModal($event)"
+          [theme]="formTheme"
+        />
+        @if (formVariant() === ArticleFormVariants.Add) {
+          <blog-app-search-select-images
+            id="imgSrc"
+            label="Изображение статьи"
+            placeholder="Выберите изображение статьи..."
+            formControlName="imgSrc"
+            [control]="articleForm.controls.imgSrc"
+            [options]="optionsImage()"
+            [loading]="isLoading()"
+            [theme]="formTheme"
+          />
+        }
         <div class="add-article-form__buttons">
           <blog-app-button
             [buttonText]="articleFormButtonSubmitTitles[formVariant()]"

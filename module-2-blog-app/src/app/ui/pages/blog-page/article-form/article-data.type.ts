@@ -1,4 +1,6 @@
 export interface IAddArticleData {
   title: string;
-  description: string;
+  content: string;
+  imgSrc: string;
+  categoryId: string;
 }
