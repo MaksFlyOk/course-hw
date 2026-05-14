@@ -1,8 +1,8 @@
 export interface IComment {
   id: string;
   articleId: string;
-  author: string;
+  username: string;
   content: string;
-  date: string;
+  createdAt: string;
   rating: number;
 }
