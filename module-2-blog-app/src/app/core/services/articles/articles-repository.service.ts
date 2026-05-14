@@ -55,12 +55,13 @@ export class ArticlesRepository implements IArticlesRepository {
 
   public addArticle(data: IAddArticleData & { id: string }): void {
     this.modifyData((all) => {
+      const now = new Date().toISOString();
       const newItem = {
         ...data,
         rating: 0,
         id: crypto.randomUUID(),
-        date: new Date().toISOString().slice(0, 10),
-        image: `images/blog/blog-img${Math.floor(Math.random() * 7) + 1}.webp`,
+        createdAt: now,
+        updatedAt: now,
       };
       return [newItem, ...all];
     }).subscribe((res) => this.syncStore(res));
@@ -71,9 +72,17 @@ export class ArticlesRepository implements IArticlesRepository {
   }
 
   public updateArticle(data: IAddArticleData & { id: string }): void {
-    this.modifyData((all) => all.map((a) => (a.id === data.id ? { ...a, ...data } : a))).subscribe((res) =>
-      this.syncStore(res),
-    );
+    this.modifyData((all) =>
+      all.map((article) => {
+        if (article.id === data.id) {
+          const now = new Date().toISOString();
+
+          return { ...article, ...data, updatedAt: now };
+        }
+
+        return article;
+      }),
+    ).subscribe((res) => this.syncStore(res));
   }
 
   private modifyData(modifier: (all: IArticle[]) => IArticle[]): Observable<IArticlesResult> {
