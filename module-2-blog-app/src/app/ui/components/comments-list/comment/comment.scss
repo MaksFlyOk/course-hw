@@ -17,7 +17,8 @@
     font-size: 1rem;
     font-weight: 600;
     margin-bottom: 4px;
-    word-break: break-word;
+
+    @include abs.text-wrap();
   }
 
   .calendar-mini {
@@ -36,7 +37,8 @@
     margin-top: 8px;
     line-height: 1.5;
     color: var(--mat-sys-on-surface);
-    word-break: break-word;
+
+    @include abs.text-wrap();
   }
 
   mat-card-actions {
