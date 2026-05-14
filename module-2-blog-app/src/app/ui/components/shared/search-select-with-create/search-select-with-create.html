@@ -1,0 +1,62 @@
+<div
+  class="field-container"
+  [class.field-loading]="loading()"
+  [class]="'theme--' + theme()"
+  (blogAppClickOutside)="onClickOutside()"
+>
+  <label [for]="id()">{{ label() }}</label>
+
+  <div class="input-wrapper" [class.input-invalid]="control().invalid && control().touched">
+    <input
+      #inputElement
+      [id]="id()"
+      type="text"
+      (keydown)="onKeydown($event)"
+      [placeholder]="placeholder()"
+      [value]="searchTerm()"
+      (input)="onSearch($event)"
+      (focus)="onFocus()"
+      [disabled]="disabled() || loading()"
+      autocomplete="off"
+    />
+    <div class="inner-mark">
+      @if (loadingOption()) {
+        <blog-app-spinner/>
+      } @else {
+        <span class="arrow" [class.open]="isOpen()" (click)="toggleDropdown()">▾</span>
+      }
+    </div>
+  </div>
+
+  @if (isOpen() && !disabled() && !loading()) {
+    <ul class="dropdown-list" #dropdownList>
+      @for (option of filteredOptions(); track option.id; let i = $index) {
+        <li
+          (mousedown)="selectOption(option)"
+          [class.option-focused]="focusedIndex() === i"
+          class="option-item"
+        >
+          <span class="option-label">{{ option.label }}</span>
+          <div class="buttons-container">
+            <button matIconButton type="button" (mousedown)="$event.stopPropagation()" (click)="onEditCategory(option.id, $event)">
+              <mat-icon svgIcon="blog-app-edit"/>
+            </button>
+            <button matIconButton type="button" (mousedown)="$event.stopPropagation()" (click)="onDeleteCategory(option.id, $event)">
+              <mat-icon svgIcon="blog-app-delete"/>
+            </button>
+          </div>
+        </li>
+      } @empty {
+        @if (searchTerm().trim()) {
+          <li class="option-item no-results" (mousedown)="commitValue()">
+            <span>Создать категорию: <strong>{{ searchTerm() }}</strong></span>
+          </li>
+        }
+      }
+    </ul>
+  }
+
+  @if (control().invalid && control().touched) {
+    <span class="error-messages">{{ getErrorsMessage() }}</span>
+  }
+</div>
