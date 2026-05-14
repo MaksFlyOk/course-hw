@@ -1,19 +1,33 @@
 <section class="article">
   @if (article(); as data) {
     <mat-card class="article-card" appearance="outlined">
-      <img mat-card-image [src]="data.image" [alt]="'Обложка статьи ' + data.title">
+      <img mat-card-image [src]="data.imgSrc" [alt]="'Обложка статьи ' + data.title">
       <mat-card-header>
+        @let ctgr = category();
+
+        @if (!ctgr && !isCategoryError()) {
+          <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+        } @else if (ctgr && !isCategoryError()) {
+          <mat-card-subtitle>{{ ctgr.name }}</mat-card-subtitle>
+        } @else {
+          <mat-card-subtitle class="category-error">
+            <mat-icon inline>error_outline</mat-icon>
+            <span>Категория не найдена</span>
+          </mat-card-subtitle>
+        }
         <mat-card-title>{{ data.title }}</mat-card-title>
       </mat-card-header>
       <mat-card-content>
         <p class="description">
-          {{ data.description }}
+          {{ data.content }}
         </p>
       </mat-card-content>
       <mat-card-footer>
         <div class="article-meta">
           <mat-icon>calendar_today</mat-icon>
-          <span>{{ data.date | date: "longDate" : "" : "ru-RU" }}</span>
+          <time [attr.datetime]="data.createdAt">
+            {{ data.createdAt | date:"longDate":"":"ru-RU" }}
+          </time>
         </div>
       </mat-card-footer>
       <mat-card-actions class="article-actions" align="end">
