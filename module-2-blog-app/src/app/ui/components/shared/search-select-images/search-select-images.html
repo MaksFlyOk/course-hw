@@ -1,0 +1,46 @@
+<div
+  class="field-container"
+  [class.field-loading]="loading()"
+  [class]="'theme--' + theme()"
+  (blogAppClickOutside)="onClickOutside()"
+>
+  <label [for]="id()">{{ label() }}</label>
+
+  <div class="input-wrapper">
+    <input
+      [id]="id()"
+      type="text"
+      (keydown)="onKeydown($event)"
+      [placeholder]="placeholder()"
+      [value]="searchTerm()"
+      (input)="onSearch($event)"
+      (focus)="!disabled() && !loading() && isOpen.set(true)"
+      [disabled]="disabled() || loading()"
+      autocomplete="off"
+      [class.ng-invalid]="control().invalid && control().touched"
+      [class.ng-touched]="control().touched"
+    />
+    <span class="arrow" [class.open]="isOpen()" (click)="toggleDropdown()">▾</span>
+  </div>
+
+  @if (isOpen() && !disabled() && !loading()) {
+    <ul class="dropdown-list">
+      @for (option of filteredOptions(); track option.imgSrc) {
+        <li
+          (mousedown)="selectOption(option); $event.preventDefault()"
+          [class.option-focused]="focusedIndex() === $index"
+          class="option-item"
+        >
+          <img [src]="option.imgSrc" [alt]="option.label">
+          <span>{{ option.label }}</span>
+        </li>
+      } @empty {
+        <li class="no-results">Ничего не найдено</li>
+      }
+    </ul>
+  }
+
+  @if (control().invalid && control().touched) {
+    <span class="error-messages">{{ getErrorsMessage() }}</span>
+  }
+</div>

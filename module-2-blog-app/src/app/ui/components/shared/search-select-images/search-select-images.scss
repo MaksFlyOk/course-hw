@@ -1,0 +1,211 @@
+@use "abstract" as abs;
+
+.field-container {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-bottom: 16px;
+  position: relative;
+
+  &.theme--dark {
+    --text-color: #{abs.$color-background};
+    --field-background-color: #{abs.$color-primary};
+    --field-border-color: #{abs.$color-secondary};
+    --field-border-active-color: #{abs.$color-background};
+    --dropdown-bg: #{abs.$color-primary};
+    --dropdown-hover: #{abs.$color-secondary};
+    --scrollbar-thumb: #{abs.$color-secondary};
+    --scrollbar-track: #{abs.$color-primary};
+  }
+
+  &.theme--light {
+    --text-color: #{abs.$color-primary};
+    --field-background-color: #{abs.$color-background};
+    --field-border-color: #{abs.$color-primary};
+    --field-border-active-color: #{abs.$color-accent-green};
+    --dropdown-bg: #{abs.$color-background};
+    --dropdown-hover: #f3f4f6;
+    --scrollbar-thumb: #{abs.$color-placeholder};
+    --scrollbar-track: transparent;
+  }
+
+  &.field-loading {
+    > .input-wrapper > input {
+      cursor: default;
+      outline: none;
+      border: 1px solid abs.$color-placeholder;
+      color: abs.$color-placeholder;
+      background: linear-gradient(
+          90deg,
+          abs.$color-background 25%,
+          #f0f0f0 50%,
+          abs.$color-background 75%
+      );
+      background-size: 200% 100%;
+      animation: loadingShimmer 3s infinite linear;
+    }
+  }
+
+  label {
+    margin: 0 0 4px 4px;
+    color: var(--text-color);
+
+    @include abs.font-form;
+  }
+
+  .input-wrapper {
+    position: relative;
+    cursor: pointer;
+  }
+
+  input {
+    width: 100%;
+    padding: 17px 40px 17px 20px;
+    box-sizing: border-box;
+    border-radius: abs.$small-radius;
+    background-color: var(--field-background-color);
+    border: 1px solid var(--field-border-color);
+    color: var(--text-color);
+    cursor: pointer;
+
+    @include abs.font-form;
+    @include abs.transition-standard(border-color);
+
+    &::placeholder {
+      color: abs.$color-placeholder;
+    }
+
+    &:not(:disabled):focus {
+      outline: none;
+      border-color: var(--field-border-active-color);
+    }
+
+    &:disabled {
+      cursor: default;
+      outline: none;
+      border-color: abs.$color-placeholder;
+      color: abs.$color-primary;
+      background-color: abs.$color-placeholder;
+
+      &::placeholder {
+        color: abs.$color-primary;
+      }
+    }
+
+    &.ng-invalid.ng-touched {
+      border-color: abs.$color-accent-red;
+    }
+  }
+
+  .arrow {
+    position: absolute;
+    right: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 16px;
+    color: abs.$color-placeholder;
+    cursor: pointer;
+
+    @include abs.transition-standard(transform);
+
+    &.open {
+      transform: translateY(-50%) rotate(180deg);
+    }
+  }
+
+  .dropdown-list {
+    position: absolute;
+    top: calc(100% + 4px);
+    left: 0;
+    right: 0;
+    background: var(--dropdown-bg);
+    border: 1px solid var(--field-border-color);
+    border-radius: abs.$small-radius;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    max-height: 232px;
+    overflow-y: auto;
+    z-index: 10;
+    padding: 4px 0;
+    margin: 0;
+    list-style: none;
+
+    scrollbar-width: thin;
+    scrollbar-color: var(--scrollbar-thumb) var(--scrollbar-track);
+
+    &::-webkit-scrollbar {
+      width: 4px;
+    }
+
+    &::-webkit-scrollbar-track {
+      background: var(--scrollbar-track);
+      border-radius: 0 abs.$small-radius abs.$small-radius 0;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background-color: var(--scrollbar-thumb);
+      border-radius: 4px;
+
+      &:hover {
+        background-color: var(--field-border-color);
+      }
+    }
+
+    .option-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 8px 16px;
+      cursor: pointer;
+      color: var(--text-color);
+
+      @include abs.font-form;
+      @include abs.transition-standard(background-color);
+
+      &:hover {
+        background-color: var(--dropdown-hover);
+      }
+
+      &.option-focused {
+        background-color: var(--dropdown-hover);
+        border-radius: abs.$small-radius;
+        outline: 2px solid var(--field-border-active-color);
+        outline-offset: -2px;
+      }
+
+      img {
+        flex-shrink: 0;
+        width: 36px;
+        height: 36px;
+        border-radius: 4px;
+        object-fit: cover;
+        opacity: 0.9;
+
+        @include abs.transition-standard(opacity);
+      }
+
+      &:hover img {
+        opacity: 1;
+      }
+
+      span {
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+      }
+    }
+
+    .no-results {
+      padding: 10px 20px;
+      color: abs.$color-placeholder;
+      font-style: italic;
+
+      @include abs.font-form;
+    }
+  }
+
+  .error-messages {
+    color: abs.$color-accent-red;
+
+    @include abs.font-form-message();
+  }
+}
