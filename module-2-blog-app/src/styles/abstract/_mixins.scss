@@ -151,3 +151,13 @@
     height: 18px;
   }
 }
+
+@mixin text-wrap {
+  overflow-wrap: anywhere;
+  word-wrap: anywhere;
+  word-break: break-word;
+  // Работает только если в HTML указан атрибут lang
+  hyphens: auto;
+  text-rendering: optimizeLegibility;
+  white-space: normal;
+}

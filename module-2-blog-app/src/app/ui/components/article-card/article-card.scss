@@ -14,12 +14,13 @@
     flex-direction: column-reverse;
 
     mat-card-title {
-      word-break: break-word;
       margin-top: 8px;
+
+      @include abs.text-wrap();
     }
 
     mat-card-subtitle {
-      word-break: break-word;
+      @include abs.text-wrap();
     }
   }
 
@@ -28,7 +29,7 @@
     flex-grow: 1;
 
     > p {
-      word-break: break-word;
+      @include abs.text-wrap();
     }
   }
 
