@@ -1,0 +1,33 @@
+<blog-app-modal
+  [title]="'Статистика страницы'"
+  [isOpen]="isUpdateCategoryModalOpen()"
+  (closed)="closeUpdateCategoryModal()"
+>
+  <div class="update-category-modal-wrapper">
+    <form [formGroup]="updateCategoryForm" (ngSubmit)="onSubmit()">
+      <blog-app-form-field
+        id="name"
+        label="Название категории"
+        [type]="formFieldType.Text"
+        placeholder="Название категории"
+        [control]="updateCategoryForm.controls.name"
+        [theme]="formTheme"
+      />
+      <div class="update-category-form__buttons">
+        <blog-app-button
+          buttonText="Обновить"
+          [disabled]="updateCategoryForm.invalid"
+          [buttonType]="buttonType.Submit"
+        />
+        <blog-app-button
+          buttonText="Отмена"
+          [variant]="buttonVariant.Outlined"
+          [color]="buttonColor.Red"
+          [buttonType]="buttonType.Reset"
+          (callback)="onReset()"
+        />
+      </div>
+    </form>
+
+  </div>
+</blog-app-modal>
