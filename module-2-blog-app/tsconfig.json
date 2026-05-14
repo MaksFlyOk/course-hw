@@ -24,6 +24,7 @@
       "@utils/*": ["src/app/core/utils/*"],
       "@constants/*": ["src/app/core/constants/*"],
       "@pipes/*": ["src/app/core/pipes/*"],
+      "@directives/*": ["src/app/core/directives/*"],
       "@core/*": ["src/app/core/*"],
       "@app/*": ["src/app/*"]
     }
