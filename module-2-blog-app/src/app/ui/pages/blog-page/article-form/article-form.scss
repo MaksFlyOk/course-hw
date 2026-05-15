@@ -4,29 +4,37 @@
   &-wrapper {
     display: grid;
     grid-template-rows: 0fr;
-    transition:
-      grid-template-rows 300ms ease-in-out,
-      opacity 500ms ease,
-      margin-bottom 300ms ease;
-    opacity: 0;
-    overflow: visible;
     visibility: hidden;
+    overflow: hidden;
+    will-change: grid-template-rows, margin-bottom;
+    transition:
+      grid-template-rows 500ms ease-in-out,
+      margin-bottom 500ms ease,
+      visibility 500ms;
 
     &.is-open {
       grid-template-rows: 1fr;
-      opacity: 1;
       visibility: visible;
       margin-bottom: abs.$sections-gap;
+
+      .add-article-content {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
   }
 
   &-content {
     min-height: 0;
+    opacity: 0;
+    transform: translateY(-20px);
+    transition:
+      opacity 400ms ease 100ms,
+      transform 400ms ease 100ms;
   }
 
   & > h2 {
     margin-bottom: 46px;
-
     @include abs.font-h3;
   }
 }
