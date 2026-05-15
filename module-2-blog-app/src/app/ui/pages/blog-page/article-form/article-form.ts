@@ -55,6 +55,7 @@ export class ArticleForm implements OnInit {
   protected readonly optionsImage = signal<ISearchSelectImagesOptions[]>(optionsImagesData);
   protected readonly isLoading = signal(false);
   protected readonly formVariant = signal(ArticleFormVariants.Add);
+  protected readonly isFullyOpen = signal(false);
   protected readonly categories = computed<ISearchSelectWithCreateOptions[]>(() =>
     this.categoriesStore.categories().map((category) => {
       return {
@@ -118,6 +119,18 @@ export class ArticleForm implements OnInit {
         block: 'start',
       });
     }, 100);
+  }
+
+  protected onTransitionEnd(event: TransitionEvent): void {
+    if (event.propertyName === 'grid-template-rows' && this.isOpen()) {
+      this.isFullyOpen.set(true);
+    }
+  }
+
+  protected onTransitionStart(event: TransitionEvent): void {
+    if (event.propertyName === 'grid-template-rows' && !this.isOpen()) {
+      this.isFullyOpen.set(false);
+    }
   }
 
   protected openUpdateCategoryModal(categoryId: string): void {

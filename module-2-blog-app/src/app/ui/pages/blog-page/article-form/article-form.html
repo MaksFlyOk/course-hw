@@ -2,7 +2,13 @@
   (created)="updateCategory($event)"
 />
 <section class="add-article" id="add-article-anchor">
-  <div class="add-article-wrapper" [class.is-open]="isOpen()">
+  <div
+    class="add-article-wrapper"
+    [class.is-open]="isOpen()"
+    [class.is-visible]="isFullyOpen()"
+    (transitionend)="onTransitionEnd($event)"
+    (transitionstart)="onTransitionStart($event)"
+  >
     <div class="add-article-content">
       <h2>{{ articleFormTitles[formVariant()] }}</h2>
       <form [formGroup]="articleForm" (ngSubmit)="onSubmit()">
