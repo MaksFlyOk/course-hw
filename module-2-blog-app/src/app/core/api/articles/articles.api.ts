@@ -31,12 +31,15 @@ export class ArticlesApi {
 
   private toFormData(dto: ICreateArticleDto): FormData {
     const form = new FormData();
+
     form.append('title', dto.title);
     form.append('content', dto.content);
     form.append('categoryId', dto.categoryId);
+
     if (dto.image) {
       form.append('image', dto.image);
     }
+
     return form;
   }
 }
