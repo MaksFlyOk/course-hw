@@ -1,0 +1,66 @@
+@use "abstract" as abs;
+
+.env-badge {
+  position: fixed;
+  margin: 24px;
+  bottom: 0;
+  right: 0;
+  z-index: 1000;
+
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 16px;
+
+  background-color: abs.$color-light-green;
+  color: abs.$color-primary;
+  border-radius: abs.$large-radius;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+
+  @include abs.font-text();
+  pointer-events: none;
+
+  &.badge-enter {
+    animation: badge-in 200ms ease-out forwards;
+  }
+
+  &.badge-leave {
+    animation: badge-out 200ms ease-in forwards;
+  }
+
+  &__item {
+    white-space: nowrap;
+
+    strong {
+      opacity: 0.7;
+      font-weight: 400;
+      margin-right: 4px;
+    }
+  }
+
+  &__divider {
+    opacity: 0.3;
+  }
+}
+
+@keyframes badge-in {
+  from {
+    clip-path: inset(100% 0 0 0 round 8px);
+    opacity: 0.6;
+  }
+  to {
+    clip-path: inset(0% 0 0 0 round 8px);
+    opacity: 1;
+  }
+}
+
+@keyframes badge-out {
+  from {
+    clip-path: inset(0% 0 0 0 round 8px);
+    opacity: 1;
+  }
+  to {
+    clip-path: inset(100% 0 0 0 round 8px);
+    opacity: 0.6;
+  }
+}

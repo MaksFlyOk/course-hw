@@ -1,0 +1,15 @@
+@if (isVisible()) {
+  <div
+    class="env-badge"
+    animate.enter="badge-enter"
+    animate.leave="badge-leave"
+  >
+        <span class="env-badge__item">
+          <strong>Mode:</strong> {{ env.production ? 'Prod' : 'Dev' }}
+        </span>
+    <span class="env-badge__divider">|</span>
+    <span class="env-badge__item">
+          <strong>Storage:</strong> {{ env.useLocalStorageService ? 'Local' : 'API' }}
+        </span>
+  </div>
+}
