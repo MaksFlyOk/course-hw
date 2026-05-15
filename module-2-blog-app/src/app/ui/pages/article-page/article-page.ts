@@ -11,11 +11,16 @@ import { ArticleCard } from '@components/article-card/article-card';
 import { RatingData } from '@components/comments-list/comment/rating-data.type';
 import { CommentsList } from '@components/comments-list/comments-list';
 import { Spinner } from '@components/shared/spinner/spinner';
+import { ArticleDetailApi } from '@core/api/article-detail/article-detail.api';
 import { IAddCommentData } from '@pages/article-page/comment-form/comment-data.type';
 import { CommentForm } from '@pages/article-page/comment-form/comment-form';
+import { ArticleDetailHttpRepository } from '@services/article-detail/article-detail-http-repository.service';
 import { ArticleDetailsRepository } from '@services/article-detail/article-detail-repository.service';
 import { ARTICLE_DETAIL_REPOSITORY_TOKEN } from '@services/article-detail/article-detail-repository.token';
 import { ArticleDetailStoreService } from '@services/article-detail/article-detail-store.service';
+
+import { IENVconfig } from '../../../../environments/environments.interface';
+import { ENV_CONFIG_TOKEN } from '../../../../environments/environments.token';
 
 @Component({
   selector: 'blog-app-article-page',
@@ -35,10 +40,16 @@ import { ArticleDetailStoreService } from '@services/article-detail/article-deta
   templateUrl: './article-page.html',
   styleUrl: './article-page.scss',
   providers: [
+    ArticleDetailApi,
     ArticleDetailStoreService,
+    ArticleDetailsRepository,
+    ArticleDetailHttpRepository,
     {
       provide: ARTICLE_DETAIL_REPOSITORY_TOKEN,
-      useClass: ArticleDetailsRepository,
+      useFactory: (env: IENVconfig) => {
+        return env.useLocalStorageService ? inject(ArticleDetailsRepository) : inject(ArticleDetailHttpRepository);
+      },
+      deps: [ENV_CONFIG_TOKEN],
     },
   ],
 })
