@@ -40,7 +40,7 @@ export class ArticlesHttpRepository implements IArticlesRepository {
       });
   }
 
-  public addArticle(data: IAddArticleData & { id: string }): void {
+  public addArticle(data: IAddArticleData): void {
     const dto: ICreateArticleDto = {
       title: data.title,
       content: data.content,

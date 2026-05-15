@@ -49,9 +49,9 @@ export class BlogPage {
     this.statModal()?.openStatModal();
   }
 
-  protected handleFormSubmit(data: IAddArticleData & { id: string }): void {
+  protected handleFormSubmit(data: IAddArticleData & { id?: string }): void {
     if (this.editArticleData()) {
-      this.articlesService.updateArticle(data);
+      this.articlesService.updateArticle(data as IAddArticleData & { id: string });
     } else {
       this.articlesService.addArticle(data);
     }
