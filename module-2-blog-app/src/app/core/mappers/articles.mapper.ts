@@ -4,8 +4,8 @@ import { mockImg } from '@constants/mock.constant';
 import { IArticle } from '@models/article.model';
 import { IArticleApiResponse } from '@models/articles-api.model';
 
-import { IENVconfig } from '../../../../environments/environments.interface';
-import { ENV_CONFIG_TOKEN } from '../../../../environments/environments.token';
+import { IENVconfig } from '../../../environments/environments.interface';
+import { ENV_CONFIG_TOKEN } from '../../../environments/environments.token';
 
 @Injectable()
 export class ArticlesMapper {
