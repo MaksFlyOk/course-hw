@@ -1,0 +1,190 @@
+@use "abstract" as abs;
+
+.field-container {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-bottom: 16px;
+}
+
+.field-label {
+  display: block;
+  margin: 0 0 4px 4px;
+  color: var(--text-color);
+
+  @include abs.font-form;
+}
+
+.upload-container {
+  position: relative;
+  border-radius: abs.$small-radius;
+  border: 1.5px dashed var(--field-border-color);
+  background-color: var(--field-background-color);
+  cursor: pointer;
+  overflow: hidden;
+  min-height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  @include abs.transition-standard(border-color, background-color);
+
+  &.theme--light {
+    --text-color: #{abs.$color-primary};
+    --field-background-color: #{abs.$color-background};
+    --field-border-color: #{abs.$color-primary};
+    --field-border-active-color: #{abs.$color-accent-green};
+    --icon-color: #{abs.$color-placeholder};
+  }
+
+  &.theme--dark {
+    --text-color: #{abs.$color-background};
+    --field-background-color: #{abs.$color-primary};
+    --field-border-color: #{abs.$color-secondary};
+    --field-border-active-color: #{abs.$color-background};
+    --icon-color: #{abs.$color-secondary};
+  }
+
+  &:hover:not(.disabled):not(.has-file) {
+    border-color: var(--field-border-active-color);
+    background-color: color-mix(in srgb, var(--field-border-active-color) 4%, var(--field-background-color));
+  }
+
+  &.dragging {
+    border-color: var(--field-border-active-color);
+    border-style: solid;
+    background-color: color-mix(in srgb, var(--field-border-active-color) 8%, var(--field-background-color));
+
+    .upload-icon mat-icon {
+      transform: translateY(-4px);
+    }
+  }
+
+  &.disabled {
+    cursor: default;
+    border-color: abs.$color-placeholder;
+    opacity: 0.6;
+  }
+
+  &.has-file {
+    border-style: solid;
+    border-color: var(--field-border-active-color);
+    min-height: 160px;
+  }
+
+  &.ng-invalid.ng-touched {
+    border-color: abs.$color-accent-red;
+  }
+}
+
+.file-input {
+  display: none;
+}
+
+.drop-area {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  padding: 28px 20px;
+  pointer-events: none;
+}
+
+.upload-icon {
+  width: 36px;
+  height: 36px;
+  color: var(--icon-color);
+
+  mat-icon {
+    font-size: 32px;
+    width: 100%;
+    height: 100%;
+
+    @include abs.transition-standard(transform);
+  }
+}
+
+.drop-label {
+  margin: 0;
+  color: var(--text-color);
+  text-align: center;
+
+  @include abs.font-form;
+}
+
+.drop-hint {
+  margin: 0;
+  color: abs.$color-placeholder;
+  font-size: 12px;
+}
+
+.preview-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 160px;
+
+  &:hover .preview-overlay {
+    opacity: 1;
+  }
+}
+
+.preview-img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  display: block;
+  border-radius: abs.$small-radius;
+}
+
+.preview-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  padding: 8px 12px;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.55) 0%, transparent 60%);
+  border-radius: abs.$small-radius;
+  opacity: 0;
+
+  @include abs.transition-standard(opacity);
+}
+
+.file-name {
+  color: #fff;
+  font-size: 12px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  max-width: calc(100% - 36px);
+}
+
+.clear-button {
+  flex-shrink: 0;
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  color: #fff;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  line-height: 1;
+  backdrop-filter: blur(4px);
+
+  @include abs.transition-standard(background-color);
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.35);
+  }
+}
+
+.error-messages {
+  color: abs.$color-accent-red;
+
+  @include abs.font-form-message();
+}

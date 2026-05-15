@@ -1,0 +1,46 @@
+<div class="field-container">
+  <label [for]="id()" class="field-label">{{ label() }}</label>
+  <div
+    class="upload-container"
+    [class]="'theme--' + theme()"
+    [class.dragging]="isDragging()"
+    [class.has-file]="!!preview()"
+    [class.disabled]="isDisabled()"
+    (dragover)="onDragOver($event)"
+    (dragleave)="onDragLeave($event)"
+    (drop)="onDrop($event)"
+    (click)="openFilePicker()"
+  >
+    <input
+      #fileInput
+      type="file"
+      accept="image/*"
+      class="file-input"
+      (change)="onFileSelected($event)"
+    />
+
+    @if (preview()) {
+      <div class="preview-wrapper">
+        <img [src]="preview()" alt="Предпросмотр" class="preview-img"/>
+        <div class="preview-overlay">
+          <span class="file-name">{{ fileName() }}</span>
+          <button type="button" class="clear-button" (click)="clearFile($event)">
+            <mat-icon>close</mat-icon>
+          </button>
+        </div>
+      </div>
+    } @else {
+      <div class="drop-area">
+        <div class="upload-icon">
+          <mat-icon>upload_file</mat-icon>
+        </div>
+        <p class="drop-label">{{ placeholder() }}</p>
+        <p class="drop-hint">JPEG, JPG, PNG, GIF, SVG+XML</p>
+      </div>
+    }
+  </div>
+
+  @if (control().invalid && control().touched) {
+    <span class="error-messages">{{ getErrorMessage() }}</span>
+  }
+</div>
