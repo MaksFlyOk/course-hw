@@ -168,6 +168,14 @@
       }
     }
 
+    &.dropdown-enter {
+      animation: dropdown-in 180ms ease-out forwards;
+    }
+
+    &.dropdown-leave {
+      animation: dropdown-out 150ms ease-in forwards;
+    }
+
     .option-item {
       display: flex;
       align-items: center;
