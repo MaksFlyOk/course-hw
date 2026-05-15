@@ -3,13 +3,14 @@ import { MatIconRegistry } from '@angular/material/icon';
 import { DomSanitizer } from '@angular/platform-browser';
 import { RouterOutlet } from '@angular/router';
 
+import { EnvBadge } from '@components/env-badge/env-badge';
 import { Footer } from '@components/layout/footer/footer';
 import { Header } from '@components/layout/header/header';
 import { ARTICLES_REPOSITORY_TOKEN } from '@services/articles/articles-repository.token';
 
 @Component({
   selector: 'app-blog-root',
-  imports: [Header, Footer, RouterOutlet],
+  imports: [Header, Footer, RouterOutlet, EnvBadge],
   templateUrl: './app.html',
   styleUrl: './app.scss',
 })
