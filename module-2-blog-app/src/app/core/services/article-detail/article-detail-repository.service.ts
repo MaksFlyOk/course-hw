@@ -7,6 +7,7 @@ import {
   localStorageArticlesCommentsListKey,
   localStorageArticlesListKey,
 } from '@constants/local-storage-keys.constant';
+import { commentsPageSize } from '@constants/page-sizes.constant';
 import { IArticle } from '@models/article.model';
 import { IComment } from '@models/comment.model';
 import { ICommentsResult } from '@models/comments-result.model';
@@ -15,8 +16,6 @@ import { IArticleDetailRepository } from '@services/article-detail/article-detai
 import { ArticleDetailStoreService } from '@services/article-detail/article-detail-store.service';
 import { simulateNetworkDelay } from '@utils/simulate-network-delay';
 import { Observable, delay, of, switchMap } from 'rxjs';
-
-const pageSize = 5;
 
 @Injectable()
 export class ArticleDetailsRepository implements IArticleDetailRepository {
@@ -77,7 +76,7 @@ export class ArticleDetailsRepository implements IArticleDetailRepository {
         const articleComments = storage[articleId] || [];
 
         return of({
-          items: articleComments.slice((page - 1) * pageSize, page * pageSize),
+          items: articleComments.slice((page - 1) * commentsPageSize, page * commentsPageSize),
           total: articleComments.length,
         });
       }),
