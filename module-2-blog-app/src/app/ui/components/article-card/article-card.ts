@@ -17,11 +17,16 @@ import { MatProgressBar } from '@angular/material/progress-bar';
 import { RouterLink } from '@angular/router';
 
 import { StarRating } from '@components/star-rating/star-rating';
+import { CategoriesApi } from '@core/api/categories/categories.api';
 import { IArticle } from '@models/article.model';
 import { ICategory } from '@models/category.model';
+import { CategoriesHttpRepository } from '@services/categories/categories-http-repository.service';
 import { CategoriesRepository } from '@services/categories/categories-repository.service';
 import { CATEGORIES_REPOSITORY_TOKEN } from '@services/categories/categories-repository.token';
 import { CategoriesStoreService } from '@services/categories/categories-store.service';
+
+import { IENVconfig } from '../../../../environments/environments.interface';
+import { ENV_CONFIG_TOKEN } from '../../../../environments/environments.token';
 
 @Component({
   selector: 'blog-app-article-card',
@@ -46,7 +51,19 @@ import { CategoriesStoreService } from '@services/categories/categories-store.se
   ],
   templateUrl: './article-card.html',
   styleUrl: './article-card.scss',
-  providers: [{ provide: CATEGORIES_REPOSITORY_TOKEN, useClass: CategoriesRepository }, CategoriesStoreService],
+  providers: [
+    CategoriesApi,
+    CategoriesStoreService,
+    CategoriesRepository,
+    CategoriesHttpRepository,
+    {
+      provide: CATEGORIES_REPOSITORY_TOKEN,
+      useFactory: (env: IENVconfig) => {
+        return env.useLocalStorageService ? inject(CategoriesRepository) : inject(CategoriesHttpRepository);
+      },
+      deps: [ENV_CONFIG_TOKEN],
+    },
+  ],
 })
 export class ArticleCard implements OnInit {
   private readonly categoriesService = inject(CATEGORIES_REPOSITORY_TOKEN);
