@@ -1,12 +1,12 @@
 export interface ICreateArticleDto {
-  title: string;
-  content: string;
-  categoryId: string;
-  image?: File;
+  readonly title: string;
+  readonly content: string;
+  readonly categoryId: string;
+  readonly image?: File;
 }
 
 export interface IUpdateArticleDto {
-  title: string;
-  content: string;
-  categoryId: string;
+  readonly title: string;
+  readonly content: string;
+  readonly categoryId: string;
 }
