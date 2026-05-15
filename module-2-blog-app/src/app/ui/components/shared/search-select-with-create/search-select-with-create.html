@@ -29,7 +29,12 @@
   </div>
 
   @if (isOpen() && !disabled() && !loading()) {
-    <ul class="dropdown-list" #dropdownList>
+    <ul
+      class="dropdown-list"
+      #dropdownList
+      animate.enter="dropdown-enter"
+      animate.leave="dropdown-leave"
+    >
       @for (option of filteredOptions(); track option.id; let i = $index) {
         <li
           (mousedown)="selectOption(option)"
@@ -38,10 +43,12 @@
         >
           <span class="option-label">{{ option.label }}</span>
           <div class="buttons-container">
-            <button matIconButton type="button" (mousedown)="$event.stopPropagation()" (click)="onEditCategory(option.id, $event)">
+            <button matIconButton type="button" (mousedown)="$event.stopPropagation()"
+                    (click)="onEditCategory(option.id, $event)">
               <mat-icon svgIcon="blog-app-edit"/>
             </button>
-            <button matIconButton type="button" (mousedown)="$event.stopPropagation()" (click)="onDeleteCategory(option.id, $event)">
+            <button matIconButton type="button" (mousedown)="$event.stopPropagation()"
+                    (click)="onDeleteCategory(option.id, $event)">
               <mat-icon svgIcon="blog-app-delete"/>
             </button>
           </div>

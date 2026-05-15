@@ -24,7 +24,11 @@
   </div>
 
   @if (isOpen() && !disabled() && !loading()) {
-    <ul class="dropdown-list">
+    <ul
+      class="dropdown-list"
+      animate.enter="dropdown-enter"
+      animate.leave="dropdown-leave"
+    >
       @for (option of filteredOptions(); track option.imgSrc) {
         <li
           (mousedown)="selectOption(option); $event.preventDefault()"
