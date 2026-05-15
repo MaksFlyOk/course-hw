@@ -46,16 +46,24 @@
           [theme]="formTheme"
         />
         @if (formVariant() === ArticleFormVariants.Add) {
-          <blog-app-search-select-images
-            id="imgSrc"
-            label="Изображение статьи"
-            placeholder="Выберите изображение статьи..."
-            formControlName="imgSrc"
-            [control]="articleForm.controls.imgSrc"
-            [options]="optionsImage()"
-            [loading]="isLoading()"
-            [theme]="formTheme"
-          />
+          @if (useLocalStorage) {
+            <blog-app-search-select-images
+              id="imgSrc"
+              label="Изображение"
+              placeholder="Выберите изображение"
+              [options]="optionsImage()"
+              [control]="articleForm.controls.imgSrc"
+              formControlName="imgSrc"
+            />
+          } @else {
+            <blog-app-drag-and-drop-image-field
+              id="image"
+              label="Изображение"
+              placeholder="Перетащите изображение или нажмите для выбора"
+              [control]="articleForm.controls.image"
+              formControlName="image"
+            />
+          }
         }
         <div class="add-article-form__buttons">
           <blog-app-button
