@@ -52,7 +52,7 @@ export class ArticlesRepository implements IArticlesRepository {
     }).pipe(delay(delayConstant));
   }
 
-  public addArticle(data: IAddArticleData & { id: string }): void {
+  public addArticle(data: IAddArticleData): void {
     this.modifyData((all) => {
       const now = new Date().toISOString();
       const newItem = {
