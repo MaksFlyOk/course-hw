@@ -1,19 +1,19 @@
 export interface IArticleDetailApiResponse {
-  id: string;
-  title: string;
-  content: string;
-  categoryId: string;
-  rating: number;
-  imgSrc?: string;
-  createdAt: string;
-  updatedAt: string;
+  readonly id: string;
+  readonly title: string;
+  readonly content: string;
+  readonly categoryId: string;
+  readonly rating: number;
+  readonly imgSrc?: string;
+  readonly createdAt: string;
+  readonly updatedAt: string;
 }
 
 export interface ICommentApiResponse {
-  id: string;
-  articleId: string;
-  username: string;
-  content: string;
-  rating: number;
-  createdAt: string;
+  readonly id: string;
+  readonly articleId: string;
+  readonly username: string;
+  readonly content: string;
+  readonly rating: number;
+  readonly createdAt: string;
 }
