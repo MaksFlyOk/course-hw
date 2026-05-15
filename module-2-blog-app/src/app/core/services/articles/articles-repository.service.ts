@@ -1,6 +1,7 @@
 import { DestroyRef, Injectable, inject } from '@angular/core';
 import { takeUntilDestroyed, toObservable } from '@angular/core/rxjs-interop';
 
+import { articlesPageSize } from '@constants/page-sizes.constant';
 import { delayConstant } from '@core/constants/delay.constant';
 import { InitArticlesList } from '@core/constants/init-data.constant';
 import { localStorageArticlesListKey } from '@core/constants/local-storage-keys.constant';
@@ -10,8 +11,6 @@ import { IArticle } from '@models/article.model';
 import { IArticlesResult } from '@models/articles-result.model';
 import { IAddArticleData } from '@pages/blog-page/article-form/article-data.type';
 import { Observable, concatMap, delay, of, switchMap, tap } from 'rxjs';
-
-const pageSize = 7;
 
 @Injectable()
 export class ArticlesRepository implements IArticlesRepository {
@@ -45,7 +44,7 @@ export class ArticlesRepository implements IArticlesRepository {
       const all = this.getAllArticlesFromStorage();
 
       observer.next({
-        items: all.slice((page - 1) * pageSize, page * pageSize),
+        items: all.slice((page - 1) * articlesPageSize, page * articlesPageSize),
         total: all.length,
         latest: all.slice(0, 2),
       });
@@ -104,7 +103,7 @@ export class ArticlesRepository implements IArticlesRepository {
   private syncStore(res: IArticlesResult): void {
     this.store.updateArticles(res.items);
     this.store.updateTotalArticles(res.total);
-    this.store.updateQuantityPages(Math.ceil(res.total / pageSize));
+    this.store.updateQuantityPages(Math.ceil(res.total / articlesPageSize));
     this.store.updateLastArticles(res.latest);
   }
 }
