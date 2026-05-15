@@ -1,4 +1,5 @@
 export interface IENVconfig {
-  production: boolean;
-  useLocalStorageService: boolean;
+  readonly production: boolean;
+  readonly useLocalStorageService: boolean;
+  readonly apiUrl: string;
 }
