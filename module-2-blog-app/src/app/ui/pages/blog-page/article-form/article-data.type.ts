@@ -3,4 +3,5 @@ export interface IAddArticleData {
   content: string;
   imgSrc: string;
   categoryId: string;
+  image?: File;
 }
