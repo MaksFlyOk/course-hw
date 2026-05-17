@@ -14,7 +14,7 @@ export class ArticlesMapper {
   public toArticle(raw: IArticleApiResponse): IArticle {
     return {
       ...raw,
-      imgSrc: raw.imgSrc ? `${this.env.apiUrl}${raw.imgSrc}` : mockImg,
+      imgSrc: raw.imgSrc ?? mockImg,
     };
   }
 
