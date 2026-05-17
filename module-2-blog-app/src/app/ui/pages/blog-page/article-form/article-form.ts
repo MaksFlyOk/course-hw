@@ -128,15 +128,7 @@ export class ArticleForm implements OnInit {
 
   ngOnInit(): void {
     this.categoriesService.loadCategories();
-
-    if (this.useLocalStorage) {
-      this.articleForm.controls.imgSrc.addValidators(Validators.required);
-    } else {
-      this.articleForm.controls.image.addValidators(Validators.required);
-    }
-
-    this.articleForm.controls.imgSrc.updateValueAndValidity();
-    this.articleForm.controls.image.updateValueAndValidity();
+    this.updateImageValidators();
   }
 
   protected readonly articleFormTitles: Record<ArticleFormVariants, string> = {
@@ -147,6 +139,25 @@ export class ArticleForm implements OnInit {
     [ArticleFormVariants.Add]: 'Добавить',
     [ArticleFormVariants.Edit]: 'Сохранить',
   };
+
+  private updateImageValidators(): void {
+    const isEdit = this.formVariant() === ArticleFormVariants.Edit;
+    const { imgSrc, image } = this.articleForm.controls;
+
+    imgSrc.clearValidators();
+    image.clearValidators();
+
+    if (this.useLocalStorage) {
+      imgSrc.setValidators(Validators.required);
+    } else {
+      if (!isEdit) {
+        image.setValidators(Validators.required);
+      }
+    }
+
+    imgSrc.updateValueAndValidity();
+    image.updateValueAndValidity();
+  }
 
   private scrollToForm(): void {
     setTimeout(() => {
@@ -202,7 +213,9 @@ export class ArticleForm implements OnInit {
 
   protected onReset(): void {
     this.articleForm.reset();
+    this.formVariant.set(ArticleFormVariants.Add);
     this.isOpen.set(false);
+    this.updateImageValidators();
   }
 
   public toggleForm(variant: ArticleFormVariants, articleId?: string): void {
@@ -224,6 +237,9 @@ export class ArticleForm implements OnInit {
 
     this.currentEditingId = articleId;
     this.formVariant.set(variant);
+
+    this.updateImageValidators();
+
     this.isOpen.set(true);
     this.scrollToForm();
   }
